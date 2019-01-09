@@ -1,0 +1,382 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="借我一支烟">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>django | 借我一支烟</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="借我一支烟" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(http://7xpw2b.com1.z0.glb.clouddn.com/hexo-sinppet/img/banner.jpg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="Lin">
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">借我一支烟</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa fa-home"></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Python"><i class="fa "></i>Python</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Git"><i class="fa "></i>Git</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/前端"><i class="fa "></i>前端</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/后端"><i class="fa "></i>后端</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="django">
+            
+	            django
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/前端">
+            前端
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/Python" title="Python">
+                        Python
+                    </a>
+                
+                    <a href="/tags/django" title="django">
+                        django
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2018/08/17</span>
+        </span>
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="开启新项目"><a href="#开启新项目" class="headerlink" title="开启新项目"></a>开启新项目</h2><h4 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h4><p>cd 到一个你想放置你代码的目录，然后运行以下命令：</p>
+<pre><code>$ django-admin startproject mysite
+</code></pre><p>运行：</p>
+<pre><code>$ python manage.py runserver
+</code></pre><p>更换端口：</p>
+<pre><code>$ python manage.py runserver 8080
+</code></pre><h4 id="创建应用"><a href="#创建应用" class="headerlink" title="创建应用"></a>创建应用</h4><p>应用是一个专门做某件事的网络应用程序——比如博客系统，或者公共记录的数据库，或者简单的投票程序。项目则是一个网站使用的配置和应用的集合。项目可以包含很多个应用。应用可以被很多个项目使用。</p>
+<p>manage.py 所在的目录下，运行命令</p>
+<pre><code>$ python manage.py startapp polls
+</code></pre><h2 id="编写视图"><a href="#编写视图" class="headerlink" title="编写视图"></a>编写视图</h2><p>在 polls 目录里新建一个 urls.py 文件，输入如下代码：</p>
+<pre><code>from django.urls import path
+
+from . import views
+
+urlpatterns = [
+    path(&apos;&apos;, views.index, name=&apos;index&apos;),
+]
+</code></pre><p>下一步是要在根 URLconf 文件中指定我们创建的 polls.urls 模块。在 mysite/urls.py 文件的 urlpatterns 列表里插入一个 include()， 如下：</p>
+<pre><code>from django.contrib import admin
+from django.urls import include, path
+
+urlpatterns = [
+    path(&apos;polls/&apos;, include(&apos;polls.urls&apos;)),
+    path(&apos;admin/&apos;, admin.site.urls),
+]
+</code></pre><h4 id="path-参数"><a href="#path-参数" class="headerlink" title="path() 参数"></a>path() 参数</h4><ul>
+<li>route</li>
+</ul>
+<p>route 是一个匹配 URL 的准则（类似正则表达式）。当 Django 响应一个请求时，它会从 urlpatterns 的第一项开始，按顺序依次匹配列表中的项，直到找到匹配的项。</p>
+<p>这些准则不会匹配 GET 和 POST 参数或域名。例如，URLconf 在处理请求 <a href="https://www.example.com/myapp/" target="_blank" rel="noopener">https://www.example.com/myapp/</a> 时，它会尝试匹配 myapp/ 。处理请求 <a href="https://www.example.com/myapp/?page=3" target="_blank" rel="noopener">https://www.example.com/myapp/?page=3</a> 时，也只会尝试匹配 myapp/。</p>
+<ul>
+<li>view</li>
+</ul>
+<p>当 Django 找到了一个匹配的准则，就会调用这个特定的视图函数，并传入一个 HttpRequest 对象作为第一个参数，被“捕获”的参数以关键字参数的形式传入。</p>
+<ul>
+<li>kwargs</li>
+</ul>
+<p>任意个关键字参数可以作为一个字典传递给目标视图函数。</p>
+<ul>
+<li>name</li>
+</ul>
+<p>为你的 URL 取名能使你在 Django 的任意地方唯一地引用它，尤其是在模板中。这个有用的特性允许你只改一个文件就能全局地修改某个 URL 模式。</p>
+<h2 id="数据库配置"><a href="#数据库配置" class="headerlink" title="数据库配置"></a>数据库配置</h2><p>打开 mysite/settings.py，这个配置文件通常使用 SQLite 作为默认数据库。</p>
+<p>如果想使用其他数据库，需要安装合适的<a href="https://docs.djangoproject.com/zh-hans/2.1/topics/install/#database-installation" target="_blank" rel="noopener">database bindings</a>，然后改变设置文件中 DATABASES ‘default’ 项目中的一些键值：</p>
+<ul>
+<li>ENGINE </li>
+</ul>
+<p>可选值有’django.db.backends.sqlite3’，’django.db.backends.postgresql’，’django.db.backends.mysql’，<br>或 ‘django.db.backends.oracle’。其它 可用后端。</p>
+<ul>
+<li>NAME - 数据库的名称。</li>
+</ul>
+<p>如果使用的是SQLite，数据库将是你电脑上的一个文件，在这种情况下， NAME 应该是此文件的绝对路径，包括文件名。<br>默认值 os.path.join(BASE_DIR, ‘db.sqlite3’) 将会把数据库文件储存在项目的根目录。</p>
+<p>如果你不使用 SQLite，则必须添加一些额外设置，比如 USER 、 PASSWORD 、 HOST 等等。<br>想了解更多数据库设置方面的内容，请看文档：<a href="https://docs.djangoproject.com/zh-hans/2.1/ref/settings/#std:setting-DATABASES" target="_blank" rel="noopener">DATABASES</a> 。</p>
+<h2 id="创建模型"><a href="#创建模型" class="headerlink" title="创建模型"></a>创建模型</h2><p>模型 - 也就是数据库结构设计和附加的其它元数据。</p>
+<pre><code>from django.db import models
+
+
+class Question(models.Model):
+    question_text = models.CharField(max_length=200)
+    pub_date = models.DateTimeField(&apos;date published&apos;)
+
+
+class Choice(models.Model):
+    question = models.ForeignKey(Question, on_delete=models.CASCADE)
+    choice_text = models.CharField(max_length=200)
+    votes = models.IntegerField(default=0)
+</code></pre><h2 id="激活模型"><a href="#激活模型" class="headerlink" title="激活模型"></a>激活模型</h2><p>上面的一小段用于创建模型的代码,Django 可以：</p>
+<ul>
+<li><p>为这个应用创建数据库 schema（生成 CREATE TABLE 语句）。</p>
+</li>
+<li><p>创建可以与 Question 和 Choice 对象进行交互的 Python 数据库 API。</p>
+</li>
+</ul>
+<p>但是首先得把 polls 应用安装到项目里。</p>
+<p>因为 PollsConfig 类写在文件 polls/apps.py 中，所以它的点式路径是 ‘polls.apps.PollsConfig’。<br>在文件 mysite/settings.py 中 INSTALLED_APPS 子项添加点式路径后，它看起来像这样：</p>
+<pre><code>INSTALLED_APPS = [
+    &apos;polls.apps.PollsConfig&apos;,
+    &apos;django.contrib.admin&apos;,
+    &apos;django.contrib.auth&apos;,
+    &apos;django.contrib.contenttypes&apos;,
+    &apos;django.contrib.sessions&apos;,
+    &apos;django.contrib.messages&apos;,
+    &apos;django.contrib.staticfiles&apos;,
+]
+</code></pre><p>现在你的 Django 项目会包含 polls 应用。接着运行下面的命令：</p>
+<pre><code>python manage.py makemigrations polls
+</code></pre><h2 id="写一个真正有用的视图"><a href="#写一个真正有用的视图" class="headerlink" title="写一个真正有用的视图"></a>写一个真正有用的视图</h2><p>每个视图必须要做的只有两件事：返回一个包含被请求页面内容的 HttpResponse 对象，或者抛出一个异常，比如 Http404 。</p>
+<p>首先，在 polls 目录里创建一个 templates 目录。Django 将会在这个目录里查找模板文件。</p>
+<p>默认的设置文件设置了 DjangoTemplates 后端，并将 APP_DIRS 设置成了 True。这一选项将会让 DjangoTemplates 在每个 INSTALLED_APPS<br>文件夹中寻找 “templates” 子目录。</p>
+<p>在刚刚创建的 templates 目录里，再创建一个目录 polls，然后在其中新建一个文件 index.html 。<br>换句话说，你的模板文件的路径应该是 polls/templates/polls/index.html 。因为 Django 会寻找到对应的 app_directories ，<br>所以你只需要使用 polls/index.html 就可以引用到这一模板了。</p>
+<h2 id="自定义-应用-的界面和风格"><a href="#自定义-应用-的界面和风格" class="headerlink" title="自定义 应用 的界面和风格"></a>自定义 应用 的界面和风格</h2><p>首先，在你的 polls 目录下创建一个名为 static 的目录。<br>将以下代码放入样式表(polls/static/polls/style.css)：</p>
+<pre><code>li a {
+    color: green;
+}
+</code></pre><p>下一步，在 polls/templates/polls/index.html 的文件头添加以下内容：</p>
+<pre><code>{% load static %}
+
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;{% static 'polls/style.css' %}&quot;&gt;
+{% static %} 模板标签会生成静态文件的绝对路径。
+</code></pre>
+    </div>
+
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2018/08/20/mac使用ssh连接远程服务器并实现文件上传下砸/" class="pre-post btn btn-default" title="mac使用ssh连接远程服务器并实现文件上传下砸">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">mac使用ssh连接远程服务器并实现文件上传下砸</span>
+        </a>
+    
+    
+        <a href="/2018/08/10/centos7安装mysql/" class="next-post btn btn-default" title="centos7安装mysql">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">centos7安装mysql</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+   <p>评论系统未开启，无法评论！</p>
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#开启新项目"><span class="toc-text">开启新项目</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建项目"><span class="toc-text">创建项目</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建应用"><span class="toc-text">创建应用</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#编写视图"><span class="toc-text">编写视图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#path-参数"><span class="toc-text">path() 参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库配置"><span class="toc-text">数据库配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建模型"><span class="toc-text">创建模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#激活模型"><span class="toc-text">激活模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#写一个真正有用的视图"><span class="toc-text">写一个真正有用的视图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义-应用-的界面和风格"><span class="toc-text">自定义 应用 的界面和风格</span></a></li>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2017
+                </span> | 
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> | 
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
+</body>
+</html>

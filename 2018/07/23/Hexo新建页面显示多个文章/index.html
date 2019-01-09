@@ -1,0 +1,358 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="借我一支烟">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>Hexo新建页面显示多个文章 | 借我一支烟</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="借我一支烟" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(http://7xpw2b.com1.z0.glb.clouddn.com/hexo-sinppet/img/banner.jpg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="Lin">
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">借我一支烟</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa fa-home"></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Python"><i class="fa "></i>Python</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Git"><i class="fa "></i>Git</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/前端"><i class="fa "></i>前端</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/后端"><i class="fa "></i>后端</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Hexo新建页面显示多个文章">
+            
+	            Hexo新建页面显示多个文章
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/前端">
+            前端
+        </a>
+    </span>
+    
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/前端" title="前端">
+                        前端
+                    </a>
+                
+                    <a href="/tags/Hexo" title="Hexo">
+                        Hexo
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2018/07/23</span>
+        </span>
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="配置categories"><a href="#配置categories" class="headerlink" title="配置categories"></a>配置categories</h3><p><strong>1.生成post(文章)时默认生成categories配置项：在根目录下scaffolds/post.md中，<br>添加一行categories:。同理可应用在page.md和photo.md，示例如下：</strong></p>
+<pre><code>---
+title: {{ title }}
+date: {{ date }}
+tags: [&apos;标签1&apos;,&apos;标签2&apos;]
+categories: [&apos;前端&apos;]
+comments: false    // 是否开启评论
+img:               // 自定义缩略图
+---
+</code></pre><p><strong>2.在实际写作时，在开头进行categories配置。例如：</strong></p>
+<pre><code>---
+title: Hexo新建页面显示多个文章
+tags:
+  - 标签1
+  - 标签2
+categories:
+  - 前端
+comments: false    // 是否开启评论
+img: // 自定义缩略图
+date: 2018-07-23 18:58:48
+---
+</code></pre><p>这样在文章发布时，在git中使用hexo g命令，hexo会在根目录/public/categrises下自动生成归档文件夹，如图：</p>
+<p>   <img src="Hexo新建页面显示多个文章/categories.png" alt=""></p>
+<p><strong>3.配置博客首页归档展示样式。在主题配置文件themes/_config.yml中添加以下代码:</strong></p>
+<pre><code>menu:
+- page: home
+  url: /
+  icon: fa-home
+- page: 前端
+  url: /categories/前端
+  icon:
+- page: 后端
+  url: /categories/后端
+  icon:
+- page: 工具
+  url: /categories/工具
+  icon:
+- page: 分类
+  url: /category/
+  icon:
+- page: 时间轴
+  url: /archives/
+  icon:
+</code></pre><h3 id="补充说明"><a href="#补充说明" class="headerlink" title="补充说明"></a>补充说明</h3><p><strong>如果发现博客首页展示文本为英文，需要改为中文显示，需要修改先博客根目录下的_config.yml文件的language配置，示例如下：</strong></p>
+<pre><code># Site
+title: 借我一支烟
+subtitle: 个人博客
+description:
+keywords:
+author: Lin
+language: zh-CN
+timezone:
+</code></pre><p>然后为实现文章归档名称显示为中文，接着再修改主题配置文件下language/zh-CN.yml即可，示例如下：</p>
+<pre><code>read_more: 阅读全文
+home: 首页
+about: 关于我
+archives: 归档
+</code></pre><h3 id="引用本地图片不显示"><a href="#引用本地图片不显示" class="headerlink" title="引用本地图片不显示"></a>引用本地图片不显示</h3><p> 究其原因，是图片路径出现问题。<br> Hexo图片引用有他的方式，部署以后，图片会自动添加日期相关的文件结构目录。</p>
+<h5 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h5><p> _config.yml 文件中设置 post_asset_folder: true，开启资源文件夹功能，该功能支持用户通过相对路径标签引用资源。<br>执行 hexo new [layout] <title> 创建一篇新的文章，会发现 source/_posts 下自动生成了一个和 md 文件同名的目录（也可以自己手动创建），<br>这就是用于存放与文章有关的图片文件夹。如下图：</title></p>
+<p><img src="Hexo新建页面显示多个文章/images_font.png" alt=""></p>
+<p>部署之后同目录出现</p>
+<p><img src="Hexo新建页面显示多个文章/image_found.png" alt=""></p>
+<p>需要注意的是，使用该种方式在 markdown 文件中引用图片将不再使用 markdown 语法，而是使用标签插件引用相对路径，否则可能造成图片和其他资源显示不正确。引用语法如下：</p>
+<pre><code>{% asset_path slug %}
+{% asset_img slug [title] %}
+{% asset_link slug [title] %}
+</code></pre><p>在上述语法下，插入图片的方法：</p>
+<pre><code>{% asset_img image.png This is an example image %}
+</code></pre><p>查看页面，发现图片已经可以正常显示了，图片的路径和实际存放目录是一致的。<br>如果想使用 markdown 语法插入相对路径的图片，可以利用插件。设置 post_asset_folder:true 后，在根目录下执行：</p>
+<pre><code>npm install https://github.com/CodeFalling/hexo-asset-image --save
+</code></pre><p>确保在 source/_posts 下创建和 markdown 文件同名的目录，里面存放需要的图片，然后在 markdown 中插入图片：</p>
+<pre><code>! [hexo image] (hexo/image.png)
+</code></pre><p>生成的页面中图片引用路径</p>
+<pre><code>&lt;img src=&quot;/2016/11/25/hexo/image.png&quot; alt=&quot;hexo image&quot;&gt;
+</code></pre><p>至此，用 markdown 完美实现本地图片插入。</p>
+
+    </div>
+
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2018/07/23/浏览器翻墙工具/" class="pre-post btn btn-default" title="浏览器翻墙工具">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">浏览器翻墙工具</span>
+        </a>
+    
+    
+        <a href="/2018/07/20/Hexo-Blog/" class="next-post btn btn-default" title="利用Hexo搭建自己的博客">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">利用Hexo搭建自己的博客</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+   <p>评论系统未开启，无法评论！</p>
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置categories"><span class="toc-text">配置categories</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#补充说明"><span class="toc-text">补充说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引用本地图片不显示"><span class="toc-text">引用本地图片不显示</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#解决方法"><span class="toc-text">解决方法</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12"> 
+                <span>Copyright &copy; 2017
+                </span> | 
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> | 
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+
+</body>
+</html>
