@@ -59,6 +59,7 @@
 
 
     
+
 </head>
 
 </html>
@@ -72,7 +73,7 @@
 <![endif]-->
 
 <body>
-    <header class="main-header" style="background-image:url(http://7xpw2b.com1.z0.glb.clouddn.com/hexo-sinppet/img/banner.jpg)">
+    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="Lin">
             <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
@@ -154,6 +155,7 @@
         </a>
     </span>
     
+
     
     <span class="fa-wrap">
         <i class="fa fa-tags"></i>
@@ -175,6 +177,7 @@
             <i class="fa fa-clock-o"></i>
             <span class="date-meta">2018/07/20</span>
         </span>
+        
     
 </div>
 
@@ -260,7 +263,7 @@ hexo d     # 将修改同步到github远程仓库
 <h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p><a href="https://www.jianshu.com/p/e68fba58f75c" target="_blank" rel="noopener">利用 GitHub Pages 快速搭建个人博客</a><br><a href="http://chenliangjing.me/2016/05/01/%E6%88%91%E7%9A%84%E4%B8%AA%E4%BA%BA%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E4%B9%8B%E6%97%85/" target="_blank" rel="noopener">我的个人技术博客搭建之旅</a></p>
 
     </div>
-
+    
     <div class="post-footer">
         <div>
             
@@ -275,15 +278,15 @@ hexo d     # 将修改同步到github远程仓库
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2018/07/23/Hexo新建页面显示多个文章/" class="pre-post btn btn-default" title="Hexo新建页面显示多个文章">
+        <a href="/2018/07/20/Markdown/" class="pre-post btn btn-default" title="Markdown 语法说明 (简体中文版)">
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">Hexo新建页面显示多个文章</span>
+            <span class="hidden-xs">Markdown 语法说明 (简体中文版)</span>
         </a>
     
     
-        <a href="/2018/07/20/Markdown/" class="next-post btn btn-default" title="Markdown 语法说明 (简体中文版)">
+        <a href="/2018/07/20/Python-配置虚拟环境/" class="next-post btn btn-default" title="Python--配置虚拟环境">
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">Markdown 语法说明 (简体中文版)</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">Python--配置虚拟环境</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -291,7 +294,28 @@ hexo d     # 将修改同步到github远程仓库
 
     <div id="comments">
         
-   <p>评论系统未开启，无法评论！</p>
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
 
     </div>
 
@@ -331,12 +355,18 @@ hexo d     # 将修改同步到github远程仓库
     <div class="copyright">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12"> 
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
                 <span>Copyright &copy; 2017
-                </span> | 
+                </span> |
                 <span>
                     Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
-                </span> | 
+                </span> |
                 <span>
                     Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
                 </span>
@@ -347,8 +377,11 @@ hexo d     # 将修改同步到github远程仓库
 
 
 
-<script src="/js/app.js?rev=@@hash"></script>
 
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
 
 </body>
 </html>

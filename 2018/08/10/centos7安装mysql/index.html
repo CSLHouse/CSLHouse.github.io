@@ -59,6 +59,7 @@
 
 
     
+
 </head>
 
 </html>
@@ -72,7 +73,7 @@
 <![endif]-->
 
 <body>
-    <header class="main-header" style="background-image:url(http://7xpw2b.com1.z0.glb.clouddn.com/hexo-sinppet/img/banner.jpg)">
+    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="Lin">
             <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
@@ -154,6 +155,7 @@
         </a>
     </span>
     
+
     
     <span class="fa-wrap">
         <i class="fa fa-tags"></i>
@@ -179,6 +181,7 @@
             <i class="fa fa-clock-o"></i>
             <span class="date-meta">2018/08/10</span>
         </span>
+        
     
 </div>
 
@@ -225,7 +228,7 @@
 <p>Enter password:&lt;输入新设的密码123456&gt;</p>
 
     </div>
-
+    
     <div class="post-footer">
         <div>
             
@@ -256,7 +259,28 @@
 
     <div id="comments">
         
-   <p>评论系统未开启，无法评论！</p>
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
 
     </div>
 
@@ -296,12 +320,18 @@
     <div class="copyright">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12"> 
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
                 <span>Copyright &copy; 2017
-                </span> | 
+                </span> |
                 <span>
                     Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
-                </span> | 
+                </span> |
                 <span>
                     Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
                 </span>
@@ -312,8 +342,11 @@
 
 
 
-<script src="/js/app.js?rev=@@hash"></script>
 
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
 
 </body>
 </html>

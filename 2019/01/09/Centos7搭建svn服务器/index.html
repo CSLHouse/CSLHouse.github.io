@@ -59,6 +59,7 @@
 
 
     
+
 </head>
 
 </html>
@@ -72,7 +73,7 @@
 <![endif]-->
 
 <body>
-    <header class="main-header" style="background-image:url(http://7xpw2b.com1.z0.glb.clouddn.com/hexo-sinppet/img/banner.jpg)">
+    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
     <div class="main-header-box">
         <a class="header-avatar" href="/" title="Lin">
             <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
@@ -154,6 +155,7 @@
         </a>
     </span>
     
+
     
     <span class="fa-wrap">
         <i class="fa fa-tags"></i>
@@ -179,6 +181,7 @@
             <i class="fa fa-clock-o"></i>
             <span class="date-meta">2019/01/09</span>
         </span>
+        
     
 </div>
 
@@ -187,14 +190,14 @@
     </div>
     
     <div class="post-body post-content">
-        <h2 id="安装SV"><a href="#安装SV" class="headerlink" title="安装SV"></a>安装SV</h2><p>可参考 <a href="http://blog.51cto.com/liqingbiao/1831236" target="_blank" rel="noopener"></a></p>
-<h3 id="启动svn"><a href="#启动svn" class="headerlink" title="启动svn"></a>启动svn</h3><p>svnserve -d -r /opt/svn/glory/</p>
-<h2 id="关闭svn"><a href="#关闭svn" class="headerlink" title="关闭svn"></a>关闭svn</h2><p>ps aux | grep svn<br>kill -9 [UID]</p>
+        <h3 id="安装SV"><a href="#安装SV" class="headerlink" title="安装SV"></a>安装SV</h3><p>可参考 <a href="http://blog.51cto.com/liqingbiao/1831236" target="_blank" rel="noopener"></a></p>
+<p>##= 启动svn<br>svnserve -d -r /opt/svn/glory/</p>
+<h3 id="关闭svn"><a href="#关闭svn" class="headerlink" title="关闭svn"></a>关闭svn</h3><p>ps aux | grep svn<br>kill -9 [UID]</p>
 <h3 id="客户端连接svn"><a href="#客户端连接svn" class="headerlink" title="客户端连接svn"></a>客户端连接svn</h3><p>svn://192.168.1.10/Client</p>
 <p>注：Client是glory下的子目录</p>
 
     </div>
-
+    
     <div class="post-footer">
         <div>
             
@@ -220,7 +223,28 @@
 
     <div id="comments">
         
-   <p>评论系统未开启，无法评论！</p>
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
 
     </div>
 
@@ -234,7 +258,7 @@
     <div class="widget">
         <h3 class="title">文章目录</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#安装SV"><span class="toc-text">安装SV</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#启动svn"><span class="toc-text">启动svn</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关闭svn"><span class="toc-text">关闭svn</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#客户端连接svn"><span class="toc-text">客户端连接svn</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装SV"><span class="toc-text">安装SV</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关闭svn"><span class="toc-text">关闭svn</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#客户端连接svn"><span class="toc-text">客户端连接svn</span></a></li></ol>
         
     </div>
 </aside>
@@ -260,12 +284,18 @@
     <div class="copyright">
     <div class="container">
         <div class="row">
-            <div class="col-sm-12"> 
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
                 <span>Copyright &copy; 2017
-                </span> | 
+                </span> |
                 <span>
                     Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
-                </span> | 
+                </span> |
                 <span>
                     Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
                 </span>
@@ -276,8 +306,11 @@
 
 
 
-<script src="/js/app.js?rev=@@hash"></script>
 
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
 
 </body>
 </html>
