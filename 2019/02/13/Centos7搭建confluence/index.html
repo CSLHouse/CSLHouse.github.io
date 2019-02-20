@@ -27,7 +27,7 @@
     <!--Title-->
 
 
-<title>Markdown 语法说明 (简体中文版) | 借我一支烟</title>
+<title>Centos7搭建confluence | 借我一支烟</title>
 
 
     <link rel="alternate" href="/atom.xml" title="借我一支烟" type="application/atom+xml">
@@ -140,9 +140,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="Markdown 语法说明 (简体中文版)">
+        <h1 id="Centos7搭建confluence">
             
-	            Markdown 语法说明 (简体中文版)
+	            Centos7搭建confluence
             
         </h1>
         <div class="post-meta">
@@ -150,8 +150,8 @@
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/ ">
-             
+        <a href="/categories/后端">
+            后端
         </a>
     </span>
     
@@ -162,12 +162,12 @@
         <span class="tags-meta">
             
                 
-                    <a href="/tags/前端" title="前端">
-                        前端
+                    <a href="/tags/confluence" title="confluence">
+                        confluence
                     </a>
                 
-                    <a href="/tags/工具" title="工具">
-                        工具
+                    <a href="/tags/centos" title="centos">
+                        centos
                     </a>
                 
             
@@ -179,7 +179,7 @@
         
         <span class="fa-wrap">
             <i class="fa fa-clock-o"></i>
-            <span class="date-meta">2018/07/20</span>
+            <span class="date-meta">2019/02/13</span>
         </span>
         
     
@@ -190,11 +190,19 @@
     </div>
     
     <div class="post-body post-content">
-        <p>链接地址：<a href="http://wowubuntu.com/markdown/#link" target="_blank" rel="noopener">http://wowubuntu.com/markdown/#link</a></p>
-<p><a href="https://www.jianshu.com/p/67daca4d4502" target="_blank" rel="noopener">简书</a></p>
-<h3 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：</h3><ol>
-<li>引用是在名词前加4个空格，并且有空行</li>
-</ol>
+        <h3 id="CentOS-7下yum重装-MySQL-5-7"><a href="#CentOS-7下yum重装-MySQL-5-7" class="headerlink" title="CentOS 7下yum重装 MySQL 5.7"></a>CentOS 7下yum重装 MySQL 5.7</h3><p>先卸载干净：<a href="https://ywnz.com/linuxysjk/2962.html" target="_blank" rel="noopener">https://ywnz.com/linuxysjk/2962.html</a><br>转载自：<a href="https://www.jianshu.com/p/8d73382d7d76" target="_blank" rel="noopener">https://www.jianshu.com/p/8d73382d7d76</a></p>
+<p>注：centos上有可能存在mariadb</p>
+<h3 id="linux安装破解Confluence-6-8-5"><a href="#linux安装破解Confluence-6-8-5" class="headerlink" title="linux安装破解Confluence-6.8.5"></a>linux安装破解Confluence-6.8.5</h3><p>转载：<a href="http://blog.51cto.com/moerjinrong/2149177" target="_blank" rel="noopener">http://blog.51cto.com/moerjinrong/2149177</a><br><a href="https://www.jianshu.com/p/fb2574567eae" target="_blank" rel="noopener">https://www.jianshu.com/p/fb2574567eae</a></p>
+<h3 id="搭建jira"><a href="#搭建jira" class="headerlink" title="搭建jira"></a>搭建jira</h3><h5 id="此-MySQL-实例没有适当配置。请遵照-文档进行-MySQL-5-7-设置。"><a href="#此-MySQL-实例没有适当配置。请遵照-文档进行-MySQL-5-7-设置。" class="headerlink" title="此 MySQL 实例没有适当配置。请遵照 文档进行 MySQL 5.7+ 设置。"></a>此 MySQL 实例没有适当配置。请遵照 文档进行 MySQL 5.7+ 设置。</h5><p> 需要先关闭mysql，然后添加</p>
+<blockquote>
+<p>default-storage-engine=INNODB<br>innodb_default_row_format=DYNAMIC<br>innodb_large_prefix=ON<br>innodb_file_format=Barracuda<br>innodb_log_file_size=2G</p>
+</blockquote>
+<h3 id="Confluence、Jira、Bitbucket统一账户管理"><a href="#Confluence、Jira、Bitbucket统一账户管理" class="headerlink" title="Confluence、Jira、Bitbucket统一账户管理"></a>Confluence、Jira、Bitbucket统一账户管理</h3><p><a href="https://blog.csdn.net/niuniu0186/article/details/79412088" target="_blank" rel="noopener">https://blog.csdn.net/niuniu0186/article/details/79412088</a></p>
+<h3 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h3><p><a href="https://blog.csdn.net/xu_Melon/article/details/78815981" target="_blank" rel="noopener">https://blog.csdn.net/xu_Melon/article/details/78815981</a></p>
+<p>每次修改**.conf文件都要进行刷新，刷新命令：</p>
+<blockquote>
+<p>cd /usr/local/openresty/nginx/sbin/<br>./nginx -s reload</p>
+</blockquote>
 
     </div>
     
@@ -212,15 +220,15 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2018/07/20/Hexo-Blog/" class="pre-post btn btn-default" title="利用Hexo搭建自己的博客">
+        <a href="/2019/02/15/centos7-4基于bind搭建DNS服务器/" class="pre-post btn btn-default" title="centos7.4基于bind搭建DNS服务器">
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">利用Hexo搭建自己的博客</span>
+            <span class="hidden-xs">centos7.4基于bind搭建DNS服务器</span>
         </a>
     
     
-        <a href="/2018/07/20/Python-配置虚拟环境/" class="next-post btn btn-default" title="Python--配置虚拟环境">
+        <a href="/2019/02/01/游戏服务器学习启动篇/" class="next-post btn btn-default" title="游戏服务器学习启动篇">
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">Python--配置虚拟环境</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">游戏服务器学习启动篇</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -263,7 +271,7 @@
     <div class="widget">
         <h3 class="title">文章目录</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#说明："><span class="toc-text">说明：</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#CentOS-7下yum重装-MySQL-5-7"><span class="toc-text">CentOS 7下yum重装 MySQL 5.7</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#linux安装破解Confluence-6-8-5"><span class="toc-text">linux安装破解Confluence-6.8.5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#搭建jira"><span class="toc-text">搭建jira</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#此-MySQL-实例没有适当配置。请遵照-文档进行-MySQL-5-7-设置。"><span class="toc-text">此 MySQL 实例没有适当配置。请遵照 文档进行 MySQL 5.7+ 设置。</span></a></li></ol></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#Confluence、Jira、Bitbucket统一账户管理"><span class="toc-text">Confluence、Jira、Bitbucket统一账户管理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#反向代理"><span class="toc-text">反向代理</span></a></li>
         
     </div>
 </aside>

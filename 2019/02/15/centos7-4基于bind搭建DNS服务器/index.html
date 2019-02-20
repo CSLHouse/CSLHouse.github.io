@@ -27,7 +27,7 @@
     <!--Title-->
 
 
-<title>Markdown 语法说明 (简体中文版) | 借我一支烟</title>
+<title>centos7.4基于bind搭建DNS服务器 | 借我一支烟</title>
 
 
     <link rel="alternate" href="/atom.xml" title="借我一支烟" type="application/atom+xml">
@@ -140,9 +140,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="Markdown 语法说明 (简体中文版)">
+        <h1 id="centos7.4基于bind搭建DNS服务器">
             
-	            Markdown 语法说明 (简体中文版)
+	            centos7.4基于bind搭建DNS服务器
             
         </h1>
         <div class="post-meta">
@@ -150,8 +150,8 @@
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/ ">
-             
+        <a href="/categories/后端">
+            后端
         </a>
     </span>
     
@@ -162,12 +162,12 @@
         <span class="tags-meta">
             
                 
-                    <a href="/tags/前端" title="前端">
-                        前端
+                    <a href="/tags/centos" title="centos">
+                        centos
                     </a>
                 
-                    <a href="/tags/工具" title="工具">
-                        工具
+                    <a href="/tags/bind" title="bind">
+                        bind
                     </a>
                 
             
@@ -179,7 +179,7 @@
         
         <span class="fa-wrap">
             <i class="fa fa-clock-o"></i>
-            <span class="date-meta">2018/07/20</span>
+            <span class="date-meta">2019/02/15</span>
         </span>
         
     
@@ -190,11 +190,36 @@
     </div>
     
     <div class="post-body post-content">
-        <p>链接地址：<a href="http://wowubuntu.com/markdown/#link" target="_blank" rel="noopener">http://wowubuntu.com/markdown/#link</a></p>
-<p><a href="https://www.jianshu.com/p/67daca4d4502" target="_blank" rel="noopener">简书</a></p>
-<h3 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：</h3><ol>
-<li>引用是在名词前加4个空格，并且有空行</li>
-</ol>
+        <h3 id="查看bind版本"><a href="#查看bind版本" class="headerlink" title="查看bind版本"></a>查看bind版本</h3><p>dig @localhost version.bind txt chaos</p>
+<h3 id="区域-zone-数据库文件"><a href="#区域-zone-数据库文件" class="headerlink" title="区域 (zone) 数据库文件"></a>区域 (zone) 数据库文件</h3><p> 资源记录：    Resource Record, 简称rr；<br> 记录类型：    A， AAAA， PTR， SOA， NS， CNAME， MX</p>
+<pre><code>SOA    ：Start Of Authority，起始授权记录；一个区域解析库有且只能有一个 SOA 记录，而且必须放在第一条；这个域由哪部 DNS 作为 Primary DNS;
+NS    ：Name Service，域名服务记录；一个区域解析库可以有多个 NS 记录；其中一个为主的；    
+A    ：Address, 地址记录，FQDN --&gt; IPv4；   
+AAAA：地址记录， FQDN --&gt; IPv6；
+CNAME：Canonical Name，别名记录；
+PTR    ：Pointer，IP --&gt; FQDN
+MX    ：Mail eXchanger，邮件交换器
+优先级：0-99，数字越小优先级越高；
+</code></pre><h3 id="PTR-记录"><a href="#PTR-记录" class="headerlink" title="PTR 记录"></a>PTR 记录</h3><p>反向解析记录，用于将一个IP地址映射到对应的域名，也可以看成是 A 记录的反向，IP 地址的反向解析。<br> name    ：IP地址，有特定格式，IP反过来写，而且加特定后缀；例如 1.2.3.4 的记录应该写为 4.3.2.1.in-addr.arpa.；<br>        value    ：FQND</p>
+<pre><code>范例：
+    4.3.2.1.in-addr.arpa.  IN  PTR  www.baidu.com.
+</code></pre><h3 id="实践部署"><a href="#实践部署" class="headerlink" title="实践部署"></a>实践部署</h3><p>部署环境：</p>
+<pre><code>操作系统         ：CentOS 7.4
+DNS 服务器 IP    : 192.168.1.9
+内网域名        ：intra.fengbaohuyu.com
+</code></pre><h5 id="主配置文件格式"><a href="#主配置文件格式" class="headerlink" title="主配置文件格式"></a>主配置文件格式</h5><pre><code>全局配置段：
+    options { ... }
+日志配置段：
+    logging { ... }
+区域配置段：
+    zone { ... }
+    那些由本机负责解析的区域，或转发的区域；
+
+注意：每个配置语句必须以分号结尾；
+</code></pre><h5 id="配置解析正向区域"><a href="#配置解析正向区域" class="headerlink" title="配置解析正向区域"></a>配置解析正向区域</h5><ul>
+<li>重载配置文件:<br>rndc reload</li>
+</ul>
+<p>参考：<a href="https://blog.csdn.net/devalone/article/details/80580094" target="_blank" rel="noopener">https://blog.csdn.net/devalone/article/details/80580094</a></p>
 
     </div>
     
@@ -212,15 +237,15 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2018/07/20/Hexo-Blog/" class="pre-post btn btn-default" title="利用Hexo搭建自己的博客">
+        <a href="/2019/02/15/centos7基于dnsmasq搭建DNS服务器/" class="pre-post btn btn-default" title="centos7基于dnsmasq搭建DNS服务器">
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">利用Hexo搭建自己的博客</span>
+            <span class="hidden-xs">centos7基于dnsmasq搭建DNS服务器</span>
         </a>
     
     
-        <a href="/2018/07/20/Python-配置虚拟环境/" class="next-post btn btn-default" title="Python--配置虚拟环境">
+        <a href="/2019/02/13/Centos7搭建confluence/" class="next-post btn btn-default" title="Centos7搭建confluence">
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">Python--配置虚拟环境</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">Centos7搭建confluence</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -263,7 +288,7 @@
     <div class="widget">
         <h3 class="title">文章目录</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#说明："><span class="toc-text">说明：</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看bind版本"><span class="toc-text">查看bind版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#区域-zone-数据库文件"><span class="toc-text">区域 (zone) 数据库文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PTR-记录"><span class="toc-text">PTR 记录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实践部署"><span class="toc-text">实践部署</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#主配置文件格式"><span class="toc-text">主配置文件格式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#配置解析正向区域"><span class="toc-text">配置解析正向区域</span></a></li></ol></li></ol>
         
     </div>
 </aside>
