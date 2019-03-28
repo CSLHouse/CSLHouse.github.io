@@ -1,0 +1,335 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="借我一支烟">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="http://yoursite.com">
+    <!--SEO-->
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>django+xadmin开发OA系统遇到的问题 | 借我一支烟</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="借我一支烟" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title="Lin">
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="http://yoursite.com">借我一支烟</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa fa-home"></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Python"><i class="fa "></i>Python</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Git"><i class="fa "></i>Git</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/前端"><i class="fa "></i>前端</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/后端"><i class="fa "></i>后端</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="django+xadmin开发OA系统遇到的问题">
+            
+	            django+xadmin开发OA系统遇到的问题
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/后端">
+            后端
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/Python" title="Python">
+                        Python
+                    </a>
+                
+                    <a href="/tags/jango" title="jango">
+                        jango
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2019/02/27</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="禁止访问-403"><a href="#禁止访问-403" class="headerlink" title="禁止访问 (403)"></a>禁止访问 (403)</h3><h6 id="错误详情"><a href="#错误详情" class="headerlink" title="错误详情"></a>错误详情</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">禁止访问 (403)</span><br><span class="line">CSRF验证失败. 请求被中断.</span><br><span class="line"></span><br><span class="line">Help</span><br><span class="line">Reason given for failure:</span><br><span class="line"></span><br><span class="line">    CSRF token missing or incorrect.</span><br><span class="line">    </span><br><span class="line">In general, this can occur when there is a genuine Cross Site Request Forgery, or when Django&apos;s CSRF mechanism has not been used correctly. For POST forms, you need to ensure:</span><br><span class="line"></span><br><span class="line">Your browser is accepting cookies.</span><br><span class="line">The view function passes a request to the template&apos;s render method.</span><br><span class="line">In the template, there is a &#123;% csrf_token %&#125; template tag inside each POST form that targets an internal URL.</span><br><span class="line">If you are not using CsrfViewMiddleware, then you must use csrf_protect on any views that use the csrf_token template tag, as well as those that accept the POST data.</span><br><span class="line">The form has a valid CSRF token. After logging in in another browser tab or hitting the back button after a login, you may need to reload the page with the form, because the token is rotated after a login.</span><br><span class="line">You&apos;re seeing the help section of this page because you have DEBUG = True in your Django settings file. Change that to False, and only the initial error message will be displayed.</span><br><span class="line"></span><br><span class="line">You can customize this page using the CSRF_FAILURE_VIEW setting.</span><br><span class="line"></span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">###### 解决步骤:</span><br><span class="line"></span><br><span class="line">1. django工程settings.py</span><br><span class="line"></span><br><span class="line">MIDDLEWARE_CLASSES = (</span><br><span class="line">    &apos;django.middleware.common.CommonMiddleware&apos;,</span><br><span class="line">    &apos;django.contrib.sessions.middleware.SessionMiddleware&apos;,</span><br><span class="line">    &apos;django.middleware.csrf.CsrfViewMiddleware&apos;,#确认存在</span><br><span class="line">    &apos;django.contrib.auth.middleware.AuthenticationMiddleware&apos;,</span><br><span class="line">    &apos;django.contrib.messages.middleware.MessageMiddleware&apos;,</span><br><span class="line">    # Uncomment the next line for simple clickjacking protection:</span><br><span class="line">    # &apos;django.middleware.clickjacking.XFrameOptionsMiddleware&apos;,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">2. html中的form添加模板标签&#123;% csrf_token %&#125;</span><br><span class="line">``` </span><br><span class="line">  &lt;form action=&quot;.&quot; method=&quot;post&quot;&gt;&#123;% csrf_token %&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>django工程<blockquote>
+<p>def block_top_toolbar(self, context, nodes):</p>
+<pre><code>context = get_context_dict(context or {})
+</code></pre></blockquote>
+<h1 id="这里-xadmin-storm-model-list-top-toolbar-import-html-是自己写的html文件"><a href="#这里-xadmin-storm-model-list-top-toolbar-import-html-是自己写的html文件" class="headerlink" title="这里 xadmin/storm/model_list.top_toolbar.import.html 是自己写的html文件"></a>这里 xadmin/storm/model_list.top_toolbar.import.html 是自己写的html文件</h1><pre><code>nodes.append(loader.render_to_string(&quot;xadmin/storm/model_list.top_toolbar.import.html&quot;, context=context))
+</code></pre></li>
+</ol>
+<h3 id="ValueError-could-not-convert-string-to-float"><a href="#ValueError-could-not-convert-string-to-float" class="headerlink" title="ValueError: could not convert string to float:"></a>ValueError: could not convert string to float:</h3><h6 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h6><p>在调用Assets.objects.get_or_create时，错误总是锁定在最后一位参数。</p>
+<h3 id="xadmin-添加excel导入按钮-然后启动-list-editable-‘degree’-‘students’-编辑-degree字段报错"><a href="#xadmin-添加excel导入按钮-然后启动-list-editable-‘degree’-‘students’-编辑-degree字段报错" class="headerlink" title="xadmin 添加excel导入按钮 然后启动 list_editable=[‘degree’, ‘students’] 编辑 degree字段报错"></a>xadmin 添加excel导入按钮 然后启动 list_editable=[‘degree’, ‘students’] 编辑 degree字段报错</h3><p>问题查找到时因为adminx.py文件里</p>
+<blockquote>
+<p>def post(self, request, *args, **kwargs):<br>  return super(AssetsAdmin, self).post(request, args, kwargs)</p>
+</blockquote>
+<p>当把super(AssetsAdmin, self).post(request, args, kwargs)里的参数kwargs去掉后正常</p>
+<h3 id="在Django管理员更改列表中-如何显示空格而不是默认的“-无-”？"><a href="#在Django管理员更改列表中-如何显示空格而不是默认的“-无-”？" class="headerlink" title="在Django管理员更改列表中,如何显示空格而不是默认的“(无)”？"></a>在Django管理员更改列表中,如何显示空格而不是默认的“(无)”？</h3><p>网上搜索empty_value_display,但不起作用</p>
+<h3 id="用pyinstaller打包时出现错误"><a href="#用pyinstaller打包时出现错误" class="headerlink" title="用pyinstaller打包时出现错误"></a>用pyinstaller打包时出现错误</h3><blockquote>
+<p>TypeError: expected str, bytes or os.PathLike object, not NoneType</p>
+</blockquote>
+
+    </div>
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2019/03/27/django-uwsgi-nginx部署centos7/" class="pre-post btn btn-default" title="django+uwsgi+nginx部署centos7">
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">django+uwsgi+nginx部署centos7</span>
+        </a>
+    
+    
+        <a href="/2019/02/26/解决pycharm无法调用pip安装的包/" class="next-post btn btn-default" title="解决pycharm无法调用pip安装的包">
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">解决pycharm无法调用pip安装的包</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#禁止访问-403"><span class="toc-text">禁止访问 (403)</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#错误详情"><span class="toc-text">错误详情</span></a></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#这里-xadmin-storm-model-list-top-toolbar-import-html-是自己写的html文件"><span class="toc-text">这里 xadmin/storm/model_list.top_toolbar.import.html 是自己写的html文件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ValueError-could-not-convert-string-to-float"><span class="toc-text">ValueError: could not convert string to float:</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#问题描述"><span class="toc-text">问题描述</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#xadmin-添加excel导入按钮-然后启动-list-editable-‘degree’-‘students’-编辑-degree字段报错"><span class="toc-text">xadmin 添加excel导入按钮 然后启动 list_editable=[‘degree’, ‘students’] 编辑 degree字段报错</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在Django管理员更改列表中-如何显示空格而不是默认的“-无-”？"><span class="toc-text">在Django管理员更改列表中,如何显示空格而不是默认的“(无)”？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#用pyinstaller打包时出现错误"><span class="toc-text">用pyinstaller打包时出现错误</span></a></li>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

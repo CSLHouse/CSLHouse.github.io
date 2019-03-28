@@ -191,7 +191,7 @@
     
     <div class="post-body post-content">
         <h3 id="查看bind版本"><a href="#查看bind版本" class="headerlink" title="查看bind版本"></a>查看bind版本</h3><p>dig @localhost version.bind txt chaos</p>
-<h3 id="区域-zone-数据库文件"><a href="#区域-zone-数据库文件" class="headerlink" title="区域 (zone) 数据库文件"></a>区域 (zone) 数据库文件</h3><p> 资源记录：    Resource Record, 简称rr；<br> 记录类型：    A， AAAA， PTR， SOA， NS， CNAME， MX</p>
+<h3 id="区域-zone-数据库文件"><a href="#区域-zone-数据库文件" class="headerlink" title="区域 (zone) 数据库文件"></a>区域 (zone) 数据库文件</h3><p> 存在于/var/named/下<br> 资源记录：    Resource Record, 简称rr；<br> 记录类型：    A， AAAA， PTR， SOA， NS， CNAME， MX</p>
 <pre><code>SOA    ：Start Of Authority，起始授权记录；一个区域解析库有且只能有一个 SOA 记录，而且必须放在第一条；这个域由哪部 DNS 作为 Primary DNS;
 NS    ：Name Service，域名服务记录；一个区域解析库可以有多个 NS 记录；其中一个为主的；    
 A    ：Address, 地址记录，FQDN --&gt; IPv4；   
@@ -216,10 +216,31 @@ DNS 服务器 IP    : 192.168.1.9
     那些由本机负责解析的区域，或转发的区域；
 
 注意：每个配置语句必须以分号结尾；
-</code></pre><h5 id="配置解析正向区域"><a href="#配置解析正向区域" class="headerlink" title="配置解析正向区域"></a>配置解析正向区域</h5><ul>
-<li>重载配置文件:<br>rndc reload</li>
+</code></pre><h5 id="配置解析正向区域"><a href="#配置解析正向区域" class="headerlink" title="配置解析正向区域"></a>配置解析正向区域</h5><h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><ul>
+<li>重载配置文件:<blockquote>
+<p>rndc reload</p>
+</blockquote>
+</li>
+<li><p>检查语法错误</p>
+<blockquote>
+<p>named-checkzone  ZONE_NAME   ZONE_FILE<br>named-checkconf</p>
+</blockquote>
+</li>
+<li><p>启动</p>
+<blockquote>
+<p>service named start</p>
+</blockquote>
+</li>
+<li>测试<blockquote>
+<p>nslookup admin.intra.fengbaohuyu.com 192.168.1.9</p>
+</blockquote>
+</li>
+<li>设置开机启动<blockquote>
+<p>chkconfig named on</p>
+</blockquote>
+</li>
 </ul>
-<p>参考：<a href="https://blog.csdn.net/devalone/article/details/80580094" target="_blank" rel="noopener">https://blog.csdn.net/devalone/article/details/80580094</a></p>
+<p>参考：<a href="https://blog.csdn.net/devalone/article/details/80580094" target="_blank" rel="noopener">https://blog.csdn.net/devalone/article/details/80580094</a><br>    <a href="https://www.cnblogs.com/kevingrace/p/9359989.html" target="_blank" rel="noopener">https://www.cnblogs.com/kevingrace/p/9359989.html</a></p>
 
     </div>
     
@@ -288,7 +309,7 @@ DNS 服务器 IP    : 192.168.1.9
     <div class="widget">
         <h3 class="title">文章目录</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看bind版本"><span class="toc-text">查看bind版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#区域-zone-数据库文件"><span class="toc-text">区域 (zone) 数据库文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PTR-记录"><span class="toc-text">PTR 记录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实践部署"><span class="toc-text">实践部署</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#主配置文件格式"><span class="toc-text">主配置文件格式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#配置解析正向区域"><span class="toc-text">配置解析正向区域</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看bind版本"><span class="toc-text">查看bind版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#区域-zone-数据库文件"><span class="toc-text">区域 (zone) 数据库文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PTR-记录"><span class="toc-text">PTR 记录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实践部署"><span class="toc-text">实践部署</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#主配置文件格式"><span class="toc-text">主配置文件格式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#配置解析正向区域"><span class="toc-text">配置解析正向区域</span></a></li></ol></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#命令"><span class="toc-text">命令</span></a></li>
         
     </div>
 </aside>
