@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -73,9 +73,9 @@
 <![endif]-->
 
 <body>
-    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <header class="main-header"  style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)"  >
     <div class="main-header-box">
-        <a class="header-avatar" href="/" title="Lin">
+        <a class="header-avatar" href="/" title='Lin'>
             <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
         </a>
         <div class="branding">
@@ -162,7 +162,7 @@
         <span class="tags-meta">
             
                 
-                    <a href="/tags/前端" title="前端">
+                    <a href="/tags/前端" title='前端'>
                         前端
                     </a>
                 
@@ -184,15 +184,14 @@
             
             
             <p class="fa fa-exclamation-triangle warning">
-                本文于<strong>341</strong>天之前发表，文中内容可能已经过时。
+                本文于<strong>403</strong>天之前发表，文中内容可能已经过时。
             </p>
         
     </div>
     
     <div class="post-body post-content">
         <h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><pre><code>GitHub会为每一个注册用户分配一个300M的个人空间，所以和hexo结合起来，利用github给我们的免费空间，
-将我们的静态网页托管到上面，就实现了一个免费的搭建个人博客的方案。
-</code></pre><h2 id="主要设计名词"><a href="#主要设计名词" class="headerlink" title="主要设计名词"></a>主要设计名词</h2><ul>
+将我们的静态网页托管到上面，就实现了一个免费的搭建个人博客的方案。</code></pre><h2 id="主要设计名词"><a href="#主要设计名词" class="headerlink" title="主要设计名词"></a>主要设计名词</h2><ul>
 <li>Git</li>
 <li>Hexo</li>
 <li>Node.js</li>
@@ -210,55 +209,41 @@
 <li>安装Node环境，Hexo就是基于Node的，访问速度特别快。进入node.js官网，选对操作系统，安装即可</li>
 </ol>
 <h3 id="安装Hexo，初始化博客"><a href="#安装Hexo，初始化博客" class="headerlink" title="安装Hexo，初始化博客"></a>安装Hexo，初始化博客</h3><p>git和node环境安装好了以后。接下来就可以安装hexo了，直接在命令行中敲入如下代码：</p>
-<pre><code>npm install -g hexo-cli
-</code></pre><p>接下来建站</p>
+<pre><code>npm install -g hexo-cli</code></pre><p>接下来建站</p>
 <pre><code>hexo init &lt;folder&gt;  # 初始化博客，&lt;文件夹名称&gt;，表示文件会下载到当前目录下的这个文件夹内
 cd &lt;folder&gt;         # 进入到这个文件夹目录
-npm install         # 安装npm
-</code></pre><p>使用相关编辑器打开这个文件夹<folder>中的文件夹，我是用的是<a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VS Code</a></folder></p>
-<h3 id="本地预览"><a href="#本地预览" class="headerlink" title="本地预览"></a>本地预览</h3><pre><code>hexo server # 开启本地服务器
-</code></pre><p>然后在浏览器里面输入网址<a href="http://localhost:4000，就能看到默认主题的界面" target="_blank" rel="noopener">http://localhost:4000，就能看到默认主题的界面</a></p>
+npm install         # 安装npm</code></pre><p>使用相关编辑器打开这个文件夹<folder>中的文件夹，我是用的是<a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VS Code</a></folder></p>
+<h3 id="本地预览"><a href="#本地预览" class="headerlink" title="本地预览"></a>本地预览</h3><pre><code>hexo server # 开启本地服务器</code></pre><p>然后在浏览器里面输入网址<a href="http://localhost:4000，就能看到默认主题的界面" target="_blank" rel="noopener">http://localhost:4000，就能看到默认主题的界面</a></p>
 <p><em>这是因为初始化hexo的时候就已经把一个能够起小型的网路服务器功能的依赖装好了，所以启动一下这个本地服务，就能看到hexo的默认主题</em></p>
 <h3 id="上传到远程代码仓库"><a href="#上传到远程代码仓库" class="headerlink" title="上传到远程代码仓库"></a>上传到远程代码仓库</h3><p>接下来就要将本地的代码上传到远程github仓库。首先建立和之前新建的代码仓库之间的关联，利用ssh key，具体是先用命令行在本地生成一个ssh key，<br>然后复制到github上去。</p>
 <p>一. 先检查本地有没存在ssh key</p>
-<pre><code>ls -al ~/.ssh  # 列出在.ssh文件夹下所有的文件，如果存在这个文件夹或者这些文件的话
-</code></pre><p>二. 生成新的ssh key</p>
-<pre><code>ssh-keygen -t rsa -C &quot;your_email@example.com&quot; # 注意将`your_email`替换成之前注册github帐号时的邮箱
-</code></pre><p>生成成功或已经存在的，进入到~/.ssh/路径下，用文件编辑器打开文件，里面的内容就是ssk key，将内容复制到剪切板</p>
+<pre><code>ls -al ~/.ssh  # 列出在.ssh文件夹下所有的文件，如果存在这个文件夹或者这些文件的话</code></pre><p>二. 生成新的ssh key</p>
+<pre><code>ssh-keygen -t rsa -C &quot;your_email@example.com&quot; # 注意将`your_email`替换成之前注册github帐号时的邮箱</code></pre><p>生成成功或已经存在的，进入到~/.ssh/路径下，用文件编辑器打开文件，里面的内容就是ssk key，将内容复制到剪切板</p>
 <ol>
-<li>登录GitHub网站,依次点击Settings –&gt; SSH and GPG keys –&gt; New SSH key，进入新建SSK key页面，随便填写一下Title,然后将剪切板中复制好的ssh key复制到key中去，最后点击Add SSH key按钮，就OK了</li>
+<li><p>登录GitHub网站,依次点击Settings –&gt; SSH and GPG keys –&gt; New SSH key，进入新建SSK key页面，随便填写一下Title,然后将剪切板中复制好的ssh key复制到key中去，最后点击Add SSH key按钮，就OK了</p>
+</li>
 <li><p>用VSCode打开博客主目录，找到主目录在的_config.yml文件，编辑这个文件，找到最下方deployment模块（顺便找到Site模块，修改一下博客的titile，subtitle，author，<br>改成你自己个性化的<br>），将deployment模块里面的代码替换为如下：</p>
 <pre><code>deploy:
   type: git
     repository: https://github.com/用户名/用户名.github.io.git # 将用户名替换为你自己的github用户名
-    branch: master
-</code></pre></li>
+    branch: master</code></pre></li>
 </ol>
 <p>特别提醒：每个分号:后都要有一个空格，不然接下来生成和部署博客到github上时会报下面这种错误：</p>
-<pre><code>JS-YAML: bad indentation of a mapping entry at line , column
-</code></pre><p>三. 进到博客根目录下，先执行</p>
-<pre><code>hexo generate       # 或者：hexo g  生成静态页面至public目录
-</code></pre><p>如出现报错</p>
+<pre><code>JS-YAML: bad indentation of a mapping entry at line , column</code></pre><p>三. 进到博客根目录下，先执行</p>
+<pre><code>hexo generate       # 或者：hexo g  生成静态页面至public目录</code></pre><p>如出现报错</p>
 <pre><code>ERROR Local hexo not found in ~/blog
-ERROR Try runing: &apos;npm install hexo --save&apos;
-</code></pre><p>则执行：    </p>
-<pre><code>npm install hexo --save
-</code></pre><p>再执行：</p>
-<pre><code>hexo deploy  # 或者：hexo -g   将.deploy目录部署到GitHub
-</code></pre><p>如果无法连接到git,则执行：</p>
-<pre><code>npm install hexo-deployer-git --save  # 安装hexo-deployer-git
-</code></pre><p>最后再执行：</p>
+ERROR Try runing: &apos;npm install hexo --save&apos;</code></pre><p>则执行：    </p>
+<pre><code>npm install hexo --save</code></pre><p>再执行：</p>
+<pre><code>hexo deploy  # 或者：hexo -g   将.deploy目录部署到GitHub</code></pre><p>如果无法连接到git,则执行：</p>
+<pre><code>npm install hexo-deployer-git --save  # 安装hexo-deployer-git</code></pre><p>最后再执行：</p>
 <pre><code>hexo g
-hexo d
-</code></pre><p>四. 进到浏览器，打开http://用户名.github.io网址，就可以看到和之前本地看到的hexo默认主题的首页，<br>看到你修改好的博客title，subtitle，author，等。至此，和github的关联已经建立好，接下来就可以写博客了</p>
+hexo d</code></pre><p>四. 进到浏览器，打开http://用户名.github.io网址，就可以看到和之前本地看到的hexo默认主题的首页，<br>看到你修改好的博客title，subtitle，author，等。至此，和github的关联已经建立好，接下来就可以写博客了</p>
 <h3 id="写博客"><a href="#写博客" class="headerlink" title="写博客"></a>写博客</h3><p>写博客主要使用到几个命令：</p>
 <pre><code>hexo new &quot;postName&quot; # 新建文章 默认在\source\_posts\postName.md文件夹下
-hexo new page &quot;pageName&quot; #新建页面，如关于我界面
-</code></pre><p>新建后，在source文件目录下生成一个以postName命名的.md文件，直接用markdown语法编辑，写文章就是这么简单。<br>hexo可以将markdown语法的文件渲染成静态的HTML。关于markdown语法，非常简单，上手很快，可以上网去搜一下语法<br><a href="http://wowubuntu.com/markdown/" target="_blank" rel="noopener">Markdown 语法说明 (简体中文版)</a></p>
+hexo new page &quot;pageName&quot; #新建页面，如关于我界面</code></pre><p>新建后，在source文件目录下生成一个以postName命名的.md文件，直接用markdown语法编辑，写文章就是这么简单。<br>hexo可以将markdown语法的文件渲染成静态的HTML。关于markdown语法，非常简单，上手很快，可以上网去搜一下语法<br><a href="http://wowubuntu.com/markdown/" target="_blank" rel="noopener">Markdown 语法说明 (简体中文版)</a></p>
 <pre><code>hexo clean # 删除之前生成的public文件夹和缓存数据
 hexo g     # 重新生成博客文件
-hexo d     # 将修改同步到github远程仓库
-</code></pre><h3 id="换主题，个性化配置"><a href="#换主题，个性化配置" class="headerlink" title="换主题，个性化配置"></a>换主题，个性化配置</h3><ol>
+hexo d     # 将修改同步到github远程仓库</code></pre><h3 id="换主题，个性化配置"><a href="#换主题，个性化配置" class="headerlink" title="换主题，个性化配置"></a>换主题，个性化配置</h3><ol>
 <li>更换主题<br>进入hexo相关主题展示的theme网站,选取一款你喜欢的主题。将你喜欢的主题clone到themes文件夹下，我选的是jacman主题，<br>直接编辑主目录下的_config.yml配置文件，找到theme,将默认的主题换成你喜欢的主题名即可</li>
 <li>配置主题样式<br>换完主题后，就可以修改主题样式了，主要修改主配置文件_config.yml以及主题文件下的配置文件_config.yml。</li>
 <li>添加第三方评论系统</li>
@@ -282,13 +267,13 @@ hexo d     # 将修改同步到github远程仓库
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2018/07/23/Hexo新建页面显示多个文章/" class="pre-post btn btn-default" title="Hexo新建页面显示多个文章">
+        <a href="/2018/07/23/Hexo新建页面显示多个文章/" class="pre-post btn btn-default" title='Hexo新建页面显示多个文章'>
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
             <span class="hidden-xs">Hexo新建页面显示多个文章</span>
         </a>
     
     
-        <a href="/2018/07/20/Markdown/" class="next-post btn btn-default" title="Markdown 语法说明 (简体中文版)">
+        <a href="/2018/07/20/Markdown/" class="next-post btn btn-default" title='Markdown 语法说明 (简体中文版)'>
             <span class="hidden-lg">下一篇</span>
             <span class="hidden-xs">Markdown 语法说明 (简体中文版)</span><i class="fa fa-angle-right fa-fw"></i>
         </a>

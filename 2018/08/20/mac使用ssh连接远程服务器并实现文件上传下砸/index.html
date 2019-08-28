@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -73,9 +73,9 @@
 <![endif]-->
 
 <body>
-    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <header class="main-header"  style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)"  >
     <div class="main-header-box">
-        <a class="header-avatar" href="/" title="Lin">
+        <a class="header-avatar" href="/" title='Lin'>
             <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
         </a>
         <div class="branding">
@@ -162,7 +162,7 @@
         <span class="tags-meta">
             
                 
-                    <a href="/tags/linux" title="linux">
+                    <a href="/tags/linux" title='linux'>
                         linux
                     </a>
                 
@@ -184,23 +184,18 @@
             
             
             <p class="fa fa-exclamation-triangle warning">
-                本文于<strong>310</strong>天之前发表，文中内容可能已经过时。
+                本文于<strong>373</strong>天之前发表，文中内容可能已经过时。
             </p>
         
     </div>
     
     <div class="post-body post-content">
         <h3 id="使用ssh连接远程主机"><a href="#使用ssh连接远程主机" class="headerlink" title="使用ssh连接远程主机"></a>使用ssh连接远程主机</h3><pre><code>ssh username@192.168.100.100
-其中，username是登录用户名，@后接ip地址，点击确定之后输入密码即连接到远程主机。要查看当前有多少个处于登录状态的用户，可以使用who命令查看。
-</code></pre><h3 id="使用scp命令实现上传下载"><a href="#使用scp命令实现上传下载" class="headerlink" title="使用scp命令实现上传下载"></a>使用scp命令实现上传下载</h3><p>1.从服务器上下载文件 scp username@servername:/path/filename /Users/mac/Desktop（本地目录）<br>例如:</p>
-<pre><code>scp root@123.207.170.40:/root/test.txt /Users/mac/Desktop就是将服务器上的/root/test.txt下载到本地的/Users/mac/Desktop目录下。注意两个地址之间有空格！
-</code></pre><p>2.上传本地文件到服务器 scp /path/filename username@servername:/path ;<br>例如</p>
-<pre><code>scp /Users/mac/Desktop/test.txt root@123.207.170.40:/root/
-</code></pre><p>3.从服务器下载整个目录 scp -r username@servername:/root/（远程目录） /Users/mac/Desktop（本地目录）<br>例如:</p>
-<pre><code>scp -r root@192.168.0.101:/root/ /Users/mac/Desktop/
-</code></pre><p>4.上传目录到服务器 scp -r local_dir username@servername:remote_dir<br>例如：</p>
-<pre><code>scp -r test root@192.168.0.101:/root/ 把当前目录下的test目录上传到服务器的/root/ 目录
-</code></pre><p>注：目标服务器要开启写入权限。</p>
+其中，username是登录用户名，@后接ip地址，点击确定之后输入密码即连接到远程主机。要查看当前有多少个处于登录状态的用户，可以使用who命令查看。</code></pre><h3 id="使用scp命令实现上传下载"><a href="#使用scp命令实现上传下载" class="headerlink" title="使用scp命令实现上传下载"></a>使用scp命令实现上传下载</h3><p>1.从服务器上下载文件 scp username@servername:/path/filename /Users/mac/Desktop（本地目录）<br>例如:</p>
+<pre><code>scp root@123.207.170.40:/root/test.txt /Users/mac/Desktop就是将服务器上的/root/test.txt下载到本地的/Users/mac/Desktop目录下。注意两个地址之间有空格！</code></pre><p>2.上传本地文件到服务器 scp /path/filename username@servername:/path ;<br>例如</p>
+<pre><code>scp /Users/mac/Desktop/test.txt root@123.207.170.40:/root/</code></pre><p>3.从服务器下载整个目录 scp -r username@servername:/root/（远程目录） /Users/mac/Desktop（本地目录）<br>例如:</p>
+<pre><code>scp -r root@192.168.0.101:/root/ /Users/mac/Desktop/</code></pre><p>4.上传目录到服务器 scp -r local_dir username@servername:remote_dir<br>例如：</p>
+<pre><code>scp -r test root@192.168.0.101:/root/ 把当前目录下的test目录上传到服务器的/root/ 目录</code></pre><p>注：目标服务器要开启写入权限。</p>
 
     </div>
     
@@ -218,13 +213,13 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2018/11/06/CentOS下编译安装shadowsocks-libev/" class="pre-post btn btn-default" title="CentOS下编译安装shadowsocks-libev">
+        <a href="/2018/11/06/CentOS下编译安装shadowsocks-libev/" class="pre-post btn btn-default" title='CentOS下编译安装shadowsocks-libev'>
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
             <span class="hidden-xs">CentOS下编译安装shadowsocks-libev</span>
         </a>
     
     
-        <a href="/2018/08/17/django/" class="next-post btn btn-default" title="django">
+        <a href="/2018/08/17/django/" class="next-post btn btn-default" title='django'>
             <span class="hidden-lg">下一篇</span>
             <span class="hidden-xs">django</span><i class="fa fa-angle-right fa-fw"></i>
         </a>

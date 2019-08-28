@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -73,9 +73,9 @@
 <![endif]-->
 
 <body>
-    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <header class="main-header"  style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)"  >
     <div class="main-header-box">
-        <a class="header-avatar" href="/" title="Lin">
+        <a class="header-avatar" href="/" title='Lin'>
             <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
         </a>
         <div class="branding">
@@ -162,12 +162,12 @@
         <span class="tags-meta">
             
                 
-                    <a href="/tags/前端" title="前端">
-                        前端
+                    <a href="/tags/Hexo" title='Hexo'>
+                        Hexo
                     </a>
                 
-                    <a href="/tags/Hexo" title="Hexo">
-                        Hexo
+                    <a href="/tags/前端" title='前端'>
+                        前端
                     </a>
                 
             
@@ -188,7 +188,7 @@
             
             
             <p class="fa fa-exclamation-triangle warning">
-                本文于<strong>338</strong>天之前发表，文中内容可能已经过时。
+                本文于<strong>401</strong>天之前发表，文中内容可能已经过时。
             </p>
         
     </div>
@@ -202,8 +202,7 @@ tags: [&apos;标签1&apos;,&apos;标签2&apos;]
 categories: [&apos;前端&apos;]
 comments: false    // 是否开启评论
 img:               // 自定义缩略图
----
-</code></pre><p><strong>2.在实际写作时，在开头进行categories配置。例如：</strong></p>
+---</code></pre><p><strong>2.在实际写作时，在开头进行categories配置。例如：</strong></p>
 <pre><code>---
 title: Hexo新建页面显示多个文章
 tags:
@@ -214,9 +213,8 @@ categories:
 comments: false    // 是否开启评论
 img: // 自定义缩略图
 date: 2018-07-23 18:58:48
----
-</code></pre><p>这样在文章发布时，在git中使用hexo g命令，hexo会在根目录/public/categrises下自动生成归档文件夹，如图：</p>
-<p>   <img src="Hexo新建页面显示多个文章/categories.png" alt=""></p>
+---</code></pre><p>这样在文章发布时，在git中使用hexo g命令，hexo会在根目录/public/categrises下自动生成归档文件夹，如图：</p>
+<p>   <img src="Hexo%E6%96%B0%E5%BB%BA%E9%A1%B5%E9%9D%A2%E6%98%BE%E7%A4%BA%E5%A4%9A%E4%B8%AA%E6%96%87%E7%AB%A0/categories.png" alt=""></p>
 <p><strong>3.配置博客首页归档展示样式。在主题配置文件themes/_config.yml中添加以下代码:</strong></p>
 <pre><code>menu:
 - page: home
@@ -236,8 +234,7 @@ date: 2018-07-23 18:58:48
   icon:
 - page: 时间轴
   url: /archives/
-  icon:
-</code></pre><h3 id="补充说明"><a href="#补充说明" class="headerlink" title="补充说明"></a>补充说明</h3><p><strong>如果发现博客首页展示文本为英文，需要改为中文显示，需要修改先博客根目录下的_config.yml文件的language配置，示例如下：</strong></p>
+  icon:</code></pre><h3 id="补充说明"><a href="#补充说明" class="headerlink" title="补充说明"></a>补充说明</h3><p><strong>如果发现博客首页展示文本为英文，需要改为中文显示，需要修改先博客根目录下的_config.yml文件的language配置，示例如下：</strong></p>
 <pre><code># Site
 title: 借我一支烟
 subtitle: 个人博客
@@ -245,30 +242,23 @@ description:
 keywords:
 author: Lin
 language: zh-CN
-timezone:
-</code></pre><p>然后为实现文章归档名称显示为中文，接着再修改主题配置文件下language/zh-CN.yml即可，示例如下：</p>
+timezone:</code></pre><p>然后为实现文章归档名称显示为中文，接着再修改主题配置文件下language/zh-CN.yml即可，示例如下：</p>
 <pre><code>read_more: 阅读全文
 home: 首页
 about: 关于我
-archives: 归档
-</code></pre><h3 id="引用本地图片不显示"><a href="#引用本地图片不显示" class="headerlink" title="引用本地图片不显示"></a>引用本地图片不显示</h3><p> 究其原因，是图片路径出现问题。<br> Hexo图片引用有他的方式，部署以后，图片会自动添加日期相关的文件结构目录。</p>
+archives: 归档</code></pre><h3 id="引用本地图片不显示"><a href="#引用本地图片不显示" class="headerlink" title="引用本地图片不显示"></a>引用本地图片不显示</h3><p> 究其原因，是图片路径出现问题。<br> Hexo图片引用有他的方式，部署以后，图片会自动添加日期相关的文件结构目录。</p>
 <h5 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h5><p> _config.yml 文件中设置 post_asset_folder: true，开启资源文件夹功能，该功能支持用户通过相对路径标签引用资源。<br>执行 hexo new [layout] <title> 创建一篇新的文章，会发现 source/_posts 下自动生成了一个和 md 文件同名的目录（也可以自己手动创建），<br>这就是用于存放与文章有关的图片文件夹。如下图：</title></p>
-<p><img src="Hexo新建页面显示多个文章/images_font.png" alt=""></p>
+<p><img src="Hexo%E6%96%B0%E5%BB%BA%E9%A1%B5%E9%9D%A2%E6%98%BE%E7%A4%BA%E5%A4%9A%E4%B8%AA%E6%96%87%E7%AB%A0/images_font.png" alt=""></p>
 <p>部署之后同目录出现</p>
-<p><img src="Hexo新建页面显示多个文章/image_found.png" alt=""></p>
+<p><img src="Hexo%E6%96%B0%E5%BB%BA%E9%A1%B5%E9%9D%A2%E6%98%BE%E7%A4%BA%E5%A4%9A%E4%B8%AA%E6%96%87%E7%AB%A0/image_found.png" alt=""></p>
 <p>需要注意的是，使用该种方式在 markdown 文件中引用图片将不再使用 markdown 语法，而是使用标签插件引用相对路径，否则可能造成图片和其他资源显示不正确。引用语法如下：</p>
 <pre><code>{% asset_path slug %}
 {% asset_img slug [title] %}
-{% asset_link slug [title] %}
-</code></pre><p>在上述语法下，插入图片的方法：</p>
-<pre><code>{% asset_img image.png This is an example image %}
-</code></pre><p>查看页面，发现图片已经可以正常显示了，图片的路径和实际存放目录是一致的。<br>如果想使用 markdown 语法插入相对路径的图片，可以利用插件。设置 post_asset_folder:true 后，在根目录下执行：</p>
-<pre><code>npm install https://github.com/CodeFalling/hexo-asset-image --save
-</code></pre><p>确保在 source/_posts 下创建和 markdown 文件同名的目录，里面存放需要的图片，然后在 markdown 中插入图片：</p>
-<pre><code>! [hexo image] (hexo/image.png)
-</code></pre><p>生成的页面中图片引用路径</p>
-<pre><code>&lt;img src=&quot;/2016/11/25/hexo/image.png&quot; alt=&quot;hexo image&quot;&gt;
-</code></pre><p>至此，用 markdown 完美实现本地图片插入。</p>
+{% asset_link slug [title] %}</code></pre><p>在上述语法下，插入图片的方法：</p>
+<pre><code>{% asset_img image.png This is an example image %}</code></pre><p>查看页面，发现图片已经可以正常显示了，图片的路径和实际存放目录是一致的。<br>如果想使用 markdown 语法插入相对路径的图片，可以利用插件。设置 post_asset_folder:true 后，在根目录下执行：</p>
+<pre><code>npm install https://github.com/CodeFalling/hexo-asset-image --save</code></pre><p>确保在 source/_posts 下创建和 markdown 文件同名的目录，里面存放需要的图片，然后在 markdown 中插入图片：</p>
+<pre><code>! [hexo image] (hexo/image.png)</code></pre><p>生成的页面中图片引用路径</p>
+<pre><code>&lt;img src=&quot;/2016/11/25/hexo/image.png&quot; alt=&quot;hexo image&quot;&gt;</code></pre><p>至此，用 markdown 完美实现本地图片插入。</p>
 
     </div>
     
@@ -286,13 +276,13 @@ archives: 归档
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2018/07/23/浏览器翻墙工具/" class="pre-post btn btn-default" title="浏览器翻墙工具">
+        <a href="/2018/07/23/浏览器翻墙工具/" class="pre-post btn btn-default" title='浏览器翻墙工具'>
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
             <span class="hidden-xs">浏览器翻墙工具</span>
         </a>
     
     
-        <a href="/2018/07/20/Hexo-Blog/" class="next-post btn btn-default" title="利用Hexo搭建自己的博客">
+        <a href="/2018/07/20/Hexo-Blog/" class="next-post btn btn-default" title='利用Hexo搭建自己的博客'>
             <span class="hidden-lg">下一篇</span>
             <span class="hidden-xs">利用Hexo搭建自己的博客</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
@@ -337,7 +327,7 @@ archives: 归档
     <div class="widget">
         <h3 class="title">文章目录</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置categories"><span class="toc-text">配置categories</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#补充说明"><span class="toc-text">补充说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引用本地图片不显示"><span class="toc-text">引用本地图片不显示</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#解决方法"><span class="toc-text">解决方法</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#配置categories"><span class="toc-text">配置categories</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#补充说明"><span class="toc-text">补充说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引用本地图片不显示"><span class="toc-text">引用本地图片不显示</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#解决方法"><span class="toc-text">解决方法</span></a></li></ol></li></ol></li></ol>
         
     </div>
 </aside>

@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -73,9 +73,9 @@
 <![endif]-->
 
 <body>
-    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <header class="main-header"  style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)"  >
     <div class="main-header-box">
-        <a class="header-avatar" href="/" title="Lin">
+        <a class="header-avatar" href="/" title='Lin'>
             <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
         </a>
         <div class="branding">
@@ -162,7 +162,7 @@
         <span class="tags-meta">
             
                 
-                    <a href="/tags/Python" title="Python">
+                    <a href="/tags/Python" title='Python'>
                         Python
                     </a>
                 
@@ -195,6 +195,7 @@
 </li>
 <li><p>加线程锁</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Singleton</span><span class="params">(object)</span>:</span></span><br><span class="line">  _instance_lock = threading.Lock()  <span class="comment">#添加类属性线程锁</span></span><br><span class="line"></span><br><span class="line"><span class="meta">  @classmethod</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">instance</span><span class="params">(cls, *args, **kw)</span>:</span></span><br><span class="line">    <span class="keyword">with</span> Singleton._instance_lock:  <span class="comment">#创建实例时加线程锁，保证线程安全</span></span><br><span class="line">      <span class="keyword">if</span> <span class="keyword">not</span> hasattr(Singleton, <span class="string">'_instance'</span>):</span><br><span class="line">        Singleton._instance = Singleton(*args, **kw)</span><br><span class="line">    <span class="keyword">return</span> Singleton._instance</span><br><span class="line"></span><br><span class="line">obj = Singleton.instance()</span><br><span class="line">print(obj)</span><br></pre></td></tr></table></figure>
+
 </li>
 </ol>
 
@@ -214,8 +215,13 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
+        <a href="/2019/08/28/spring-security全局跨域问题/" class="pre-post btn btn-default" title='spring security全局跨域问题'>
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">spring security全局跨域问题</span>
+        </a>
     
-        <a href="/2019/06/21/ssh隧道搭建透明网关/" class="next-post btn btn-default" title="ssh隧道搭建透明网关">
+    
+        <a href="/2019/06/21/ssh隧道搭建透明网关/" class="next-post btn btn-default" title='ssh隧道搭建透明网关'>
             <span class="hidden-lg">下一篇</span>
             <span class="hidden-xs">ssh隧道搭建透明网关</span><i class="fa fa-angle-right fa-fw"></i>
         </a>

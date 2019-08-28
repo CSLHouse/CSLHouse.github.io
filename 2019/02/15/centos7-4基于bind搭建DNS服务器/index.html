@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -73,9 +73,9 @@
 <![endif]-->
 
 <body>
-    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <header class="main-header"  style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)"  >
     <div class="main-header-box">
-        <a class="header-avatar" href="/" title="Lin">
+        <a class="header-avatar" href="/" title='Lin'>
             <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
         </a>
         <div class="branding">
@@ -162,11 +162,11 @@
         <span class="tags-meta">
             
                 
-                    <a href="/tags/centos" title="centos">
+                    <a href="/tags/centos" title='centos'>
                         centos
                     </a>
                 
-                    <a href="/tags/bind" title="bind">
+                    <a href="/tags/bind" title='bind'>
                         bind
                     </a>
                 
@@ -199,15 +199,12 @@ AAAA：地址记录， FQDN --&gt; IPv6；
 CNAME：Canonical Name，别名记录；
 PTR    ：Pointer，IP --&gt; FQDN
 MX    ：Mail eXchanger，邮件交换器
-优先级：0-99，数字越小优先级越高；
-</code></pre><h3 id="PTR-记录"><a href="#PTR-记录" class="headerlink" title="PTR 记录"></a>PTR 记录</h3><p>反向解析记录，用于将一个IP地址映射到对应的域名，也可以看成是 A 记录的反向，IP 地址的反向解析。<br> name    ：IP地址，有特定格式，IP反过来写，而且加特定后缀；例如 1.2.3.4 的记录应该写为 4.3.2.1.in-addr.arpa.；<br>        value    ：FQND</p>
+优先级：0-99，数字越小优先级越高；</code></pre><h3 id="PTR-记录"><a href="#PTR-记录" class="headerlink" title="PTR 记录"></a>PTR 记录</h3><p>反向解析记录，用于将一个IP地址映射到对应的域名，也可以看成是 A 记录的反向，IP 地址的反向解析。<br> name    ：IP地址，有特定格式，IP反过来写，而且加特定后缀；例如 1.2.3.4 的记录应该写为 4.3.2.1.in-addr.arpa.；<br>        value    ：FQND</p>
 <pre><code>范例：
-    4.3.2.1.in-addr.arpa.  IN  PTR  www.baidu.com.
-</code></pre><h3 id="实践部署"><a href="#实践部署" class="headerlink" title="实践部署"></a>实践部署</h3><p>部署环境：</p>
+    4.3.2.1.in-addr.arpa.  IN  PTR  www.baidu.com.</code></pre><h3 id="实践部署"><a href="#实践部署" class="headerlink" title="实践部署"></a>实践部署</h3><p>部署环境：</p>
 <pre><code>操作系统         ：CentOS 7.4
 DNS 服务器 IP    : 192.168.1.9
-内网域名        ：intra.fengbaohuyu.com
-</code></pre><h5 id="主配置文件格式"><a href="#主配置文件格式" class="headerlink" title="主配置文件格式"></a>主配置文件格式</h5><pre><code>全局配置段：
+内网域名        ：intra.fengbaohuyu.com</code></pre><h5 id="主配置文件格式"><a href="#主配置文件格式" class="headerlink" title="主配置文件格式"></a>主配置文件格式</h5><pre><code>全局配置段：
     options { ... }
 日志配置段：
     logging { ... }
@@ -215,9 +212,9 @@ DNS 服务器 IP    : 192.168.1.9
     zone { ... }
     那些由本机负责解析的区域，或转发的区域；
 
-注意：每个配置语句必须以分号结尾；
-</code></pre><h5 id="配置解析正向区域"><a href="#配置解析正向区域" class="headerlink" title="配置解析正向区域"></a>配置解析正向区域</h5><h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><ul>
-<li>重载配置文件:<blockquote>
+注意：每个配置语句必须以分号结尾；</code></pre><h5 id="配置解析正向区域"><a href="#配置解析正向区域" class="headerlink" title="配置解析正向区域"></a>配置解析正向区域</h5><h3 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h3><ul>
+<li><p>重载配置文件:</p>
+<blockquote>
 <p>rndc reload</p>
 </blockquote>
 </li>
@@ -231,11 +228,13 @@ DNS 服务器 IP    : 192.168.1.9
 <p>service named start</p>
 </blockquote>
 </li>
-<li>测试<blockquote>
+<li><p>测试</p>
+<blockquote>
 <p>nslookup admin.intra.fengbaohuyu.com 192.168.1.9</p>
 </blockquote>
 </li>
-<li>设置开机启动<blockquote>
+<li><p>设置开机启动</p>
+<blockquote>
 <p>chkconfig named on</p>
 </blockquote>
 </li>
@@ -258,13 +257,13 @@ DNS 服务器 IP    : 192.168.1.9
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2019/02/15/centos7基于dnsmasq搭建DNS服务器/" class="pre-post btn btn-default" title="centos7基于dnsmasq搭建DNS服务器">
+        <a href="/2019/02/15/centos7基于dnsmasq搭建DNS服务器/" class="pre-post btn btn-default" title='centos7基于dnsmasq搭建DNS服务器'>
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
             <span class="hidden-xs">centos7基于dnsmasq搭建DNS服务器</span>
         </a>
     
     
-        <a href="/2019/02/13/Centos7搭建confluence/" class="next-post btn btn-default" title="Centos7搭建confluence">
+        <a href="/2019/02/13/Centos7搭建confluence/" class="next-post btn btn-default" title='Centos7搭建confluence'>
             <span class="hidden-lg">下一篇</span>
             <span class="hidden-xs">Centos7搭建confluence</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
@@ -309,7 +308,7 @@ DNS 服务器 IP    : 192.168.1.9
     <div class="widget">
         <h3 class="title">文章目录</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看bind版本"><span class="toc-text">查看bind版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#区域-zone-数据库文件"><span class="toc-text">区域 (zone) 数据库文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PTR-记录"><span class="toc-text">PTR 记录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实践部署"><span class="toc-text">实践部署</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#主配置文件格式"><span class="toc-text">主配置文件格式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#配置解析正向区域"><span class="toc-text">配置解析正向区域</span></a></li></ol></li></ol><li class="toc-item toc-level-3"><a class="toc-link" href="#命令"><span class="toc-text">命令</span></a></li>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#查看bind版本"><span class="toc-text">查看bind版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#区域-zone-数据库文件"><span class="toc-text">区域 (zone) 数据库文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PTR-记录"><span class="toc-text">PTR 记录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实践部署"><span class="toc-text">实践部署</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#主配置文件格式"><span class="toc-text">主配置文件格式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#配置解析正向区域"><span class="toc-text">配置解析正向区域</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#命令"><span class="toc-text">命令</span></a></li></ol>
         
     </div>
 </aside>

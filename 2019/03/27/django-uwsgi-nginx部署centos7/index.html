@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -73,9 +73,9 @@
 <![endif]-->
 
 <body>
-    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <header class="main-header"  style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)"  >
     <div class="main-header-box">
-        <a class="header-avatar" href="/" title="Lin">
+        <a class="header-avatar" href="/" title='Lin'>
             <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
         </a>
         <div class="branding">
@@ -162,15 +162,15 @@
         <span class="tags-meta">
             
                 
-                    <a href="/tags/Python" title="Python">
+                    <a href="/tags/Python" title='Python'>
                         Python
                     </a>
                 
-                    <a href="/tags/nginx" title="nginx">
+                    <a href="/tags/nginx" title='nginx'>
                         nginx
                     </a>
                 
-                    <a href="/tags/uwsgi" title="uwsgi">
+                    <a href="/tags/uwsgi" title='uwsgi'>
                         uwsgi
                     </a>
                 
@@ -211,12 +211,7 @@
 </li>
 </ol>
 <blockquote>
-<p>#解压缩<br>tar -zxvf Python-3.7.0.tgz</p>
-<p>#进入解压后的目录，依次执行下面命令进行手动编译<br>添加配置,第一个参数指定安装目录,第二个加上后，安装ssl，不然以后pip3装东西会出错<br>./configure prefix=/usr/local/python3 –with-ssl<br>make &amp;&amp; make install<br>如果最后没提示出错，就代表正确安装了，在/usr/local/目录下就会有python3目录</p>
-<ol start="3">
-<li>添加软链接<br>#添加python3的软链接<br>ln -s /usr/local/python3/bin/python3.7 /usr/bin/python3.7<br>#添加 pip3 的软链接<br>ln -s /usr/local/python3/bin/pip3.7 /usr/bin/pip3.7<br>#测试是否安装成功了<br>python -V</li>
-<li>更改yum配置，因为其要用到python2才能执行，否则会导致yum不能正常使用（不管安装 python3的那个版本，都必须要做的）<br>vi /usr/bin/yum<br>把 #! /usr/bin/python 修改为 #! /usr/bin/python2<br>vi /usr/libexec/urlgrabber-ext-down<br>把 #! /usr/bin/python 修改为 #! /usr/bin/python2</li>
-</ol>
+<p>#解压缩<br>tar -zxvf Python-3.7.0.tgz<br>#进入解压后的目录，依次执行下面命令进行手动编译<br>添加配置,第一个参数指定安装目录,第二个加上后，安装ssl，不然以后pip3装东西会出错<br>./configure prefix=/usr/local/python3 –with-ssl<br>make &amp;&amp; make install<br>如果最后没提示出错，就代表正确安装了，在/usr/local/目录下就会有python3目录<br>3. 添加软链接<br>#添加python3的软链接<br>ln -s /usr/local/python3/bin/python3.7 /usr/bin/python3.7<br>#添加 pip3 的软链接<br>ln -s /usr/local/python3/bin/pip3.7 /usr/bin/pip3.7<br>#测试是否安装成功了<br>python -V<br>4. 更改yum配置，因为其要用到python2才能执行，否则会导致yum不能正常使用（不管安装 python3的那个版本，都必须要做的）<br>vi /usr/bin/yum<br>把 #! /usr/bin/python 修改为 #! /usr/bin/python2<br>vi /usr/libexec/urlgrabber-ext-down<br>把 #! /usr/bin/python 修改为 #! /usr/bin/python2</p>
 </blockquote>
 <h4 id="创建python3虚拟环境"><a href="#创建python3虚拟环境" class="headerlink" title="创建python3虚拟环境"></a>创建python3虚拟环境</h4><blockquote>
 <p>python3 -m venv [环境名]<br>进入虚拟环境<br>cd **/bin<br>source activate</p>
@@ -240,26 +235,16 @@
 <li>安装</li>
 </ol>
 <blockquote>
-<p>pip3 install uwsgi</p>
-<ol start="2">
-<li>配置<br>把参数写到配置文件里<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[uwsgi]</span><br><span class="line"> socket = 127.0.0.1:8002</span><br><span class="line"> #http = :8002</span><br><span class="line"> home=/home/projects/virtual/env_oa</span><br><span class="line"> # the base directory (full path)</span><br><span class="line"> chdir           = /home/projects/storm_oa/storm_oa_system</span><br><span class="line"> # Django s wsgi file</span><br><span class="line"> module          = storm_oa_system.wsgi</span><br><span class="line"> # process-related settings</span><br><span class="line"> # master</span><br><span class="line"> master          = true</span><br><span class="line"> # clear environment on exit</span><br><span class="line"> vacuum          = true</span><br><span class="line"> # maximum number of worker processes</span><br><span class="line"> processes       = 4</span><br><span class="line"> harakiri        = 1200</span><br><span class="line"> uwsgi_read_timeout      = 600</span><br><span class="line"> limit-as        = 600</span><br><span class="line"> daemonize       = /home/projects/storm_oa/conf/uwsgi_logs/access.log</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
+<p>pip3 install uwsgi<br>2. 配置<br>   把参数写到配置文件里<br>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">[uwsgi]</span><br><span class="line"> socket = 127.0.0.1:8002</span><br><span class="line"> #http = :8002</span><br><span class="line"> home=/home/projects/virtual/env_oa</span><br><span class="line"> # the base directory (full path)</span><br><span class="line"> chdir           = /home/projects/storm_oa/storm_oa_system</span><br><span class="line"> # Django s wsgi file</span><br><span class="line"> module          = storm_oa_system.wsgi</span><br><span class="line"> # process-related settings</span><br><span class="line"> # master</span><br><span class="line"> master          = true</span><br><span class="line"> # clear environment on exit</span><br><span class="line"> vacuum          = true</span><br><span class="line"> # maximum number of worker processes</span><br><span class="line"> processes       = 4</span><br><span class="line"> harakiri        = 1200</span><br><span class="line"> uwsgi_read_timeout      = 600</span><br><span class="line"> limit-as        = 600</span><br><span class="line"> daemonize       = /home/projects/storm_oa/conf/uwsgi_logs/access.log</span><br></pre></td></tr></table></figure></p>
 </blockquote>
-<p>  注意：与nginx通信时，必须选用socket = 127.0.0.1:8002</p>
-<ol start="3">
-<li>运行uwsgi<blockquote>
-<p>uwsgi /home/projects/storm_oa/conf/uwsgi.ini -d /home/projects/storm_oa/conf/uwsgi.log</p>
+<p>  注意：与nginx通信时，必须选用socket = 127.0.0.1:8002<br>3. 运行uwsgi</p>
+<blockquote>
+<p>uwsgi /home/projects/storm_oa/conf/uwsgi.ini -d /home/projects/storm_oa/conf/uwsgi.log<br>4. 关闭uwsgi<br>pkill -9 uwsgi</p>
 </blockquote>
-</li>
-<li>关闭uwsgi<blockquote>
-<p>pkill -9 uwsgi</p>
-</blockquote>
-</li>
-</ol>
 <p>####安装和配置nginx</p>
 <ol>
-<li>安装<blockquote>
+<li><p>安装</p>
+<blockquote>
 <p>wget <a href="http://nginx.org/download/nginx-1.15.8.tar.gz" target="_blank" rel="noopener">http://nginx.org/download/nginx-1.15.8.tar.gz</a><br>tar -zxvf nginx-1.15.8.tar.gz<br>cd nginx-1.15.8<br> ./configure –user=nobody –group=nobody –prefix=/usr/local/nginx –with-http_stub_status_module –with-http_gzip_static_module –with-http_realip_module –with-http_sub_module –with-http_ssl_module<br>make &amp;&amp; make install<br>(注: –with-http_ssl_module:这个不加后面在nginx.conf配置ssl:on后,启动会报nginx: [emerg] unknown directive “ssl” in /opt/nginx/conf/nginx.conf 异常)</p>
 </blockquote>
 </li>
@@ -280,6 +265,7 @@
 </blockquote>
 </li>
 <li>写入内容如下： <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=nginx</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line">ExecStart=/usr/bin/nginx -c /home/projects/config/nginx.conf</span><br><span class="line">ExecReload=/usr/bin/nginx -s reload</span><br><span class="line">ExecStop=/usr/bin/nginx -s quit</span><br><span class="line">PrivateTmp=true</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
 </li>
 </ul>
 <p> [Unit]:服务的说明<br>   Description:描述服务<br>   After:描述服务类别<br>   [Service]服务运行参数的设置<br>   Type=forking是后台运行的形式<br>   ExecStart为服务的具体运行命令<br>   ExecReload为重启命令<br>   ExecStop为停止命令<br>   PrivateTmp=True表示给服务分配独立的临时空间<br>   注意：[Service]的启动、重启、停止命令全部要求使用绝对路径<br>   [Install]运行级别下服务安装的相关设置，可设置为多用户，即系统运行级别为3</p>
@@ -298,7 +284,8 @@
 </li>
 </ul>
 </li>
-<li>uwsgi的开机自启动<br>与nginx同理<ul>
+<li><p>uwsgi的开机自启动<br>与nginx同理</p>
+<ul>
 <li>启动方式<blockquote>
 <p>systemctl enable uwsgi.service   开机自启<br>systemctl start uwsgi.service    启动<br>systemctl restart uwsgi.service  重新启动</p>
 </blockquote>
@@ -327,13 +314,13 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2019/04/01/django对接企业微信/" class="pre-post btn btn-default" title="django对接企业微信">
+        <a href="/2019/04/01/django对接企业微信/" class="pre-post btn btn-default" title='django对接企业微信'>
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
             <span class="hidden-xs">django对接企业微信</span>
         </a>
     
     
-        <a href="/2019/02/27/django-xadmin开发OA系统遇到的问题/" class="next-post btn btn-default" title="django+xadmin开发OA系统遇到的问题">
+        <a href="/2019/02/27/django-xadmin开发OA系统遇到的问题/" class="next-post btn btn-default" title='django+xadmin开发OA系统遇到的问题'>
             <span class="hidden-lg">下一篇</span>
             <span class="hidden-xs">django+xadmin开发OA系统遇到的问题</span><i class="fa fa-angle-right fa-fw"></i>
         </a>

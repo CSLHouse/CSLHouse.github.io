@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -73,9 +73,9 @@
 <![endif]-->
 
 <body>
-    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <header class="main-header"  style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)"  >
     <div class="main-header-box">
-        <a class="header-avatar" href="/" title="Lin">
+        <a class="header-avatar" href="/" title='Lin'>
             <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
         </a>
         <div class="branding">
@@ -162,11 +162,11 @@
         <span class="tags-meta">
             
                 
-                    <a href="/tags/linux" title="linux">
+                    <a href="/tags/linux" title='linux'>
                         linux
                     </a>
                 
-                    <a href="/tags/命令" title="命令">
+                    <a href="/tags/命令" title='命令'>
                         命令
                     </a>
                 
@@ -188,7 +188,7 @@
             
             
             <p class="fa fa-exclamation-triangle warning">
-                本文于<strong>328</strong>天之前发表，文中内容可能已经过时。
+                本文于<strong>390</strong>天之前发表，文中内容可能已经过时。
             </p>
         
     </div>
@@ -205,33 +205,25 @@
 
     --help        显示此帮助信息并退出
 
-    --version     输出版本信息并退出
-</code></pre><h3 id="cp-复制"><a href="#cp-复制" class="headerlink" title="cp 复制"></a>cp 复制</h3><p>cp命令语法</p>
-<pre><code>cp [options] sourcedir   destdir
-</code></pre><p>参数说明：</p>
+    --version     输出版本信息并退出</code></pre><h3 id="cp-复制"><a href="#cp-复制" class="headerlink" title="cp 复制"></a>cp 复制</h3><p>cp命令语法</p>
+<pre><code>cp [options] sourcedir   destdir</code></pre><p>参数说明：</p>
 <pre><code>-a：此选项通常在复制目录时使用，它保留链接、文件属性，并复制目录下的所有内容。其作用等于dpR参数组合。
 -d：复制时保留链接。这里所说的链接相当于Windows系统中的快捷方式。
 -f：覆盖已经存在的目标文件而不给出提示。
 -i：与-f选项相反，在覆盖目标文件之前给出提示，要求用户确认是否覆盖，回答&quot;y&quot;时目标文件将被覆盖。
 -p：除复制文件的内容外，还把修改时间和访问权限也复制到新文件中。
 -r：若给出的源文件是一个目录文件，此时将复制该目录下所有的子目录和文件。
--l：不复制文件，只是生成链接文件。
-</code></pre><h3 id="解压缩文件夹"><a href="#解压缩文件夹" class="headerlink" title="解压缩文件夹"></a>解压缩文件夹</h3><p>tar命令</p>
+-l：不复制文件，只是生成链接文件。</code></pre><h3 id="解压缩文件夹"><a href="#解压缩文件夹" class="headerlink" title="解压缩文件夹"></a>解压缩文件夹</h3><p>tar命令</p>
 <pre><code>　　解包：tar zxvf FileName.tar
 
-　　打包：tar czvf FileName.tar DirName
-</code></pre><p>zip命令</p>
+　　打包：tar czvf FileName.tar DirName</code></pre><p>zip命令</p>
 <pre><code>　　解压：unzip FileName.zip
 
-　　压缩：zip FileName.zip DirName
-</code></pre><h3 id="rm-删除文件夹"><a href="#rm-删除文件夹" class="headerlink" title="rm 删除文件夹"></a>rm 删除文件夹</h3><p>rm -rf 目录名字   </p>
+　　压缩：zip FileName.zip DirName</code></pre><h3 id="rm-删除文件夹"><a href="#rm-删除文件夹" class="headerlink" title="rm 删除文件夹"></a>rm 删除文件夹</h3><p>rm -rf 目录名字   </p>
 <pre><code>-r 向下递归，不管有多少级目录，一并删除
--f 直接强行删除，没有任何提示
-</code></pre><p>删除文件夹实例：</p>
-<pre><code>rm -rf /var/log/httpd
-</code></pre><p>删除文件使用实例：</p>
-<pre><code>rm -f /var/log/httpd/access.log
-</code></pre><h3 id="文件和目录"><a href="#文件和目录" class="headerlink" title="文件和目录"></a>文件和目录</h3><pre><code>cd /home 进入 &apos;/ home&apos; 目录&apos; 
+-f 直接强行删除，没有任何提示</code></pre><p>删除文件夹实例：</p>
+<pre><code>rm -rf /var/log/httpd</code></pre><p>删除文件使用实例：</p>
+<pre><code>rm -f /var/log/httpd/access.log</code></pre><h3 id="文件和目录"><a href="#文件和目录" class="headerlink" title="文件和目录"></a>文件和目录</h3><pre><code>cd /home 进入 &apos;/ home&apos; 目录&apos; 
 cd .. 返回上一级目录 
 cd ../.. 返回上两级目录 
 cd 进入个人的主目录 
@@ -258,8 +250,7 @@ cp dir/* . 复制一个目录下的所有文件到当前工作目录
 cp -a /tmp/dir1 . 复制一个目录到当前工作目录 
 cp -a dir1 dir2 复制一个目录 
 ln -s file1 lnk1 创建一个指向文件或目录的软链接 
-ln file1 lnk1 创建一个指向文件或目录的物理链接 
-</code></pre><h3 id="文件搜索"><a href="#文件搜索" class="headerlink" title="文件搜索"></a>文件搜索</h3><pre><code>find / -name file1 从 &apos;/&apos; 开始进入根文件系统搜索文件和目录 
+ln file1 lnk1 创建一个指向文件或目录的物理链接 </code></pre><h3 id="文件搜索"><a href="#文件搜索" class="headerlink" title="文件搜索"></a>文件搜索</h3><pre><code>find / -name file1 从 &apos;/&apos; 开始进入根文件系统搜索文件和目录 
 find / -user user1 搜索属于用户 &apos;user1&apos; 的文件和目录 
 find /home/user1 -name \*.bin 在目录 &apos;/ home/user1&apos; 中搜索带有&apos;.bin&apos; 结尾的文件 
 find /usr/bin -type f -atime +100 搜索在过去100天内未被使用过的执行文件 
@@ -268,8 +259,7 @@ find / -name \*.rpm -exec chmod 755 &apos;{}&apos; \; 搜索以 &apos;.rpm&apos;
 find / -xdev -name \*.rpm 搜索以 &apos;.rpm&apos; 结尾的文件，忽略光驱、捷盘等可移动设备 
 locate \*.ps 寻找以 &apos;.ps&apos; 结尾的文件 - 先运行 &apos;updatedb&apos; 命令 
 whereis halt 显示一个二进制文件、源码或man的位置 
-which halt 显示一个二进制文件或可执行文件的完整路径 
-</code></pre><h3 id="打包和压缩文件"><a href="#打包和压缩文件" class="headerlink" title="打包和压缩文件"></a>打包和压缩文件</h3><pre><code>bunzip2 file1.bz2 解压一个叫做 &apos;file1.bz2&apos;的文件 
+which halt 显示一个二进制文件或可执行文件的完整路径 </code></pre><h3 id="打包和压缩文件"><a href="#打包和压缩文件" class="headerlink" title="打包和压缩文件"></a>打包和压缩文件</h3><pre><code>bunzip2 file1.bz2 解压一个叫做 &apos;file1.bz2&apos;的文件 
 bzip2 file1 压缩一个叫做 &apos;file1&apos; 的文件 
 gunzip file1.gz 解压一个叫做 &apos;file1.gz&apos;的文件 
 gzip file1 压缩一个叫做 &apos;file1&apos;的文件 
@@ -289,8 +279,7 @@ tar -cvfz archive.tar.gz dir1 创建一个gzip格式的压缩包
 tar -zxvf archive.tar.gz 解压一个gzip格式的压缩包 
 zip file1.zip file1 创建一个zip格式的压缩包 
 zip -r file1.zip file1 file2 dir1 将几个文件和目录同时压缩成一个zip格式的压缩包 
-unzip file1.zip 解压一个zip格式压缩包 
-</code></pre><h3 id="YUM-软件包升级器-（Fedora-RedHat及类似系统）"><a href="#YUM-软件包升级器-（Fedora-RedHat及类似系统）" class="headerlink" title="YUM 软件包升级器 - （Fedora, RedHat及类似系统）"></a>YUM 软件包升级器 - （Fedora, RedHat及类似系统）</h3><pre><code>yum install package_name 下载并安装一个rpm包 
+unzip file1.zip 解压一个zip格式压缩包 </code></pre><h3 id="YUM-软件包升级器-（Fedora-RedHat及类似系统）"><a href="#YUM-软件包升级器-（Fedora-RedHat及类似系统）" class="headerlink" title="YUM 软件包升级器 - （Fedora, RedHat及类似系统）"></a>YUM 软件包升级器 - （Fedora, RedHat及类似系统）</h3><pre><code>yum install package_name 下载并安装一个rpm包 
 yum localinstall package_name.rpm 将安装一个rpm包，使用你自己的软件仓库为你解决所有依赖关系 
 yum update package_name.rpm 更新当前系统中所有安装的rpm包 
 yum update package_name 更新一个rpm包 
@@ -299,8 +288,7 @@ yum list 列出当前系统中安装的所有包
 yum search package_name 在rpm仓库中搜寻软件包 
 yum clean packages 清理rpm缓存删除下载的包 
 yum clean headers 删除所有头文件 
-yum clean all 删除所有缓存的包和头文件 
-</code></pre><h3 id="文本处理"><a href="#文本处理" class="headerlink" title="文本处理"></a>文本处理</h3><pre><code>cat file1 file2 ... | command &lt;&gt; file1_in.txt_or_file1_out.txt general syntax for text manipulation using PIPE, STDIN and STDOUT 
+yum clean all 删除所有缓存的包和头文件 </code></pre><h3 id="文本处理"><a href="#文本处理" class="headerlink" title="文本处理"></a>文本处理</h3><pre><code>cat file1 file2 ... | command &lt;&gt; file1_in.txt_or_file1_out.txt general syntax for text manipulation using PIPE, STDIN and STDOUT 
 cat file1 | command( sed, grep, awk, grep, etc...) &gt; result.txt 合并一个文件的详细说明文本，并将简介写入一个新文件中 
 cat file1 | command( sed, grep, awk, grep, etc...) &gt;&gt; result.txt 合并一个文件的详细说明文本，并将简介写入一个已有的文件中 
 grep Aug /var/log/messages 在文件 &apos;/var/log/messages&apos;中查找关键词&quot;Aug&quot; 
@@ -330,8 +318,7 @@ sort file1 file2 | uniq -u 删除交集，留下其他的行
 sort file1 file2 | uniq -d 取出两个文件的交集(只留下同时存在于两个文件中的文件) 
 comm -1 file1 file2 比较两个文件的内容只删除 &apos;file1&apos; 所包含的内容 
 comm -2 file1 file2 比较两个文件的内容只删除 &apos;file2&apos; 所包含的内容 
-comm -3 file1 file2 比较两个文件的内容只删除两个文件共有的部分 
-</code></pre>
+comm -3 file1 file2 比较两个文件的内容只删除两个文件共有的部分 </code></pre>
     </div>
     
     <div class="post-footer">
@@ -348,13 +335,13 @@ comm -3 file1 file2 比较两个文件的内容只删除两个文件共有的部
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2018/08/07/搭建自己的翻墙服务器/" class="pre-post btn btn-default" title="搭建自己的翻墙服务器">
+        <a href="/2018/08/07/搭建自己的翻墙服务器/" class="pre-post btn btn-default" title='搭建自己的翻墙服务器'>
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
             <span class="hidden-xs">搭建自己的翻墙服务器</span>
         </a>
     
     
-        <a href="/2018/08/02/centos7配置网关/" class="next-post btn btn-default" title="centos7配置网关">
+        <a href="/2018/08/02/centos7配置网关/" class="next-post btn btn-default" title='centos7配置网关'>
             <span class="hidden-lg">下一篇</span>
             <span class="hidden-xs">centos7配置网关</span><i class="fa fa-angle-right fa-fw"></i>
         </a>

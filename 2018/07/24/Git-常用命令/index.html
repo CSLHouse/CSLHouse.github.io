@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -73,9 +73,9 @@
 <![endif]-->
 
 <body>
-    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <header class="main-header"  style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)"  >
     <div class="main-header-box">
-        <a class="header-avatar" href="/" title="Lin">
+        <a class="header-avatar" href="/" title='Lin'>
             <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
         </a>
         <div class="branding">
@@ -150,8 +150,8 @@
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/Git">
-            Git
+        <a href="/categories/工具">
+            工具
         </a>
     </span>
     
@@ -162,8 +162,8 @@
         <span class="tags-meta">
             
                 
-                    <a href="/tags/Git" title="Git">
-                        Git
+                    <a href="/tags/工具" title='工具'>
+                        工具
                     </a>
                 
             
@@ -184,37 +184,30 @@
             
             
             <p class="fa fa-exclamation-triangle warning">
-                本文于<strong>338</strong>天之前发表，文中内容可能已经过时。
+                本文于<strong>400</strong>天之前发表，文中内容可能已经过时。
             </p>
         
     </div>
     
     <div class="post-body post-content">
         <h3 id="Git-global-setup"><a href="#Git-global-setup" class="headerlink" title="Git global setup"></a>Git global setup</h3><pre><code>git config --global user.name &quot;YourNames&quot;
-git config --global user.email &quot;YourMail&quot;
-</code></pre><p>Create a new repository</p>
+git config --global user.email &quot;YourMail&quot;</code></pre><p>Create a new repository</p>
 <pre><code>git clone git@xxx.com:open/open.git
 cd open
 touch README.md
 git add README.md
 git commit -m &quot;add README&quot;
-git push -u origin master
-</code></pre><p>Existing folder or Git repository</p>
+git push -u origin master</code></pre><p>Existing folder or Git repository</p>
 <pre><code>cd existing_folder
 git init
 git remote add origin git@xxx.com:open/open.git
 git add .
 git commit
-git push -u origin master
-</code></pre><p>如何删除本地分支</p>
-<pre><code>git branch -d branch_name
-</code></pre><p>如何删除远端分支</p>
-<pre><code>git push origin :branch_name
-</code></pre><p>远端分支已经删除，本地还出现这个分支</p>
-<pre><code>git fetch origin -p 
-</code></pre><p>如何撤销上一次提交 <strong><em>高风险操作</em></strong></p>
-<pre><code>git reset ^1 --hard 
-</code></pre>
+git push -u origin master</code></pre><p>如何删除本地分支</p>
+<pre><code>git branch -d branch_name</code></pre><p>如何删除远端分支</p>
+<pre><code>git push origin :branch_name</code></pre><p>远端分支已经删除，本地还出现这个分支</p>
+<pre><code>git fetch origin -p </code></pre><p>如何撤销上一次提交 <strong><em>高风险操作</em></strong></p>
+<pre><code>git reset ^1 --hard </code></pre>
     </div>
     
     <div class="post-footer">
@@ -231,13 +224,13 @@ git push -u origin master
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2018/07/24/charles-android监听websocket/" class="pre-post btn btn-default" title="charles+android监听websocket">
+        <a href="/2018/07/24/charles-android监听websocket/" class="pre-post btn btn-default" title='charles+android监听websocket'>
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
             <span class="hidden-xs">charles+android监听websocket</span>
         </a>
     
     
-        <a href="/2018/07/24/usr-bin-pip-No-such-file-or-directory/" class="next-post btn btn-default" title="/usr/bin/pip: No such file or directory">
+        <a href="/2018/07/24/usr-bin-pip-No-such-file-or-directory/" class="next-post btn btn-default" title='/usr/bin/pip: No such file or directory'>
             <span class="hidden-lg">下一篇</span>
             <span class="hidden-xs">/usr/bin/pip: No such file or directory</span><i class="fa fa-angle-right fa-fw"></i>
         </a>

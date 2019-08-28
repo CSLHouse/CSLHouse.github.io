@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -73,9 +73,9 @@
 <![endif]-->
 
 <body>
-    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <header class="main-header"  style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)"  >
     <div class="main-header-box">
-        <a class="header-avatar" href="/" title="Lin">
+        <a class="header-avatar" href="/" title='Lin'>
             <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
         </a>
         <div class="branding">
@@ -162,11 +162,11 @@
         <span class="tags-meta">
             
                 
-                    <a href="/tags/ansible" title="ansible">
+                    <a href="/tags/ansible" title='ansible'>
                         ansible
                     </a>
                 
-                    <a href="/tags/运维" title="运维">
+                    <a href="/tags/运维" title='运维'>
                         运维
                     </a>
                 
@@ -188,7 +188,7 @@
             
             
             <p class="fa fa-exclamation-triangle warning">
-                本文于<strong>331</strong>天之前发表，文中内容可能已经过时。
+                本文于<strong>393</strong>天之前发表，文中内容可能已经过时。
             </p>
         
     </div>
@@ -200,22 +200,18 @@
 <li>安装：pip install ansible</li>
 </ul>
 <h3 id="建立免密钥登陆"><a href="#建立免密钥登陆" class="headerlink" title="建立免密钥登陆"></a>建立免密钥登陆</h3><p>为了避免Ansible下发指令时输入目标主机密码，通过证书签名达到SSH无密码是一个好的方案，推荐使用ssh-keygen与ssh-copy-id来实现快速证书的生成和公钥下发，其中ssh-keygen生成一对密钥，使用ssh-copy-id来下发生成的公钥。具体操作如下：<br>生成管理主机得私钥和公钥</p>
-<pre><code>ssh-keygen -t rsa -b 2048 -P &apos;&apos; -f /root/.ssh/id_rsa
-</code></pre><p>添加主机信息到主机清单中</p>
+<pre><code>ssh-keygen -t rsa -b 2048 -P &apos;&apos; -f /root/.ssh/id_rsa</code></pre><p>添加主机信息到主机清单中</p>
 <pre><code>#host
 192.168.77.129 ansible_ssh_pass=1234567
-192.168.77.130 ansible_ssh_pass=123456   
-</code></pre><p> ansible_ssh_pass密码如果一样的话，这里就不需要定义了。在运行ansible-playbook时 加上-k参数，就可以输入登陆密码</p>
+192.168.77.130 ansible_ssh_pass=123456   </code></pre><p> ansible_ssh_pass密码如果一样的话，这里就不需要定义了。在运行ansible-playbook时 加上-k参数，就可以输入登陆密码</p>
 <p>配置palybook</p>
 <pre><code>- hosts: testhosts
  user: root
  tasks:
     - name: ssh-copy
       authorized_key: user=root key=&quot;{{ lookup('file', '/Users/tpw-dev/.ssh/id_rsa.pub') }}&quot;
-      tags: sshkey
-</code></pre><p>运行playbook</p>
-<pre><code>ansible-playbook -i hosts ssh-addkey.yml
-</code></pre><p>这样，管理节点的公钥就会添加到节点得authorized_keys文件中，再把主机清单里的ansible_ssh_pass去掉，执行ansible all -m ping 就不需要密码了。</p>
+      tags: sshkey</code></pre><p>运行playbook</p>
+<pre><code>ansible-playbook -i hosts ssh-addkey.yml</code></pre><p>这样，管理节点的公钥就会添加到节点得authorized_keys文件中，再把主机清单里的ansible_ssh_pass去掉，执行ansible all -m ping 就不需要密码了。</p>
 <h3 id="Inventory-清单-文件"><a href="#Inventory-清单-文件" class="headerlink" title="Inventory(清单)文件"></a>Inventory(清单)文件</h3><p>Ansible 可同时操作属于一个组的多台主机,组和主机之间的关系通过 inventory 文件配置. 默认的文件路径为 /etc/ansible/hosts，<br>在执行ansible-book命令时，也可通过执行-i选项制定inventory 文件。</p>
 <p>Inventory 参数的说明</p>
 <pre><code>ansible_ssh_host
@@ -248,8 +244,7 @@
     ansible_python_interpreter
           目标主机的 python 路径.适用于的情况: 系统中有多个 Python, 或者命令路径不是&quot;/usr/bin/python&quot;,比如  \*BSD, 或者 /usr/bin/python
           不是 2.X 版本的 Python.我们不使用 &quot;/usr/bin/env&quot; 机制,因为这要求远程用户的路径设置正确,且要求 &quot;python&quot; 可执行程序名不可为 python以外的名字(实际有可能名为python26).
-          与 ansible_python_interpreter 的工作方式相同,可设定如 ruby 或 perl 的路径....
-</code></pre><h3 id="Playbooks-介绍"><a href="#Playbooks-介绍" class="headerlink" title="Playbooks 介绍"></a>Playbooks 介绍</h3><p>playbook 由一个或多个 ‘plays’ 组成.它的内容是一个以 ‘plays’ 为元素的列表.在 ansible 中,play 的内容,被称为 tasks,即任务.</p>
+          与 ansible_python_interpreter 的工作方式相同,可设定如 ruby 或 perl 的路径....</code></pre><h3 id="Playbooks-介绍"><a href="#Playbooks-介绍" class="headerlink" title="Playbooks 介绍"></a>Playbooks 介绍</h3><p>playbook 由一个或多个 ‘plays’ 组成.它的内容是一个以 ‘plays’ 为元素的列表.在 ansible 中,play 的内容,被称为 tasks,即任务.</p>
 <p>这里有一个 playbook,其中仅包含一个 play:</p>
 <pre><code>---
 - hosts: webservers
@@ -263,21 +258,17 @@
   - name: write the apache config file
     template: src=/srv/httpd.j2 dest=/etc/httpd.conf
     notify:
-    - restart apache
-</code></pre><h4 id="playbook基础"><a href="#playbook基础" class="headerlink" title="playbook基础"></a>playbook基础</h4><h5 id="主机与用户"><a href="#主机与用户" class="headerlink" title="主机与用户"></a>主机与用户</h5><p><strong>hosts 行的内容是一个或多个组或主机的 patterns,以逗号为分隔符</strong></p>
+    - restart apache</code></pre><h4 id="playbook基础"><a href="#playbook基础" class="headerlink" title="playbook基础"></a>playbook基础</h4><h5 id="主机与用户"><a href="#主机与用户" class="headerlink" title="主机与用户"></a>主机与用户</h5><p><strong>hosts 行的内容是一个或多个组或主机的 patterns,以逗号为分隔符</strong></p>
 <p>remote_user 就是账户名:</p>
 <pre><code>---
 - hosts: webservers
-  remote_user: root
-</code></pre><h5 id="Tasks-列表"><a href="#Tasks-列表" class="headerlink" title="Tasks 列表"></a>Tasks 列表</h5><p>每一个 play 包含了一个 task 列表（任务列表）.一个 task 在其所对应的所有主机上（通过 host pattern 匹配的所有主机）执行完毕之后,下一个 task 才会执行.<br>每个 task 的目标在于执行一个 moudle,modules 具有”幂等”性,意思是如果你再一次地执行 moudle,moudle 只会执行必要的改动,只会改变需要改变的地方.所以重复多次执行 playbook 也很安全.<br>下面是一种基本的 task 的定义,service moudle 使用 key=value 格式的参数,这也是大多数 module 使用的参数格式:</p>
+  remote_user: root</code></pre><h5 id="Tasks-列表"><a href="#Tasks-列表" class="headerlink" title="Tasks 列表"></a>Tasks 列表</h5><p>每一个 play 包含了一个 task 列表（任务列表）.一个 task 在其所对应的所有主机上（通过 host pattern 匹配的所有主机）执行完毕之后,下一个 task 才会执行.<br>每个 task 的目标在于执行一个 moudle,modules 具有”幂等”性,意思是如果你再一次地执行 moudle,moudle 只会执行必要的改动,只会改变需要改变的地方.所以重复多次执行 playbook 也很安全.<br>下面是一种基本的 task 的定义,service moudle 使用 key=value 格式的参数,这也是大多数 module 使用的参数格式:</p>
 <pre><code>tasks:
   - name: make sure apache is running
-    service: name=httpd state=running
-</code></pre><p>比较特别的两个 modudle 是 command 和 shell ,它们不使用 key=value 格式的参数,而是这样:</p>
+    service: name=httpd state=running</code></pre><p>比较特别的两个 modudle 是 command 和 shell ,它们不使用 key=value 格式的参数,而是这样:</p>
 <pre><code>tasks:
   - name: disable selinux
-    command: /sbin/setenforce 0
-</code></pre><p><strong>tasks可添加biaoqian(tags),这样在执行命令时可制定tasks</strong><br>如下：</p>
+    command: /sbin/setenforce 0</code></pre><p><strong>tasks可添加biaoqian(tags),这样在执行命令时可制定tasks</strong><br>如下：</p>
 <pre><code>- name: Create Base folder
     file:
       path: &quot;{{baseDeployPathPrefix}}{{serverId}}&quot;
@@ -289,28 +280,24 @@
       dest: &quot;{{baseDeployPathPrefix}}{{serverId}}&quot;
     tags: redis
 
- ansible-playbook -i test_hosts -e &quot;target=s1001&quot; -t createDB site.yml   
-</code></pre><p>-t 后跟tags，这样就可以指定要执行的tasks</p>
+ ansible-playbook -i test_hosts -e &quot;target=s1001&quot; -t createDB site.yml   </code></pre><p>-t 后跟tags，这样就可以指定要执行的tasks</p>
 <h5 id="Handlers-在发生改变时执行的操作"><a href="#Handlers-在发生改变时执行的操作" class="headerlink" title="Handlers: 在发生改变时执行的操作"></a>Handlers: 在发生改变时执行的操作</h5><p>(当发生改动时）’notify’ actions 会在 playbook 的每一个 task 结束时被触发,而且即使有多个不同的 task 通知改动的发生, ‘notify’ actions 只会被触发一次.</p>
 <p>这里有一个例子,当一个文件的内容被改动时,重启两个 services:</p>
 <pre><code>- name: template configuration file
   template: src=template.j2 dest=/etc/foo.conf
   notify:
      - restart memcached
-     - restart apache
-</code></pre><p>‘notify’ 下列出的即是 handlers.</p>
+     - restart apache</code></pre><p>‘notify’ 下列出的即是 handlers.</p>
 <p>Handlers 是由通知者进行 notify, 如果没有被 notify,handlers 不会执行.</p>
 <p>这里是一个 handlers 的示例:</p>
 <pre><code>handlers:
     - name: restart memcached
       service:  name=memcached state=restarted
     - name: restart apache
-      service: name=apache state=restarted
-</code></pre><p><strong>handlers 会按照声明的顺序执行</strong></p>
+      service: name=apache state=restarted</code></pre><p><strong>handlers 会按照声明的顺序执行</strong></p>
 <h5 id="提示与技巧"><a href="#提示与技巧" class="headerlink" title="提示与技巧"></a>提示与技巧</h5><p>如果想看到执行成功的 modules 的输出信息,使用 –verbose flag（否则只有执行失败的才会有输出信息）.</p>
 <p>在执行一个 playbook 之前,想看看这个 playbook 的执行会影响到哪些 hosts,你可以这样做:</p>
-<pre><code>ansible-playbook playbook.yml --list-hosts
-</code></pre><h3 id="Roles"><a href="#Roles" class="headerlink" title="Roles"></a>Roles</h3><p>一个项目的结构如下:</p>
+<pre><code>ansible-playbook playbook.yml --list-hosts</code></pre><h3 id="Roles"><a href="#Roles" class="headerlink" title="Roles"></a>Roles</h3><p>一个项目的结构如下:</p>
 <pre><code>site.yml
 webservers.yml
 fooservers.yml
@@ -330,14 +317,12 @@ roles/
      handlers/
      vars/
      defaults/
-     meta/
-</code></pre><p>一个 playbook 如下:</p>
+     meta/</code></pre><p>一个 playbook 如下:</p>
 <pre><code>---
 - hosts: webservers
   roles:
      - common
-     - webservers
-</code></pre><p>这个 playbook 为一个角色 ‘x’ 指定了如下的行为：</p>
+     - webservers</code></pre><p>这个 playbook 为一个角色 ‘x’ 指定了如下的行为：</p>
 <ul>
 <li>如果 roles/x/tasks/main.yml 存在, 其中列出的 tasks 将被添加到 play 中</li>
 <li>如果 roles/x/handlers/main.yml 存在, 其中列出的 handlers 将被添加到 play 中</li>
@@ -363,16 +348,16 @@ roles/
     - shell: echo &apos;still busy&apos;
 
   post_tasks:
-    - shell: echo &apos;goodbye&apos;
-</code></pre><p><strong>值得指出的是,handlers 会在 ‘pre_tasks’, ‘roles’, ‘tasks’, 和 ‘post_tasks’ 之间自动执行. 如果你想立即执行所有的 handler 命令.</strong></p>
+    - shell: echo &apos;goodbye&apos;</code></pre><p><strong>值得指出的是,handlers 会在 ‘pre_tasks’, ‘roles’, ‘tasks’, 和 ‘post_tasks’ 之间自动执行. 如果你想立即执行所有的 handler 命令.</strong></p>
 <pre><code>tasks:
    - shell: some tasks go here
    - meta: flush_handlers
-   - shell: some other tasks
-</code></pre><h4 id="Ansible-Galaxy"><a href="#Ansible-Galaxy" class="headerlink" title="Ansible Galaxy"></a>Ansible Galaxy</h4><p><a href="https://galaxy.ansible.com/home" target="_blank" rel="noopener">Ansible Galaxy</a> 是一个自由网站，网站提供所有类型的由社区开发的 roles，这对于实现你的自动化项目是一个很好的参考。网站提供这些 roles 的排名、查找以及下载。</p>
+   - shell: some other tasks</code></pre><h4 id="Ansible-Galaxy"><a href="#Ansible-Galaxy" class="headerlink" title="Ansible Galaxy"></a>Ansible Galaxy</h4><p><a href="https://galaxy.ansible.com/home" target="_blank" rel="noopener">Ansible Galaxy</a> 是一个自由网站，网站提供所有类型的由社区开发的 roles，这对于实现你的自动化项目是一个很好的参考。网站提供这些 roles 的排名、查找以及下载。</p>
 <h3 id="Variables-变量"><a href="#Variables-变量" class="headerlink" title="Variables(变量)"></a>Variables(变量)</h3><h4 id="定义变量"><a href="#定义变量" class="headerlink" title="定义变量"></a>定义变量</h4><ul>
-<li>在Inventory中定义变量</li>
-<li>在playbook中定义变量</li>
+<li><p>在Inventory中定义变量</p>
+</li>
+<li><p>在playbook中定义变量</p>
+</li>
 <li><p>在文件和role中定义变量</p>
 <h4 id="使用变量-关于Jinja2"><a href="#使用变量-关于Jinja2" class="headerlink" title="使用变量: 关于Jinja2"></a>使用变量: 关于Jinja2</h4><p>变量替换最基本的形式:</p>
 <p>  template: src=foo.cfg.j2 dest=/foo.cfg</p>
@@ -382,21 +367,13 @@ roles/
 <p>这样是不行的:</p>
 <pre><code>- hosts: app_servers
   vars:
-      app_path: {{ base_path }}/22
-</code></pre><p>你应该这么做:</p>
-<pre><code>- hosts: app_servers
-  vars:
-       app_path: &quot;{{ base_path }}/22&quot;
-</code></pre><h4 id="Facts"><a href="#Facts" class="headerlink" title="Facts"></a>Facts</h4><p>Facts通过访问远程系统获取相应的信息. 一个例子就是远程主机的IP地址或者操作系统是什么. 使用以下命令可以查看哪些信息是可用的:</p>
-<pre><code>ansible hostname -m setup
-</code></pre><p>这会返回巨量的变量数据,默认是生成这些信息的，可以在playbook中这样引用远程系统的主机名</p>
-<pre><code>{{ ansible_nodename }}
-</code></pre><p>关闭Facts</p>
+      app_path: {{ base_path }}/22</code></pre><p>你应该这么做:<br>    - hosts: app_servers<br>      vars:<br>           app_path: “/22”</p>
+<h4 id="Facts"><a href="#Facts" class="headerlink" title="Facts"></a>Facts</h4><p>Facts通过访问远程系统获取相应的信息. 一个例子就是远程主机的IP地址或者操作系统是什么. 使用以下命令可以查看哪些信息是可用的:</p>
+<pre><code>ansible hostname -m setup</code></pre><p>这会返回巨量的变量数据,默认是生成这些信息的，可以在playbook中这样引用远程系统的主机名</p>
+<pre><code>{{ ansible_nodename }}</code></pre><p>关闭Facts</p>
 <pre><code>- hosts: whatever
-  gather_facts: no
-</code></pre><h4 id="Fact缓存"><a href="#Fact缓存" class="headerlink" title="Fact缓存"></a>Fact缓存</h4><p>因为缓存的存在，从一个服务器引用另一个服务器的变量是可行的.</p>
-<pre><code>{{ hostvars['asdf.example.com']['ansible_os_family'] }}
-</code></pre><h4 id="命令行中传递变量"><a href="#命令行中传递变量" class="headerlink" title="命令行中传递变量"></a>命令行中传递变量</h4><p>除了<code>vars_prompt</code>和<code>vars_files</code>也可以通过Ansible命令行发送变量.如果你想编写一个通用的发布playbook时则特别有用,你可以传递应用的版本以便部署:</p>
+  gather_facts: no</code></pre><h4 id="Fact缓存"><a href="#Fact缓存" class="headerlink" title="Fact缓存"></a>Fact缓存</h4><p>因为缓存的存在，从一个服务器引用另一个服务器的变量是可行的.</p>
+<pre><code>{{ hostvars['asdf.example.com']['ansible_os_family'] }}</code></pre><h4 id="命令行中传递变量"><a href="#命令行中传递变量" class="headerlink" title="命令行中传递变量"></a>命令行中传递变量</h4><p>除了<code>vars_prompt</code>和<code>vars_files</code>也可以通过Ansible命令行发送变量.如果你想编写一个通用的发布playbook时则特别有用,你可以传递应用的版本以便部署:</p>
 <pre><code>---
 - hosts: &quot;{{ target }}&quot;
   gather_facts: false
@@ -406,8 +383,7 @@ roles/
   - game
 
 
-ansible-playbook -i test_hosts -e &quot;target=s1001&quot; -t createDB site.yml
-</code></pre><h3 id="条件选择"><a href="#条件选择" class="headerlink" title="条件选择"></a>条件选择</h3><h4 id="When-语句"><a href="#When-语句" class="headerlink" title="When 语句"></a>When 语句</h4><p>想忽略某一错误,通过执行成功与否来做决定,我们可以像这样:</p>
+ansible-playbook -i test_hosts -e &quot;target=s1001&quot; -t createDB site.yml</code></pre><h3 id="条件选择"><a href="#条件选择" class="headerlink" title="条件选择"></a>条件选择</h3><h4 id="When-语句"><a href="#When-语句" class="headerlink" title="When 语句"></a>When 语句</h4><p>想忽略某一错误,通过执行成功与否来做决定,我们可以像这样:</p>
 <pre><code>tasks:
   - command: /bin/false
     register: result
@@ -417,25 +393,20 @@ ansible-playbook -i test_hosts -e &quot;target=s1001&quot; -t createDB site.yml
   - command: /bin/something_else
     when: result|success
   - command: /bin/still/something_else
-    when: result|skipped
-</code></pre><p>如果想查看哪些事件在某个特定系统中时允许的,可以执行以下命令:</p>
-<pre><code>ansible hostname.example.com -m setup
-</code></pre><p>有些时候你得到一个返回参数的值是一个字符串,并且你还想使用数学操作来比较它,那么你可以执行一下操作:</p>
+    when: result|skipped</code></pre><p>如果想查看哪些事件在某个特定系统中时允许的,可以执行以下命令:</p>
+<pre><code>ansible hostname.example.com -m setup</code></pre><p>有些时候你得到一个返回参数的值是一个字符串,并且你还想使用数学操作来比较它,那么你可以执行一下操作:</p>
 <pre><code>tasks:
   - shell: echo &quot;only on Red Hat 6, derivatives, and later&quot;
-    when: ansible_os_family == &quot;RedHat&quot; and ansible_lsb.major_release|int &gt;= 6    
-</code></pre><h4 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h4><h5 id="标准循环"><a href="#标准循环" class="headerlink" title="标准循环"></a>标准循环</h5><p>为了保持简洁,重复的任务可以用以下简写的方式:</p>
+    when: ansible_os_family == &quot;RedHat&quot; and ansible_lsb.major_release|int &gt;= 6    </code></pre><h4 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h4><h5 id="标准循环"><a href="#标准循环" class="headerlink" title="标准循环"></a>标准循环</h5><p>为了保持简洁,重复的任务可以用以下简写的方式:</p>
 <pre><code>- name: add several users
   user: name={{ item.name }} state=present groups={{ item.groups }}
   with_items:
     - { name: &apos;testuser1&apos;, groups: &apos;wheel&apos; }
-    - { name: &apos;testuser2&apos;, groups: &apos;root&apos; }
-</code></pre><h5 id="嵌套循环"><a href="#嵌套循环" class="headerlink" title="嵌套循环"></a>嵌套循环</h5><pre><code>- name: give users access to multiple databases
+    - { name: &apos;testuser2&apos;, groups: &apos;root&apos; }</code></pre><h5 id="嵌套循环"><a href="#嵌套循环" class="headerlink" title="嵌套循环"></a>嵌套循环</h5><pre><code>- name: give users access to multiple databases
   mysql_user: name={{ item[0] }} priv={{ item[1] }}.*:ALL append_privs=yes password=foo
   with_nested:
     - [ &apos;alice&apos;, &apos;bob&apos; ]
-    - [ &apos;clientdb&apos;, &apos;employeedb&apos;, &apos;providerdb&apos; ]
-</code></pre><h5 id="对哈希表使用循环"><a href="#对哈希表使用循环" class="headerlink" title="对哈希表使用循环"></a>对哈希表使用循环</h5><p>假如你有以下变量:</p>
+    - [ &apos;clientdb&apos;, &apos;employeedb&apos;, &apos;providerdb&apos; ]</code></pre><h5 id="对哈希表使用循环"><a href="#对哈希表使用循环" class="headerlink" title="对哈希表使用循环"></a>对哈希表使用循环</h5><p>假如你有以下变量:</p>
 <pre><code>---
 users:
   alice:
@@ -443,13 +414,11 @@ users:
     telephone: 123-456-7890
   bob:
     name: Bob Bananarama
-    telephone: 987-654-3210
-</code></pre><p>你想打印出每个用户的名称和电话号码.你可以使用 with_dict 来循环哈希表中的元素:</p>
+    telephone: 987-654-3210</code></pre><p>你想打印出每个用户的名称和电话号码.你可以使用 with_dict 来循环哈希表中的元素:</p>
 <pre><code>tasks:
   - name: Print phone records
     debug: msg=&quot;User {{ item.key }} is {{ item.value.name }} ({{ item.value.telephone }})&quot;
-    with_dict: &quot;{{users}}&quot;
-</code></pre><h5 id="对文件列表使用循环"><a href="#对文件列表使用循环" class="headerlink" title="对文件列表使用循环"></a>对文件列表使用循环</h5><p> with_fileglob 可以以非递归的方式来模式匹配单个目录中的文件.如下面所示:</p>
+    with_dict: &quot;{{users}}&quot;</code></pre><h5 id="对文件列表使用循环"><a href="#对文件列表使用循环" class="headerlink" title="对文件列表使用循环"></a>对文件列表使用循环</h5><p> with_fileglob 可以以非递归的方式来模式匹配单个目录中的文件.如下面所示:</p>
 <pre><code>---
 - hosts: all
 
@@ -461,18 +430,15 @@ users:
     # copy each file over that matches the given pattern
     - copy: src={{ item }} dest=/etc/fooapp/ owner=root mode=600
       with_fileglob:
-        - /playbooks/files/fooapp/*
-</code></pre><h5 id="对并行数据集使用循环"><a href="#对并行数据集使用循环" class="headerlink" title="对并行数据集使用循环"></a>对并行数据集使用循环</h5><p>假设你通过某种方式加载了以下变量数据:</p>
+        - /playbooks/files/fooapp/*</code></pre><h5 id="对并行数据集使用循环"><a href="#对并行数据集使用循环" class="headerlink" title="对并行数据集使用循环"></a>对并行数据集使用循环</h5><p>假设你通过某种方式加载了以下变量数据:</p>
 <pre><code>---
 alpha: [ &apos;a&apos;, &apos;b&apos;, &apos;c&apos;, &apos;d&apos; ]
-numbers:  [ 1, 2, 3, 4 ]   
-</code></pre><p>如果你想得到’(a, 1)’和’(b, 2)’之类的集合.可以使用’with_together’:</p>
+numbers:  [ 1, 2, 3, 4 ]   </code></pre><p>如果你想得到’(a, 1)’和’(b, 2)’之类的集合.可以使用’with_together’:</p>
 <pre><code>tasks:
     - debug: msg=&quot;{{ item.0 }} and {{ item.1 }}&quot;
       with_together:
         - &quot;{{alpha}}&quot;
-        - &quot;{{numbers}}&quot;
-</code></pre><h5 id="对子元素使用循环"><a href="#对子元素使用循环" class="headerlink" title="对子元素使用循环"></a>对子元素使用循环</h5><p>假设你想对一组用户做一些动作,比如创建这些用户,并且允许它们使用一组SSH key来登录.</p>
+        - &quot;{{numbers}}&quot;</code></pre><h5 id="对子元素使用循环"><a href="#对子元素使用循环" class="headerlink" title="对子元素使用循环"></a>对子元素使用循环</h5><p>假设你想对一组用户做一些动作,比如创建这些用户,并且允许它们使用一组SSH key来登录.</p>
 <p>如何实现那? 先假设你有按以下方式定义的数据,可以通过”vars_files”或”group_vars/all”文件加载:</p>
 <pre><code>---
 users:
@@ -499,22 +465,19 @@ users:
           - &quot;db1&quot;
         privs:
           - &quot;*.*:SELECT&quot;
-          - &quot;DB2.*:ALL&quot;
-</code></pre><p>那么可以这样实现:</p>
+          - &quot;DB2.*:ALL&quot;</code></pre><p>那么可以这样实现:</p>
 <pre><code>- user: name={{ item.name }} state=present generate_ssh_key=yes
   with_items: &quot;{{users}}&quot;
 
 - authorized_key: &quot;user={{ item.0.name }} key=&apos;{{ lookup('file', item.1) }}&apos;&quot;
   with_subelements:
      - users
-     - authorized
-</code></pre><p>根据mysql hosts以及预先给定的privs subkey列表,我们也可以在嵌套的subkey中迭代列表:</p>
+     - authorized</code></pre><p>根据mysql hosts以及预先给定的privs subkey列表,我们也可以在嵌套的subkey中迭代列表:</p>
 <pre><code>- name: Setup MySQL users
   mysql_user: name={{ item.0.user }} password={{ item.0.mysql.password }} host={{ item.1 }} priv={{ item.0.mysql.privs | join('/') }}
   with_subelements:
     - users
-    - mysql.hosts
-</code></pre><h5 id="对整数序列使用循环"><a href="#对整数序列使用循环" class="headerlink" title="对整数序列使用循环"></a>对整数序列使用循环</h5><p>with_sequence 可以以升序数字顺序生成一组序列.你可以指定起始值、终止值,以及一个可选的步长值.</p>
+    - mysql.hosts</code></pre><h5 id="对整数序列使用循环"><a href="#对整数序列使用循环" class="headerlink" title="对整数序列使用循环"></a>对整数序列使用循环</h5><p>with_sequence 可以以升序数字顺序生成一组序列.你可以指定起始值、终止值,以及一个可选的步长值.</p>
 <p>指定参数时也可以使用key=value这种键值对的方式.如果采用这种方式,’format’是一个可打印的字符串.</p>
 <p>数字值可以被指定为10进制,16进制(0x3f8)或者八进制(0600).负数则不受支持.请看以下示例:</p>
 <pre><code>---
@@ -537,27 +500,23 @@ users:
     # a simpler way to use the sequence plugin
     # create 4 groups
     - group: name=group{{ item }} state=present
-      with_sequence: count=4
-</code></pre><h5 id="随机选择"><a href="#随机选择" class="headerlink" title="随机选择"></a>随机选择</h5><p>‘random_choice’功能可以用来随机获取一些值.它并不是负载均衡器(已经有相关的模块了).它有时可以用作一个简化版的负载均衡器,比如作为条件判断:</p>
+      with_sequence: count=4</code></pre><h5 id="随机选择"><a href="#随机选择" class="headerlink" title="随机选择"></a>随机选择</h5><p>‘random_choice’功能可以用来随机获取一些值.它并不是负载均衡器(已经有相关的模块了).它有时可以用作一个简化版的负载均衡器,比如作为条件判断:</p>
 <pre><code>- debug: msg={{ item }}
   with_random_choice:
      - &quot;go through the door&quot;
      - &quot;drink from the goblet&quot;
      - &quot;press the red button&quot;
-     - &quot;do nothing&quot;
-</code></pre><h5 id="Do-Until循环"><a href="#Do-Until循环" class="headerlink" title="Do-Until循环"></a>Do-Until循环</h5><p>有时你想重试一个任务直到达到某个条件.比如下面这个例子:  </p>
+     - &quot;do nothing&quot;</code></pre><h5 id="Do-Until循环"><a href="#Do-Until循环" class="headerlink" title="Do-Until循环"></a>Do-Until循环</h5><p>有时你想重试一个任务直到达到某个条件.比如下面这个例子:  </p>
 <pre><code>- action: shell /usr/bin/foo
   register: result
   until: result.stdout.find(&quot;all systems go&quot;) != -1
   retries: 5
-  delay: 10
-</code></pre><h5 id="查找第一个匹配的文件"><a href="#查找第一个匹配的文件" class="headerlink" title="查找第一个匹配的文件"></a>查找第一个匹配的文件</h5><p>这其实不是一个循环,但和循环很相似.如果你想引用一个文件,而该文件是从一组文件中根据给定条件匹配出来的.这组文件中部分文件名由变量拼接而成.针对该场景你可以这样做:</p>
+  delay: 10</code></pre><h5 id="查找第一个匹配的文件"><a href="#查找第一个匹配的文件" class="headerlink" title="查找第一个匹配的文件"></a>查找第一个匹配的文件</h5><p>这其实不是一个循环,但和循环很相似.如果你想引用一个文件,而该文件是从一组文件中根据给定条件匹配出来的.这组文件中部分文件名由变量拼接而成.针对该场景你可以这样做:</p>
 <pre><code>- name: INTERFACES | Create Ansible header for /etc/network/interfaces
   template: src={{ item }} dest=/etc/foo.conf
   with_first_found:
     - &quot;{{ansible_virtualization_type}}_foo.conf&quot;
-    - &quot;default_foo.conf&quot;
-</code></pre><p>该功能还有一个更完整的版本,可以配置搜索路径.请看以下示例:</p>
+    - &quot;default_foo.conf&quot;</code></pre><p>该功能还有一个更完整的版本,可以配置搜索路径.请看以下示例:</p>
 <pre><code>- name: some configuration template
   template: src={{ item }} dest=/etc/file.cfg mode=0444 owner=root group=root
   with_first_found:
@@ -569,8 +528,7 @@ users:
     - files:
         - etc/file.cfg
       paths:
-        - templates
-</code></pre>
+        - templates</code></pre>
     </div>
     
     <div class="post-footer">
@@ -587,13 +545,13 @@ users:
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2018/08/02/centos7配置网关/" class="pre-post btn btn-default" title="centos7配置网关">
+        <a href="/2018/08/02/centos7配置网关/" class="pre-post btn btn-default" title='centos7配置网关'>
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
             <span class="hidden-xs">centos7配置网关</span>
         </a>
     
     
-        <a href="/2018/07/24/前端UI框架/" class="next-post btn btn-default" title="前端UI框架">
+        <a href="/2018/07/24/前端UI框架/" class="next-post btn btn-default" title='前端UI框架'>
             <span class="hidden-lg">下一篇</span>
             <span class="hidden-xs">前端UI框架</span><i class="fa fa-angle-right fa-fw"></i>
         </a>

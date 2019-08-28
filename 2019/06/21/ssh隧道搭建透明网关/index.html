@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -73,9 +73,9 @@
 <![endif]-->
 
 <body>
-    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <header class="main-header"  style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)"  >
     <div class="main-header-box">
-        <a class="header-avatar" href="/" title="Lin">
+        <a class="header-avatar" href="/" title='Lin'>
             <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
         </a>
         <div class="branding">
@@ -162,11 +162,11 @@
         <span class="tags-meta">
             
                 
-                    <a href="/tags/标签1" title="标签1">
+                    <a href="/tags/标签1" title='标签1'>
                         标签1
                     </a>
                 
-                    <a href="/tags/标签2" title="标签2">
+                    <a href="/tags/标签2" title='标签2'>
                         标签2
                     </a>
                 
@@ -190,22 +190,26 @@
     </div>
     
     <div class="post-body post-content">
-        <h5 id="环境说明"><a href="#环境说明" class="headerlink" title="环境说明"></a>环境说明</h5><p>192.168.1.9 局域网内主机做透明网关服务器 安装centos7.4<br>13.115.71.* 墙外服务器 linux系统</p>
-<h5 id="墙外服务器设置"><a href="#墙外服务器设置" class="headerlink" title="墙外服务器设置"></a>墙外服务器设置</h5><ol>
-<li>打开ipv4转发<blockquote>
+        <h2 id="环境说明"><a href="#环境说明" class="headerlink" title="环境说明"></a>环境说明</h2><p>192.168.1.246 局域网内主机做透明网关服务器 安装centos7.4<br>13.115.71.* 墙外服务器 linux系统</p>
+<h2 id="墙外服务器设置"><a href="#墙外服务器设置" class="headerlink" title="墙外服务器设置"></a>墙外服务器设置</h2><ol>
+<li><p>打开ipv4转发</p>
+<blockquote>
 <p>/etc/sysctl.conf net.ipv4.ip_forward=1<br>sysctl -p<br>cat /proc/sys/net/ipv4/ip_forward 验证</p>
 </blockquote>
 </li>
-<li>设置iptables源地址转发<blockquote>
+<li><p>设置iptables源地址转发</p>
+<blockquote>
 <p>iptables -t nat -A POSTROUTING -s 192.168.200.0/24 -o eth0 -j MASQUERADE</p>
 </blockquote>
 </li>
-<li>打开ssh隧道功能<blockquote>
+<li><p>打开ssh隧道功能</p>
+<blockquote>
 <p>/etc/ssh/sshd_config PermitTunnel yes<br>重启sshd服务 service sshd restart</p>
 </blockquote>
 </li>
 <li><p>执行脚本ssh_tun_server.sh</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">iptables -t nat -A POSTROUTING -s 192.168.200.0/24 -o eth0 -j MASQUERADE</span><br><span class="line"></span><br><span class="line">ip tuntap add mode tun</span><br><span class="line">ip link set tun0 up</span><br><span class="line">ip addr add 192.168.200.1/32 peer 192.168.200.2 dev tun0</span><br><span class="line">arp -sD 192.168.200.2 eth0 pub</span><br><span class="line">iptables -t nat -A POSTROUTING -s 192.168.200.2 -o eth0 -j MASQUERADE</span><br></pre></td></tr></table></figure>
+
 <ol start="5">
 <li>执行文件时出现-bash: ./test.sh: /bin/sh^M: bad interpreter: No such file or directory  <ul>
 <li>首先用vi命令打开文件</li>
@@ -217,40 +221,61 @@
 </ol>
 </li>
 </ol>
-<h5 id="网关服务器设置"><a href="#网关服务器设置" class="headerlink" title="网关服务器设置"></a>网关服务器设置</h5><ol>
-<li>私钥连接墙外服务器<ul>
-<li>在服务器端ssh-keygen -t rsa -b 2048</li>
-<li>在.ssh目录下 cat id_rsa.pub &gt;&gt; authorized_keys</li>
-<li>在dns服务器端 上传私钥id_rsa   scp <a href="mailto:root@118.24.77.34" target="_blank" rel="noopener">root@118.24.77.34</a>:~/.ssh/id_rsa ./ </li>
-<li>chmod 400 id_rsa</li>
-<li>ssh -i id_rsa <a href="mailto:root@118.24.77.34" target="_blank" rel="noopener">root@118.24.77.34</a><br>一般vps都可以自己创建私钥，直接下载传到网关服务器就好</li>
+<h2 id="本地网关服务器设置"><a href="#本地网关服务器设置" class="headerlink" title="本地网关服务器设置"></a>本地网关服务器设置</h2><ol>
+<li><p>私钥连接vps云服务器<br>以腾讯云为例：</p>
+<blockquote>
+<p>chmod 400 [key]<br>ssh -i [key] root@vps_ip</p>
+</blockquote>
+</li>
+<li><p>安装dnsmasq</p>
+<ul>
+<li><p>安装命令：</p>
+<blockquote>
+<p>yum -y install dnsmasq</p>
+</blockquote>
+</li>
+<li><p>dnsmasq.conf配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">resolv-file=/etc/resolv.dnsmasq.conf</span><br><span class="line">strict-order</span><br><span class="line">domain-needed</span><br><span class="line">listen-address=127.0.0.1,192.168.1.246</span><br><span class="line">conf-dir=/etc/dnsmasq.d,.rpmnew,.rpmsave,.rpmorig</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>resolv.dnsmasq.conf配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nameserver 119.29.29.29</span><br><span class="line">nameserver 114.114.114.114</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>/etc/resolv.conf配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nameserver 127.0.0.1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>命令：</p>
+<blockquote>
+<p>systemctl enable dnsmasq<br>systemctl start dnsmasq<br>systemctl restart dnsmasq</p>
+</blockquote>
+</li>
 </ul>
 </li>
-<li><p>连接墙外服务器</p>
-<blockquote>
-<p>channel 0: open failed: administratively prohibited: open failed</p>
-</blockquote>
-<p>执行ssh -NTCf -w 0:0 -i storm <a href="mailto:root@118.24.77.34" target="_blank" rel="noopener">root@118.24.77.34</a>时出现以上错误。<br>解决办法：两端开启隧道功能PermitTunnel yes</p>
+<li><p>安装iptables</p>
+<ul>
+<li>命令：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">#先检查是否安装了iptables</span><br><span class="line">service iptables status</span><br><span class="line">#安装iptables</span><br><span class="line">yum install -y iptables</span><br><span class="line">#升级iptables</span><br><span class="line">yum update iptables </span><br><span class="line">#安装iptables-services</span><br><span class="line">yum install iptables-services</span><br><span class="line">#停止firewalld服务</span><br><span class="line">service iptables stop</span><br><span class="line">#相当于以前的chkconfig iptables on</span><br><span class="line">systemctl enable iptables.service</span><br><span class="line">#开启服务</span><br><span class="line">service iptables start</span><br><span class="line">#保存规则</span><br><span class="line">service iptables save</span><br><span class="line">iptables-save &gt; [path]</span><br><span class="line">#读取规则</span><br><span class="line">iptables-restore &lt; [path]</span><br></pre></td></tr></table></figure>
 </li>
-<li>Permission denied (publickey,gssapi-keyex,gssapi-with-mic)<br>vi /etc/ssh/sshd_config<br> PermitRootLogin yes-&gt;no<br> UsePAM yes-&gt;no<br> PasswordAuthentication yes-&gt;no</li>
-<li><p>安装dnsmasq </p>
-<blockquote>
-<p>yum install dnsmasq -y</p>
-</blockquote>
-<p>vim /etc/dnsmasq.conf</p>
+</ul>
 </li>
-<li><p>打开iptables</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#先检查是否安装了iptables</span><br><span class="line">service iptables status</span><br><span class="line">#安装iptables</span><br><span class="line">yum install -y iptables</span><br><span class="line">#升级iptables</span><br><span class="line">yum update iptables </span><br><span class="line">#安装iptables-services</span><br><span class="line">yum install iptables-services</span><br><span class="line"></span><br><span class="line">#查看iptables现有规则</span><br><span class="line">iptables -L -n</span><br><span class="line">#先允许所有,不然有可能会杯具</span><br><span class="line">iptables -P INPUT ACCEPT</span><br><span class="line">#清空所有默认规则</span><br><span class="line">iptables -F</span><br><span class="line">#清空所有自定义规则</span><br><span class="line">iptables -X</span><br><span class="line"></span><br><span class="line">#注册iptables服务</span><br><span class="line">#相当于以前的chkconfig iptables on</span><br><span class="line">systemctl enable iptables.service</span><br><span class="line">#开启服务</span><br><span class="line">systemctl start iptables.service</span><br><span class="line">#查看状态</span><br><span class="line">systemctl status iptables.service</span><br></pre></td></tr></table></figure>
-<p> 打开53端口<br> iptables -t nat -A INPUT -p udp -m udp –dport 53 -j ACCEPT<br> iptables -t nat -A OUTPUT -p udp -m udp –sport 53 -j ACCEPT</p>
-</li>
-<li><p>删除默认网关</p>
+<li><p>打开ipv4转发</p>
 <blockquote>
-<p>route del default</p>
+<p>/etc/sysctl.conf net.ipv4.ip_forward=1<br>sysctl -p<br>cat /proc/sys/net/ipv4/ip_forward 验证</p>
 </blockquote>
 </li>
-<li><p>执行脚本clien.sh</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">ip tuntap add tun0 mode tun</span><br><span class="line">ip link set tun0 up</span><br><span class="line">ip addr add 192.168.200.2/32 peer 192.168.200.1 dev tun0</span><br><span class="line"></span><br><span class="line">ssh -NTCf -w 0:0 -i storm root@118.24.77.34</span><br><span class="line">ip route add 118.24.77.34 via 192.168.1.1  </span><br><span class="line">ip route add default via 192.168.200.1</span><br><span class="line"></span><br><span class="line">iptables -t nat -F</span><br><span class="line">iptables -t nat -A INPUT -p udp -m udp --dport 53 -j ACCEPT</span><br><span class="line">iptables -t nat -A OUTPUT -p udp -m udp --sport 53 -j ACCEPT</span><br><span class="line">iptables -t nat -A POSTROUTING -d 118.24.77.34 -o enp1s0 -j MASQUERADE</span><br><span class="line">iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -o tun0 -j MASQUERADE</span><br></pre></td></tr></table></figure>
+<li><p>打开ssh隧道功能</p>
+<blockquote>
+<p>/etc/ssh/sshd_config PermitTunnel yes<br> 重启sshd服务 service sshd restart</p>
+</blockquote>
 </li>
+<li><p>执行脚本</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">ip tuntap add tun0 mode tun</span><br><span class="line">ip link set tun0 up</span><br><span class="line">ip addr add 192.168.200.2/32 peer 192.168.200.1 dev tun0</span><br><span class="line"></span><br><span class="line">ssh -NTCf -w 0:0 -i [vps密钥路径] root@[vps_ip] </span><br><span class="line">ip route add [vps_ip] via 192.168.1.1  #vps以太网口直接出去</span><br><span class="line">ip route add default via 192.168.200.1</span><br><span class="line"></span><br><span class="line">iptables -F</span><br><span class="line">iptables -t nat -F</span><br><span class="line">iptables -t nat -A INPUT -p udp -m udp --dport 53 -j ACCEPT</span><br><span class="line">iptables -t nat -A OUTPUT -p udp -m udp --sport 53 -j ACCEPT</span><br><span class="line">iptables -t nat -A POSTROUTING -d [vps_ip] -o ens33 -j MASQUERADE</span><br><span class="line">iptables -t nat -A POSTROUTING -s 192.168.1.0/24 -o tun0 -j MASQUERADE</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>国内外数据分流</p>
+<ul>
+<li>优化dns数据分流<br>创建/etc/dnsmasq.d/china.dns文件，内容获取方式：wget <a href="https://raw.githubusercontent.com/qiuyuanfeng/dnsmasq-china-list/master/accelerated-domains.china.conf" target="_blank" rel="noopener">https://raw.githubusercontent.com</a></li>
+</ul>
+</li>
+</ol>
+<ol start="7">
 <li></li>
 </ol>
 
@@ -270,13 +295,13 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2019/06/27/Python-单例模式/" class="pre-post btn btn-default" title="" python-单例模式''="">
+        <a href="/2019/06/27/Python-单例模式/" class="pre-post btn btn-default" title=''Python-单例模式''>
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
             <span class="hidden-xs">'Python-单例模式'</span>
         </a>
     
     
-        <a href="/2019/05/10/Python你的主机中的软件中止了一个已建立的连接/" class="next-post btn btn-default" title="Python你的主机中的软件中止了一个已建立的连接">
+        <a href="/2019/05/10/Python你的主机中的软件中止了一个已建立的连接/" class="next-post btn btn-default" title='Python你的主机中的软件中止了一个已建立的连接'>
             <span class="hidden-lg">下一篇</span>
             <span class="hidden-xs">Python你的主机中的软件中止了一个已建立的连接</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
@@ -321,7 +346,7 @@
     <div class="widget">
         <h3 class="title">文章目录</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#环境说明"><span class="toc-text">环境说明</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#墙外服务器设置"><span class="toc-text">墙外服务器设置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#网关服务器设置"><span class="toc-text">网关服务器设置</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#环境说明"><span class="toc-text">环境说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#墙外服务器设置"><span class="toc-text">墙外服务器设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#本地网关服务器设置"><span class="toc-text">本地网关服务器设置</span></a></li></ol>
         
     </div>
 </aside>

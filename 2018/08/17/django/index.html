@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -73,9 +73,9 @@
 <![endif]-->
 
 <body>
-    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <header class="main-header"  style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)"  >
     <div class="main-header-box">
-        <a class="header-avatar" href="/" title="Lin">
+        <a class="header-avatar" href="/" title='Lin'>
             <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
         </a>
         <div class="branding">
@@ -162,11 +162,11 @@
         <span class="tags-meta">
             
                 
-                    <a href="/tags/Python" title="Python">
+                    <a href="/tags/Python" title='Python'>
                         Python
                     </a>
                 
-                    <a href="/tags/django" title="django">
+                    <a href="/tags/django" title='django'>
                         django
                     </a>
                 
@@ -188,38 +188,32 @@
             
             
             <p class="fa fa-exclamation-triangle warning">
-                本文于<strong>314</strong>天之前发表，文中内容可能已经过时。
+                本文于<strong>376</strong>天之前发表，文中内容可能已经过时。
             </p>
         
     </div>
     
     <div class="post-body post-content">
         <h2 id="开启新项目"><a href="#开启新项目" class="headerlink" title="开启新项目"></a>开启新项目</h2><h4 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h4><p>cd 到一个你想放置你代码的目录，然后运行以下命令：</p>
-<pre><code>$ django-admin startproject mysite
-</code></pre><p>运行：</p>
-<pre><code>$ python manage.py runserver
-</code></pre><p>更换端口：</p>
-<pre><code>$ python manage.py runserver 8080
-</code></pre><h4 id="创建应用"><a href="#创建应用" class="headerlink" title="创建应用"></a>创建应用</h4><p>应用是一个专门做某件事的网络应用程序——比如博客系统，或者公共记录的数据库，或者简单的投票程序。项目则是一个网站使用的配置和应用的集合。项目可以包含很多个应用。应用可以被很多个项目使用。</p>
+<pre><code>$ django-admin startproject mysite</code></pre><p>运行：</p>
+<pre><code>$ python manage.py runserver</code></pre><p>更换端口：</p>
+<pre><code>$ python manage.py runserver 8080</code></pre><h4 id="创建应用"><a href="#创建应用" class="headerlink" title="创建应用"></a>创建应用</h4><p>应用是一个专门做某件事的网络应用程序——比如博客系统，或者公共记录的数据库，或者简单的投票程序。项目则是一个网站使用的配置和应用的集合。项目可以包含很多个应用。应用可以被很多个项目使用。</p>
 <p>manage.py 所在的目录下，运行命令</p>
-<pre><code>$ python manage.py startapp polls
-</code></pre><h2 id="编写视图"><a href="#编写视图" class="headerlink" title="编写视图"></a>编写视图</h2><p>在 polls 目录里新建一个 urls.py 文件，输入如下代码：</p>
+<pre><code>$ python manage.py startapp polls</code></pre><h2 id="编写视图"><a href="#编写视图" class="headerlink" title="编写视图"></a>编写视图</h2><p>在 polls 目录里新建一个 urls.py 文件，输入如下代码：</p>
 <pre><code>from django.urls import path
 
 from . import views
 
 urlpatterns = [
     path(&apos;&apos;, views.index, name=&apos;index&apos;),
-]
-</code></pre><p>下一步是要在根 URLconf 文件中指定我们创建的 polls.urls 模块。在 mysite/urls.py 文件的 urlpatterns 列表里插入一个 include()， 如下：</p>
+]</code></pre><p>下一步是要在根 URLconf 文件中指定我们创建的 polls.urls 模块。在 mysite/urls.py 文件的 urlpatterns 列表里插入一个 include()， 如下：</p>
 <pre><code>from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
     path(&apos;polls/&apos;, include(&apos;polls.urls&apos;)),
     path(&apos;admin/&apos;, admin.site.urls),
-]
-</code></pre><h4 id="path-参数"><a href="#path-参数" class="headerlink" title="path() 参数"></a>path() 参数</h4><ul>
+]</code></pre><h4 id="path-参数"><a href="#path-参数" class="headerlink" title="path() 参数"></a>path() 参数</h4><ul>
 <li>route</li>
 </ul>
 <p>route 是一个匹配 URL 的准则（类似正则表达式）。当 Django 响应一个请求时，它会从 urlpatterns 的第一项开始，按顺序依次匹配列表中的项，直到找到匹配的项。</p>
@@ -259,8 +253,7 @@ class Question(models.Model):
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice_text = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)
-</code></pre><h2 id="激活模型"><a href="#激活模型" class="headerlink" title="激活模型"></a>激活模型</h2><p>上面的一小段用于创建模型的代码,Django 可以：</p>
+    votes = models.IntegerField(default=0)</code></pre><h2 id="激活模型"><a href="#激活模型" class="headerlink" title="激活模型"></a>激活模型</h2><p>上面的一小段用于创建模型的代码,Django 可以：</p>
 <ul>
 <li><p>为这个应用创建数据库 schema（生成 CREATE TABLE 语句）。</p>
 </li>
@@ -277,23 +270,19 @@ class Choice(models.Model):
     &apos;django.contrib.sessions&apos;,
     &apos;django.contrib.messages&apos;,
     &apos;django.contrib.staticfiles&apos;,
-]
-</code></pre><p>现在你的 Django 项目会包含 polls 应用。接着运行下面的命令：</p>
-<pre><code>python manage.py makemigrations polls
-</code></pre><h2 id="写一个真正有用的视图"><a href="#写一个真正有用的视图" class="headerlink" title="写一个真正有用的视图"></a>写一个真正有用的视图</h2><p>每个视图必须要做的只有两件事：返回一个包含被请求页面内容的 HttpResponse 对象，或者抛出一个异常，比如 Http404 。</p>
+]</code></pre><p>现在你的 Django 项目会包含 polls 应用。接着运行下面的命令：</p>
+<pre><code>python manage.py makemigrations polls</code></pre><h2 id="写一个真正有用的视图"><a href="#写一个真正有用的视图" class="headerlink" title="写一个真正有用的视图"></a>写一个真正有用的视图</h2><p>每个视图必须要做的只有两件事：返回一个包含被请求页面内容的 HttpResponse 对象，或者抛出一个异常，比如 Http404 。</p>
 <p>首先，在 polls 目录里创建一个 templates 目录。Django 将会在这个目录里查找模板文件。</p>
 <p>默认的设置文件设置了 DjangoTemplates 后端，并将 APP_DIRS 设置成了 True。这一选项将会让 DjangoTemplates 在每个 INSTALLED_APPS<br>文件夹中寻找 “templates” 子目录。</p>
 <p>在刚刚创建的 templates 目录里，再创建一个目录 polls，然后在其中新建一个文件 index.html 。<br>换句话说，你的模板文件的路径应该是 polls/templates/polls/index.html 。因为 Django 会寻找到对应的 app_directories ，<br>所以你只需要使用 polls/index.html 就可以引用到这一模板了。</p>
 <h2 id="自定义-应用-的界面和风格"><a href="#自定义-应用-的界面和风格" class="headerlink" title="自定义 应用 的界面和风格"></a>自定义 应用 的界面和风格</h2><p>首先，在你的 polls 目录下创建一个名为 static 的目录。<br>将以下代码放入样式表(polls/static/polls/style.css)：</p>
 <pre><code>li a {
     color: green;
-}
-</code></pre><p>下一步，在 polls/templates/polls/index.html 的文件头添加以下内容：</p>
+}</code></pre><p>下一步，在 polls/templates/polls/index.html 的文件头添加以下内容：</p>
 <pre><code>{% load static %}
 
 &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;{% static 'polls/style.css' %}&quot;&gt;
-{% static %} 模板标签会生成静态文件的绝对路径。
-</code></pre>
+{% static %} 模板标签会生成静态文件的绝对路径。</code></pre>
     </div>
     
     <div class="post-footer">
@@ -310,13 +299,13 @@ class Choice(models.Model):
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2018/08/20/mac使用ssh连接远程服务器并实现文件上传下砸/" class="pre-post btn btn-default" title="mac使用ssh连接远程服务器并实现文件上传下砸">
+        <a href="/2018/08/20/mac使用ssh连接远程服务器并实现文件上传下砸/" class="pre-post btn btn-default" title='mac使用ssh连接远程服务器并实现文件上传下砸'>
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
             <span class="hidden-xs">mac使用ssh连接远程服务器并实现文件上传下砸</span>
         </a>
     
     
-        <a href="/2018/08/10/centos7安装mysql/" class="next-post btn btn-default" title="centos7安装mysql">
+        <a href="/2018/08/10/centos7安装mysql/" class="next-post btn btn-default" title='centos7安装mysql'>
             <span class="hidden-lg">下一篇</span>
             <span class="hidden-xs">centos7安装mysql</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
@@ -361,7 +350,7 @@ class Choice(models.Model):
     <div class="widget">
         <h3 class="title">文章目录</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#开启新项目"><span class="toc-text">开启新项目</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建项目"><span class="toc-text">创建项目</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建应用"><span class="toc-text">创建应用</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#编写视图"><span class="toc-text">编写视图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#path-参数"><span class="toc-text">path() 参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库配置"><span class="toc-text">数据库配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建模型"><span class="toc-text">创建模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#激活模型"><span class="toc-text">激活模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#写一个真正有用的视图"><span class="toc-text">写一个真正有用的视图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义-应用-的界面和风格"><span class="toc-text">自定义 应用 的界面和风格</span></a></li>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#开启新项目"><span class="toc-text">开启新项目</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建项目"><span class="toc-text">创建项目</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#创建应用"><span class="toc-text">创建应用</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#编写视图"><span class="toc-text">编写视图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#path-参数"><span class="toc-text">path() 参数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#数据库配置"><span class="toc-text">数据库配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#创建模型"><span class="toc-text">创建模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#激活模型"><span class="toc-text">激活模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#写一个真正有用的视图"><span class="toc-text">写一个真正有用的视图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义-应用-的界面和风格"><span class="toc-text">自定义 应用 的界面和风格</span></a></li></ol>
         
     </div>
 </aside>

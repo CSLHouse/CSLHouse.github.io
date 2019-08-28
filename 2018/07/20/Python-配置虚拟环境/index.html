@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -73,9 +73,9 @@
 <![endif]-->
 
 <body>
-    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <header class="main-header"  style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)"  >
     <div class="main-header-box">
-        <a class="header-avatar" href="/" title="Lin">
+        <a class="header-avatar" href="/" title='Lin'>
             <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
         </a>
         <div class="branding">
@@ -162,11 +162,11 @@
         <span class="tags-meta">
             
                 
-                    <a href="/tags/前端" title="前端">
+                    <a href="/tags/前端" title='前端'>
                         前端
                     </a>
                 
-                    <a href="/tags/Python" title="Python">
+                    <a href="/tags/Python" title='Python'>
                         Python
                     </a>
                 
@@ -188,7 +188,7 @@
             
             
             <p class="fa fa-exclamation-triangle warning">
-                本文于<strong>341</strong>天之前发表，文中内容可能已经过时。
+                本文于<strong>403</strong>天之前发表，文中内容可能已经过时。
             </p>
         
     </div>
@@ -196,35 +196,29 @@
     <div class="post-body post-content">
         <h1 id="安装虚拟环境"><a href="#安装虚拟环境" class="headerlink" title="安装虚拟环境"></a>安装虚拟环境</h1><ol>
 <li><p>打开终端,利用pip/pip3 安装 (pip安装在python2,pip3安装在python3中)</p>
-<pre><code>执行：sudo pip install virtualenv
-</code></pre></li>
+<pre><code>执行：sudo pip install virtualenv</code></pre></li>
 <li><p>创建环境</p>
 <p>virtualenv 环境名</p>
 <p>例：</p>
 <pre><code>1. mkdir ~/py_envs # 在用户目录下创建了一个统一管理虚拟环境的目录    
 2. cd ~/py_envs # 跳进这个目录
-3. virtualenv env_workspace1 # 创建一个虚拟工作空间
-</code></pre><p>创建指定python版本的环境</p>
+3. virtualenv env_workspace1 # 创建一个虚拟工作空间</code></pre><p>创建指定python版本的环境</p>
 <p><strong>virtualenv venv –python=python2.7</strong></p>
 </li>
 <li><p>激活环境（切换到新环境目录）</p>
 <p> 执行：source ./bin/activate<br> 例:</p>
 <pre><code>cd env_workspace1 # 进入虚拟环境
-source bin/activate # 激活虚拟环境
-</code></pre></li>
+source bin/activate # 激活虚拟环境</code></pre></li>
 <li><p>使用环境 （接下来直接pip安装需要的插件）</p>
 <p>注意！不要加sudo，否则会安装到系统环境中，没有安装到虚拟环境中执行：pip install xxx</p>
 <p>例：</p>
 <pre><code>pip install flask     
 pip install django
-pip install Scipy
-</code></pre></li>
+pip install Scipy</code></pre></li>
 <li><p>退出环境</p>
-<pre><code>deactivate
-</code></pre></li>
+<pre><code>deactivate</code></pre></li>
 <li><p>删除环境 （需要在退出环境之后才能操作）</p>
-<pre><code>rmvirtualenv 环境名
-</code></pre></li>
+<pre><code>rmvirtualenv 环境名</code></pre></li>
 </ol>
 
     </div>
@@ -243,7 +237,7 @@ pip install Scipy
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2018/07/20/Markdown/" class="pre-post btn btn-default" title="Markdown 语法说明 (简体中文版)">
+        <a href="/2018/07/20/Markdown/" class="pre-post btn btn-default" title='Markdown 语法说明 (简体中文版)'>
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
             <span class="hidden-xs">Markdown 语法说明 (简体中文版)</span>
         </a>

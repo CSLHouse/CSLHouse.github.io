@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -73,9 +73,9 @@
 <![endif]-->
 
 <body>
-    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <header class="main-header"  style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)"  >
     <div class="main-header-box">
-        <a class="header-avatar" href="/" title="Lin">
+        <a class="header-avatar" href="/" title='Lin'>
             <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
         </a>
         <div class="branding">
@@ -162,7 +162,7 @@
         <span class="tags-meta">
             
                 
-                    <a href="/tags/Python" title="Python">
+                    <a href="/tags/Python" title='Python'>
                         Python
                     </a>
                 
@@ -184,7 +184,7 @@
             
             
             <p class="fa fa-exclamation-triangle warning">
-                本文于<strong>338</strong>天之前发表，文中内容可能已经过时。
+                本文于<strong>400</strong>天之前发表，文中内容可能已经过时。
             </p>
         
     </div>
@@ -196,16 +196,14 @@
     if os.path.isdir(path):
         return path
     elif os.path.isfile(path):
-        return os.path.dirname(path)
-</code></pre><h3 id="读取文件"><a href="#读取文件" class="headerlink" title="读取文件"></a>读取文件</h3><pre><code>item_object = open(item_txt_path, &quot;rU&quot;)
+        return os.path.dirname(path)</code></pre><h3 id="读取文件"><a href="#读取文件" class="headerlink" title="读取文件"></a>读取文件</h3><pre><code>item_object = open(item_txt_path, &quot;rU&quot;)
     try:
         for line in islice(item_object, 1, None):
             id_str = re.split(r&quot;\t&quot;, line)
             id_list = {&apos;id&apos;: id_str[0], &apos;name&apos;: id_str[1]}
             self.idArr.append(id_list)
     finally:
-        item_object.close()
-</code></pre><p>islice(item_object, 1, None)跳过第一行</p>
+        item_object.close()</code></pre><p>islice(item_object, 1, None)跳过第一行</p>
 <p><a href="https://github.com/CSLHouse/Python-ReadFile-UploadMysql.git" target="_blank" rel="noopener">github</a></p>
 
     </div>
@@ -224,13 +222,13 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2018/07/24/前端UI框架/" class="pre-post btn btn-default" title="前端UI框架">
+        <a href="/2018/07/24/前端UI框架/" class="pre-post btn btn-default" title='前端UI框架'>
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
             <span class="hidden-xs">前端UI框架</span>
         </a>
     
     
-        <a href="/2018/07/24/charles-android监听websocket/" class="next-post btn btn-default" title="charles+android监听websocket">
+        <a href="/2018/07/24/charles-android监听websocket/" class="next-post btn btn-default" title='charles+android监听websocket'>
             <span class="hidden-lg">下一篇</span>
             <span class="hidden-xs">charles+android监听websocket</span><i class="fa fa-angle-right fa-fw"></i>
         </a>

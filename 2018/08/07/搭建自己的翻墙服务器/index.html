@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -73,9 +73,9 @@
 <![endif]-->
 
 <body>
-    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <header class="main-header"  style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)"  >
     <div class="main-header-box">
-        <a class="header-avatar" href="/" title="Lin">
+        <a class="header-avatar" href="/" title='Lin'>
             <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
         </a>
         <div class="branding">
@@ -162,11 +162,11 @@
         <span class="tags-meta">
             
                 
-                    <a href="/tags/翻墙" title="翻墙">
+                    <a href="/tags/翻墙" title='翻墙'>
                         翻墙
                     </a>
                 
-                    <a href="/tags/securecrt" title="securecrt">
+                    <a href="/tags/securecrt" title='securecrt'>
                         securecrt
                     </a>
                 
@@ -188,7 +188,7 @@
             
             
             <p class="fa fa-exclamation-triangle warning">
-                本文于<strong>323</strong>天之前发表，文中内容可能已经过时。
+                本文于<strong>385</strong>天之前发表，文中内容可能已经过时。
             </p>
         
     </div>
@@ -202,7 +202,7 @@
 <h3 id="注册激活"><a href="#注册激活" class="headerlink" title="注册激活"></a>注册激活</h3><p>网上搜’<a href="https://blog.csdn.net/awschina/article/details/17149515" target="_blank" rel="noopener">亚马逊服务器注册激活</a>‘，教程很多。</p>
 <h3 id="亚马逊主机"><a href="#亚马逊主机" class="headerlink" title="亚马逊主机"></a>亚马逊主机</h3><p>亚马逊开通了AWS云服务，可以通过申请亚马逊aws试用资格享受12个月免费主机试用资格。不过要注意日期，超过12个月之后就要收费了，到时候再考虑其他渠道，比如阿里云。。</p>
 <ol>
-<li>创建实例<br>打开<a href="https://amazonaws-china.com/cn/about-aws/select-regions/?sc_channel=PS&amp;sc_campaign=acquisition_CN&amp;sc_publisher=baidu&amp;sc_medium=bz&amp;sc_content=pc&amp;sc_detail=HL&amp;sc_category=pc&amp;sc_segment=test&amp;sc_country=CN&amp;trkCampaign=request_for_pilot_account&amp;trk=baidu-ppc-test" target="_blank" rel="noopener">亚马逊aws云服务</a>，自己注册，注册方法自行百度，注意区域选择离中国近的地区</li>
+<li>创建实例<br>打开<a href="https://amazonaws-china.com/cn/about-aws/select-regions/?sc_channel=PS&sc_campaign=acquisition_CN&sc_publisher=baidu&sc_medium=bz&sc_content=pc&sc_detail=HL&sc_category=pc&sc_segment=test&sc_country=CN&trkCampaign=request_for_pilot_account&trk=baidu-ppc-test" target="_blank" rel="noopener">亚马逊aws云服务</a>，自己注册，注册方法自行百度，注意区域选择离中国近的地区</li>
 <li>进入【EC2】&gt; 云虚拟服务器，在出现的页面点击创建实例：【启动实例】—选择免费实例</li>
 <li>进入Amazon系统映像，选择linux版本、64位</li>
 <li>进入实例套餐（选择免费类型），点击启动实例</li>
@@ -218,9 +218,9 @@
 </li>
 <li><p>在SecureCRT中新建连接，协议选择ssh2 ，主机名填写public dns（这个地址EC2的控制台中会提供），用户名填写ec2-user 。</p>
 </li>
-<li><p>右键点击属性，选中’SSH2’,再选择鉴权（Authentication）中的公钥（PublicKey），选中之后右边的属性（Properties）才可选择，点击属性（Properties），选中3生成的共钥，确认即可。<br>如图：<img src="搭建自己的翻墙服务器/PublicKey.png" alt=""><br>注：公钥和密钥在同一个目录下。</p>
+<li><p>右键点击属性，选中’SSH2’,再选择鉴权（Authentication）中的公钥（PublicKey），选中之后右边的属性（Properties）才可选择，点击属性（Properties），选中3生成的共钥，确认即可。<br>如图：<img src="%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BF%BB%E5%A2%99%E6%9C%8D%E5%8A%A1%E5%99%A8/PublicKey.png" alt=""><br>注：公钥和密钥在同一个目录下。</p>
 </li>
-<li><p>右键属性，选择‘端口转发(Por Forwarding)’–‘添加(Add)’，名字(Name)填‘socks5’,端口自定义（比如1888），然后勾选上‘Dynamic forwarding using SOCKS 4 or 5’.<br>如图：<img src="搭建自己的翻墙服务器/socksport.png" alt=""></p>
+<li><p>右键属性，选择‘端口转发(Por Forwarding)’–‘添加(Add)’，名字(Name)填‘socks5’,端口自定义（比如1888），然后勾选上‘Dynamic forwarding using SOCKS 4 or 5’.<br>如图：<img src="%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BF%BB%E5%A2%99%E6%9C%8D%E5%8A%A1%E5%99%A8/socksport.png" alt=""></p>
 </li>
 <li><p>在SecureCRT连接的列表中找到刚创建的连接，右键属性，左边树中选择PortForwarding,点击添加，name填socks5,Port自定义，比如1888</p>
 </li>
@@ -228,19 +228,20 @@
 <h3 id="配置SwitchyOmega"><a href="#配置SwitchyOmega" class="headerlink" title="配置SwitchyOmega"></a>配置SwitchyOmega</h3><h4 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h4><p>点击 <a href="https://github.com/FelisCatus/SwitchyOmega/releases" target="_blank" rel="noopener">Github-SwitchyOmega</a>，下载页面有详细的安装教程，仔细看一下就好。；</p>
 <h4 id="配置-Shadowsocks-情景模式"><a href="#配置-Shadowsocks-情景模式" class="headerlink" title="配置 Shadowsocks 情景模式"></a>配置 Shadowsocks 情景模式</h4><ol>
 <li>打开 Chrome， 点击右上角的  图标，再点击 <strong>选项</strong>。</li>
-<li>点击左侧的 新建情景模式，输入情景模式名称 Shadowsocks【自己任意设置名称】，类型选择第一个代理服务器。创建完成后做如下配置：<br><img src="搭建自己的翻墙服务器/shadowsocks.png" alt=""><br>注：代理端口是上一项第（6）条填的端口号</li>
+<li>点击左侧的 新建情景模式，输入情景模式名称 Shadowsocks【自己任意设置名称】，类型选择第一个代理服务器。创建完成后做如下配置：<br><img src="%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BF%BB%E5%A2%99%E6%9C%8D%E5%8A%A1%E5%99%A8/shadowsocks.png" alt=""><br>注：代理端口是上一项第（6）条填的端口号</li>
 <li>保存后你就可以通过这个情景模式科学上网了</li>
 </ol>
-<h4 id="配置自动切换模式"><a href="#配置自动切换模式" class="headerlink" title="配置自动切换模式"></a>配置自动切换模式</h4><p>点击左侧的 自动切换，或者自己新建情景模式，类型选择第二个 自动切换模式。然后做如下配置：<br><img src="搭建自己的翻墙服务器/auto.png" alt=""></p>
+<h4 id="配置自动切换模式"><a href="#配置自动切换模式" class="headerlink" title="配置自动切换模式"></a>配置自动切换模式</h4><p>点击左侧的 自动切换，或者自己新建情景模式，类型选择第二个 自动切换模式。然后做如下配置：<br><img src="%E6%90%AD%E5%BB%BA%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BF%BB%E5%A2%99%E6%9C%8D%E5%8A%A1%E5%99%A8/auto.png" alt=""></p>
 <ul>
-<li><p>切换规则 是在访问 条件设置 的域名时候使用后面设置的 情景模式。比如图中我设置 <em>.google.com 和 </em>.github.com 使用 Shadowsocks 情景模式【刚刚创建的那个情景模式】。我们可以点击 添加条件 来添加自己的规则。<br>遇到资源未加载的情况时，点击添加条件，即是添加切换规则</p>
+<li><p>切换规则 是在访问 条件设置 的域名时候使用后面设置的 情景模式。比如图中我设置 *.google.com 和 *.github.com 使用 Shadowsocks 情景模式【刚刚创建的那个情景模式】。我们可以点击 添加条件 来添加自己的规则。<br>遇到资源未加载的情况时，点击添加条件，即是添加切换规则</p>
 </li>
 <li><p>将图中 规则列表规则 前面的框打√，再将后面的 情景模式 设置为 Shadowsocks，意思是规则列表中的内容，我们使用 Shadowsocks 情景模式。然后 规则列表设置 中：</p>
 <pre><code>规则列表格式： AutoProxy；
-规则列表网址：https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt
-</code></pre><p>-这样设置完成 规则列表规则 后就不需要在切换规则中一个一个添加条件了。</p>
+规则列表网址：https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt</code></pre></li>
+<li><p>这样设置完成 规则列表规则 后就不需要在切换规则中一个一个添加条件了。</p>
 </li>
 </ul>
+<h3 id="信用卡解绑"><a href="#信用卡解绑" class="headerlink" title="信用卡解绑"></a>信用卡解绑</h3><p>参考地址：<a href="https://www.beizigen.com/2090.html" target="_blank" rel="noopener">https://www.beizigen.com/2090.html</a><br>随机信用卡生成地址：<br><a href="http://haoweichi.com/Index/random" target="_blank" rel="noopener">http://haoweichi.com/Index/random</a></p>
 <h3 id="openwrt翻墙"><a href="#openwrt翻墙" class="headerlink" title="openwrt翻墙"></a>openwrt翻墙</h3><p>利用openwrt可打造一台翻墙路由器，也可搭建一台翻墙虚拟机</p>
 
     </div>
@@ -259,13 +260,13 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2018/08/10/centos7安装mysql/" class="pre-post btn btn-default" title="centos7安装mysql">
+        <a href="/2018/08/10/centos7安装mysql/" class="pre-post btn btn-default" title='centos7安装mysql'>
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
             <span class="hidden-xs">centos7安装mysql</span>
         </a>
     
     
-        <a href="/2018/08/03/linux常用命令/" class="next-post btn btn-default" title="linux常用命令">
+        <a href="/2018/08/03/linux常用命令/" class="next-post btn btn-default" title='linux常用命令'>
             <span class="hidden-lg">下一篇</span>
             <span class="hidden-xs">linux常用命令</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
@@ -310,7 +311,7 @@
     <div class="widget">
         <h3 class="title">文章目录</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#所需工具"><span class="toc-text">所需工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注册激活"><span class="toc-text">注册激活</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#亚马逊主机"><span class="toc-text">亚马逊主机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SecureCRT访问Amazon-EC2主机"><span class="toc-text">SecureCRT访问Amazon EC2主机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置SwitchyOmega"><span class="toc-text">配置SwitchyOmega</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#下载安装"><span class="toc-text">下载安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置-Shadowsocks-情景模式"><span class="toc-text">配置 Shadowsocks 情景模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置自动切换模式"><span class="toc-text">配置自动切换模式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#openwrt翻墙"><span class="toc-text">openwrt翻墙</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#所需工具"><span class="toc-text">所需工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注册激活"><span class="toc-text">注册激活</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#亚马逊主机"><span class="toc-text">亚马逊主机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SecureCRT访问Amazon-EC2主机"><span class="toc-text">SecureCRT访问Amazon EC2主机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置SwitchyOmega"><span class="toc-text">配置SwitchyOmega</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#下载安装"><span class="toc-text">下载安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置-Shadowsocks-情景模式"><span class="toc-text">配置 Shadowsocks 情景模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#配置自动切换模式"><span class="toc-text">配置自动切换模式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#信用卡解绑"><span class="toc-text">信用卡解绑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#openwrt翻墙"><span class="toc-text">openwrt翻墙</span></a></li></ol>
         
     </div>
 </aside>

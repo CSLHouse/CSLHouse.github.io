@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -73,9 +73,9 @@
 <![endif]-->
 
 <body>
-    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <header class="main-header"  style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)"  >
     <div class="main-header-box">
-        <a class="header-avatar" href="/" title="Lin">
+        <a class="header-avatar" href="/" title='Lin'>
             <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
         </a>
         <div class="branding">
@@ -162,11 +162,11 @@
         <span class="tags-meta">
             
                 
-                    <a href="/tags/Linux" title="Linux">
+                    <a href="/tags/Linux" title='Linux'>
                         Linux
                     </a>
                 
-                    <a href="/tags/SVN" title="SVN">
+                    <a href="/tags/SVN" title='SVN'>
                         SVN
                     </a>
                 
@@ -214,23 +214,29 @@
 <p> [root@CentOS var]# cd /opt/svnrepos/warehouse1/conf<br> [root@CentOS conf]# cp authz /opt/svnrepos/<br> [root@CentOS conf]# cp passwd /opt/svnrepos/<br> 修改code/conf下的svnserve.conf文件，将其中的passwd文件制定与authz文件制定进行修改，其他配置按正常单svn配置。（custom同样设置一遍）</p>
 <p> 编辑示例：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">[general]</span><br><span class="line">#禁止匿名用户访问</span><br><span class="line">anon-access = no</span><br><span class="line">#授权用户拥有读写权限</span><br><span class="line">auth-access = write</span><br><span class="line"># 使用公共的passwd</span><br><span class="line">password-db = /opt/svnrepos/passwd</span><br><span class="line"># 使用公共的authz</span><br><span class="line">authz-db = /opt/svnrepos/authz</span><br><span class="line">#指定版本库的认证域, code仓库路径/opt/svnrepos/code/, custom仓库路径为/opt/svnrepos/custom/</span><br><span class="line">realm = /opt/svnrepos/code/ </span><br><span class="line">anon-access = none：表示禁止匿名用户访问。</span><br><span class="line"></span><br><span class="line">auth-access = write：表示授权用户拥有读写权限。</span><br><span class="line"></span><br><span class="line">password-db = passswd：指定用户名口令文件，即 passwd 文件。</span><br><span class="line"></span><br><span class="line">authz-db = authz：指定权限配置文件，即 authz 文件。</span><br><span class="line"></span><br><span class="line">realm = /opt/svnrepos/code/：指定认证域，即 /opt/svnrepos 目录。</span><br></pre></td></tr></table></figure>
+
 <p>编辑svn用户配置文件</p>
 <p> [root@CentOS var]# vim /opt/svnrepos/passwd<br> 编辑示例：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[users]</span><br><span class="line"># harry = harryssecret</span><br><span class="line"># sally = sallyssecret</span><br><span class="line"># 用户名，密码</span><br><span class="line">admin = admin </span><br><span class="line">quest = 123456</span><br><span class="line">lisi= 123456</span><br><span class="line">zhangsan = 123456</span><br><span class="line">wangwu=123456</span><br><span class="line">ligang=123456</span><br></pre></td></tr></table></figure>
+
 <p> 编辑svn权限控制配置文件</p>
 <p> [root@CentOS var]# vim /opt/svnrepos/authz </p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">[aliases]</span><br><span class="line"></span><br><span class="line">[groups]</span><br><span class="line">#用户组名=用户名</span><br><span class="line">admin=admin</span><br><span class="line">quest=quest</span><br><span class="line">users_code=lisi,zhangsan</span><br><span class="line">users_custom=wangwu,ligang</span><br><span class="line"></span><br><span class="line">#表示根目录（/opt/svnrepos/）,对全部版本库设置权限</span><br><span class="line">[/] </span><br><span class="line">#表示admin组对根目录有读写权限,r为读，w为写</span><br><span class="line">@admin=rw</span><br><span class="line"></span><br><span class="line">#表示code仓库根目录（/opt/svnrepos/code/）</span><br><span class="line">[code:/] </span><br><span class="line">#表示users_code组对根目录有读写权限,r为读，w为写</span><br><span class="line">@users_code=rw</span><br><span class="line"></span><br><span class="line">#表示code仓库下的test目录</span><br><span class="line">[code:/test] </span><br><span class="line">#表示quest组对根目录有读写权限,r为读</span><br><span class="line">@quest=r</span><br><span class="line"></span><br><span class="line">#表示custom仓库根目录（/opt/svnrepos/custom/）</span><br><span class="line">[custom:/] </span><br><span class="line">#表示users_code组对根目录有读写权限,r为读，w为写</span><br><span class="line">@users_custom=rw</span><br><span class="line"></span><br><span class="line">#表示custom仓库下的test目录</span><br><span class="line">[custom:/test] </span><br><span class="line">#表示quest组对根目录有读写权限,r为读</span><br><span class="line">@quest=r</span><br></pre></td></tr></table></figure>
+
 </li>
 </ol>
 <p>4.在 /etc/init.d 目录下，创建脚本 svnd</p>
 <p>[root@CentOS init.d]# touch svnd<br>[root@CentOS init.d]# chmod u+x svnd<br>编辑后的 svnd 脚本如下所示</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line"># chkconfig: 2345 10 90</span><br><span class="line"># description: svn server</span><br><span class="line">SVN_HOME=/opt/svnrepos</span><br><span class="line">if [ ! -f &quot;/usr/bin/svnserve&quot; ]</span><br><span class="line">then</span><br><span class="line">echo &quot;svnserver startup: cannot start&quot;</span><br><span class="line">exit</span><br><span class="line">fi</span><br><span class="line">case &quot;$1&quot; in</span><br><span class="line">start)</span><br><span class="line">echo &quot;Starting svnserve…&quot;</span><br><span class="line">/usr/bin/svnserve -d --listen-port 3690 -r $SVN_HOME</span><br><span class="line">echo &quot;Finished!&quot;</span><br><span class="line">;;</span><br><span class="line">stop)</span><br><span class="line">echo &quot;Stoping svnserve…&quot;</span><br><span class="line">killall svnserve</span><br><span class="line">echo &quot;Finished!&quot;</span><br><span class="line">;;</span><br><span class="line">restart)</span><br><span class="line">$0 stop</span><br><span class="line">$0 start</span><br><span class="line"> </span><br><span class="line">;;</span><br><span class="line">*)</span><br><span class="line">echo &quot;Usage: svn &#123; start | stop | restart &#125; &quot;</span><br><span class="line">exit 1</span><br><span class="line">esac</span><br></pre></td></tr></table></figure>
+
 <p>5.启动 svn 服务</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[root@CentOS init.d]# service svnd start</span><br><span class="line">Starting svnserve…</span><br><span class="line">Finished!</span><br><span class="line">[root@CentOS init.d]# ps -ef | grep &apos;svnserve&apos;</span><br><span class="line">root       4225      1  0 23:33 ?        00:00:00 /usr/bin/svnserve -d --listen-port 3690 -r /opt/svnrepos</span><br><span class="line">root       4230   3505  0 23:33 pts/0    00:00:00 grep --color=auto svnserve</span><br><span class="line">[root@CentOS init.d]#</span><br></pre></td></tr></table></figure>
+
 <p>安装好 svn 服务后，默认是没有随系统启动自动启动的， CentOS 7 的 /etc/rc.d/rc.local 是没有执行权限的， 系统建议创建 systemd service 启动服务</p>
 <p>查看svnserve.service位置：systemctl enable svnserve.service</p>
 <p>于是查看 systemd 里 svn 的配置文件 /lib/systemd/system/svnserve.service</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Subversion protocol daemon</span><br><span class="line">After=syslog.target network.target</span><br><span class="line"> </span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line">EnvironmentFile=/etc/sysconfig/svnserve</span><br><span class="line">ExecStart=/usr/bin/svnserve --daemon --pid-file=/run/svnserve/svnserve.pid $OPTIONS</span><br><span class="line"> </span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
 <p>找到 svn 的 service 配置文件 /etc/sysconfig/svnserve 编辑配置文件</p>
 <blockquote>
 <p>vi /etc/sysconfig/svnserve</p>
@@ -247,6 +253,7 @@
 </blockquote>
 <p>6.开放 3690 端口 （svn服务默认端口）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[root@CentOS init.d]# firewall-cmd --zone=public --add-port=3690/tcp --permanent</span><br><span class="line">success</span><br><span class="line">[root@CentOS init.d]# firewall-cmd --reload</span><br><span class="line">success</span><br><span class="line">[root@CentOS init.d]#</span><br></pre></td></tr></table></figure>
+
 <p>7.在 windows 下使用TortoiseSVN进行测试</p>
 <p>如code仓库svn地址</p>
 <p>svn://192.168.2.2/code</p>
@@ -265,14 +272,17 @@
 <p>安装mod_dav_svn，mod_dav_svn是apache服务器访问svn的一个模块。通过yum安装：</p>
 <p>sudo yum install mod_dav_svn<br>安装成功后，会有mod_dav_svn.so和mod_authz_svn.so两个文件。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ sudo find / -name mod_dav_svn.so</span><br><span class="line">/usr/lib64/httpd/modules/mod_dav_svn.so</span><br><span class="line"></span><br><span class="line">$ sudo find / -name mod_authz_svn.so</span><br><span class="line">/usr/lib64/httpd/modules/mod_authz_svn.so</span><br></pre></td></tr></table></figure>
+
 <p>修改svn仓库的用户组为apache</p>
 <blockquote>
 <p>$ sudo chown -R apache:apache /opt/svnrepos</p>
 </blockquote>
 <p>创建用户文件passwd_httpd（httpd方式密码为md5加密，需重新配置用户名密码），示例如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo touch /opt/svnrepos/passwd_http  #创建用户文件</span><br><span class="line">$ sudo htpasswd /opt/svnrepos/passwd_httpd admin  #创建用户admin</span><br><span class="line">$ sudo htpasswd /opt/svnrepos/passwd_http guest  #创建用户gues</span><br></pre></td></tr></table></figure>
+
 <p>配置httpd</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$ sudo touch /etc/httpd/conf.d/subversion.conf</span><br><span class="line"></span><br><span class="line">$ cat /etc/httpd/conf.d/subversion.conf </span><br><span class="line">&lt;Location /svn&gt;  </span><br><span class="line">    DAV svn</span><br><span class="line">    #SVNPath定义到具体仓库位置</span><br><span class="line">    #SVNPath /opt/svnrepos/code</span><br><span class="line">    </span><br><span class="line">    #SVNParentPath 定义多个仓库</span><br><span class="line">    SVNParentPath /opt/svnrepos            </span><br><span class="line">    AuthType Basic  </span><br><span class="line">    AuthName &quot;Subversion repos&quot;</span><br><span class="line">    #用户名密码（密码为md5加密）</span><br><span class="line">    #AuthUserFile /opt/svnrepos/passwd_httpd</span><br><span class="line">    AuthzSVNAccessFile /opt/svnrepos/authz</span><br><span class="line">    Require valid-user  </span><br><span class="line">&lt;/Location&gt;</span><br></pre></td></tr></table></figure>
+
 <p>启动httpd服务</p>
 <blockquote>
 <p>$ service httpd start</p>
@@ -283,8 +293,7 @@ $ firewall-cmd --permanent --zone=public --add-port=80/tcp
 //加载配置，使得修改有效 
 $ firewall-cmd --reload 
 //查看开启的端口
-$ firewall-cmd --permanent --zone=public --list-ports
-</code></pre>
+$ firewall-cmd --permanent --zone=public --list-ports</code></pre>
     </div>
     
     <div class="post-footer">
@@ -301,13 +310,13 @@ $ firewall-cmd --permanent --zone=public --list-ports
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2019/01/23/初识lua-protobuf/" class="pre-post btn btn-default" title="初识lua-protobuf">
+        <a href="/2019/01/23/初识lua-protobuf/" class="pre-post btn btn-default" title='初识lua-protobuf'>
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
             <span class="hidden-xs">初识lua-protobuf</span>
         </a>
     
     
-        <a href="/2019/01/09/hello-world/" class="next-post btn btn-default" title="Hello World">
+        <a href="/2019/01/09/hello-world/" class="next-post btn btn-default" title='Hello World'>
             <span class="hidden-lg">下一篇</span>
             <span class="hidden-xs">Hello World</span><i class="fa fa-angle-right fa-fw"></i>
         </a>

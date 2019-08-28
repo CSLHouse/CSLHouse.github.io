@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html lang="zh-CN">
-<head><meta name="generator" content="Hexo 3.8.0">
+<head><meta name="generator" content="Hexo 3.9.0">
     <!--Setting-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -73,9 +73,9 @@
 <![endif]-->
 
 <body>
-    <header class="main-header" style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)">
+    <header class="main-header"  style="background-image:url(http://snippet.shenliyang.com/img/banner.jpg)"  >
     <div class="main-header-box">
-        <a class="header-avatar" href="/" title="Lin">
+        <a class="header-avatar" href="/" title='Lin'>
             <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
         </a>
         <div class="branding">
@@ -162,15 +162,15 @@
         <span class="tags-meta">
             
                 
-                    <a href="/tags/centos" title="centos">
+                    <a href="/tags/centos" title='centos'>
                         centos
                     </a>
                 
-                    <a href="/tags/linux" title="linux">
+                    <a href="/tags/linux" title='linux'>
                         linux
                     </a>
                 
-                    <a href="/tags/443" title="443">
+                    <a href="/tags/443" title='443'>
                         443
                     </a>
                 
@@ -192,7 +192,7 @@
             
             
             <p class="fa fa-exclamation-triangle warning">
-                本文于<strong>329</strong>天之前发表，文中内容可能已经过时。
+                本文于<strong>391</strong>天之前发表，文中内容可能已经过时。
             </p>
         
     </div>
@@ -202,16 +202,12 @@
 <h3 id="配置网关"><a href="#配置网关" class="headerlink" title="配置网关"></a>配置网关</h3><p>一开始以为没配置网关，所以网上搜索了网关的配置方法，记录一下：</p>
 <p>1、CentOS 修改DNS </p>
 <p>修改对应网卡的DNS的配置文件 </p>
-<pre><code># vi /etc/resolv.conf  
-</code></pre><p>修改以下内容 </p>
+<pre><code># vi /etc/resolv.conf  </code></pre><p>修改以下内容 </p>
 <pre><code>nameserver 8.8.8.8 #google域名服务器 
-nameserver 8.8.4.4 #google域名服务器 
-</code></pre><p>2、CentOS 修改网关<br>修改对应网卡的网关的配置文件 </p>
-<pre><code>[root@centos]# vi /etc/sysconfig/network 
-</code></pre><p>修改以下内容<br>NETWORKING=yes(表示系统是否使用网络，一般设置为yes。如果设为no，则不能使用网络，而且很多系统服务程序将无法启动)<br>HOSTNAME=centos(设置本机的主机名，这里设置的主机名要和/etc/hosts中设置的主机名对应)<br>GATEWAY=192.168.1.1(设置本机连接的网关的IP地址。例如，网关为10.0.0.2)<br>3、CentOS 修改IP地址 </p>
+nameserver 8.8.4.4 #google域名服务器 </code></pre><p>2、CentOS 修改网关<br>修改对应网卡的网关的配置文件 </p>
+<pre><code>[root@centos]# vi /etc/sysconfig/network </code></pre><p>修改以下内容<br>NETWORKING=yes(表示系统是否使用网络，一般设置为yes。如果设为no，则不能使用网络，而且很多系统服务程序将无法启动)<br>HOSTNAME=centos(设置本机的主机名，这里设置的主机名要和/etc/hosts中设置的主机名对应)<br>GATEWAY=192.168.1.1(设置本机连接的网关的IP地址。例如，网关为10.0.0.2)<br>3、CentOS 修改IP地址 </p>
 <p>修改对应网卡的IP地址的配置文件<br>注：查看/etc/sysconfig/network-scripts下，是否已经有网卡位置文件，一个和使用ip addr命令查看ip第二条开头的名称一致的文件（我的是ens33）</p>
-<pre><code># vi /etc/sysconfig/network-scripts/ifcfg-eth0 
-</code></pre><p>修改以下内容 </p>
+<pre><code># vi /etc/sysconfig/network-scripts/ifcfg-eth0 </code></pre><p>修改以下内容 </p>
 <pre><code>TYPE=Ethernet
 PROXY_METHOD=none
 BROWSER_ONLY=no
@@ -231,12 +227,9 @@ IPADDR=192.168.131.141
 GATEWAY=192.168.131.2
 NETMAK=255.255.255.0
 NM_COTROLLED=no
-DNS1=8.8.8.8 
-</code></pre><p>4、重新启动网络配置 </p>
-<pre><code># service network restart  
-</code></pre><p>或 </p>
-<pre><code># /etc/init.d/network restart 
-</code></pre><h3 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h3><p>请教高人才发现时时DNS写错了，与公司的dns不一致，<br>执行vi /etc/resolv.conf ，添加nameserver 192.168.1.254之后成功</p>
+DNS1=8.8.8.8 </code></pre><p>4、重新启动网络配置 </p>
+<pre><code># service network restart  </code></pre><p>或 </p>
+<pre><code># /etc/init.d/network restart </code></pre><h3 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h3><p>请教高人才发现时时DNS写错了，与公司的dns不一致，<br>执行vi /etc/resolv.conf ，添加nameserver 192.168.1.254之后成功</p>
 
     </div>
     
@@ -254,13 +247,13 @@ DNS1=8.8.8.8
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2018/08/03/linux常用命令/" class="pre-post btn btn-default" title="linux常用命令">
+        <a href="/2018/08/03/linux常用命令/" class="pre-post btn btn-default" title='linux常用命令'>
             <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
             <span class="hidden-xs">linux常用命令</span>
         </a>
     
     
-        <a href="/2018/07/31/ansible应用/" class="next-post btn btn-default" title="ansible 应用">
+        <a href="/2018/07/31/ansible应用/" class="next-post btn btn-default" title='ansible 应用'>
             <span class="hidden-lg">下一篇</span>
             <span class="hidden-xs">ansible 应用</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
