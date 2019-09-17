@@ -27,7 +27,7 @@
     <!--Title-->
 
 
-<title>centos7安装mysql | 借我一支烟</title>
+<title>Django高级技巧之Queryset修改机制-extra() | 借我一支烟</title>
 
 
     <link rel="alternate" href="/atom.xml" title="借我一支烟" type="application/atom+xml">
@@ -140,9 +140,9 @@
                     <p id="process"></p>
 <article class="post">
     <div class="post-head">
-        <h1 id="centos7安装mysql">
+        <h1 id="Django高级技巧之Queryset修改机制-extra()">
             
-	            centos7安装mysql
+	            Django高级技巧之Queryset修改机制-extra()
             
         </h1>
         <div class="post-meta">
@@ -150,8 +150,8 @@
     
     <span class="categories-meta fa-wrap">
         <i class="fa fa-folder-open-o"></i>
-        <a href="/categories/后端">
-            后端
+        <a href="/categories/Python">
+            Python
         </a>
     </span>
     
@@ -162,12 +162,8 @@
         <span class="tags-meta">
             
                 
-                    <a href="/tags/centos" title='centos'>
-                        centos
-                    </a>
-                
-                    <a href="/tags/linux" title='linux'>
-                        linux
+                    <a href="/tags/Python" title='Python'>
+                        Python
                     </a>
                 
             
@@ -179,7 +175,7 @@
         
         <span class="fa-wrap">
             <i class="fa fa-clock-o"></i>
-            <span class="date-meta">2018/08/10</span>
+            <span class="date-meta">2019/09/17</span>
         </span>
         
     
@@ -187,45 +183,10 @@
 
             
             
-            <p class="fa fa-exclamation-triangle warning">
-                本文于<strong>403</strong>天之前发表，文中内容可能已经过时。
-            </p>
-        
     </div>
     
     <div class="post-body post-content">
-        <h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>Linux版本：5.7</p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><a href="https://pan.baidu.com/s/14YeOQnQs7HKVHf16ngnSwA" target="_blank" rel="noopener">下载地址</a><br>yum install -y mysql*<br>注：一开始一直报‘Failed to start mysqld.service: Unit not found.’<br>网上查找方法，好一通折腾，原来没安装mysql-community-server。</p>
-<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><p>执行</p>
-<pre><code>service mysqld start</code></pre><p>通过如下命令找到mysql root初始密码</p>
-<pre><code>grep &apos;temporary password&apos; /var/log/mysqld.log</code></pre><ul>
-<li><p>登录mysql，修改密码<br>执行</p>
-<pre><code>mysql -uroot -p</code></pre></li>
-</ul>
-<p>然后输入密码登录时，一直如下错误：</p>
-<pre><code>ERROR 1045 (28000): Access denied for user &apos;root&apos;@&apos;localhost&apos; (using password: YES)</code></pre><p>一般这个错误是由密码错误引起，解决的办法自然就是重置密码<br>解决方案如下：</p>
-<ol>
-<li><p>停止mysql数据库：service mysqld stop或systemctl stop mysqld</p>
-</li>
-<li><p>用以下命令启动MySQL，以不检查权限的方式启动：</p>
-</li>
-</ol>
-<p>mysqld –skip-grant-tables &amp;</p>
-<p>此时又报了一个错误：2018-02-01T02:52:55.093724Z 0 [ERROR] Fatal error: Please read “Security” section of the manual to find out how to run mysqld as root!</p>
-<p>执行命令：mysqld –user=root –skip-grant-tables &amp;</p>
-<ol start="3">
-<li><p>登录mysql：service mysqld start<br>mysql -uroot或mysql</p>
-</li>
-<li><p>更新root密码</p>
-</li>
-</ol>
-<p>mysql5.7以下版本：UPDATE mysql.user SET Password=PASSWORD(‘123456’) where USER=’root’;</p>
-<p>mysql5.7版本：UPDATE mysql.user SET authentication_string=PASSWORD(‘123456’) where USER=’root’;</p>
-<p>5.刷新权限：flush privileges;</p>
-<p>6.退出mysql：exit或quit</p>
-<p>7.使用root用户重新登录mysql</p>
-<p>mysql -uroot -p</p>
-<p>Enter password:&lt;输入新设的密码123456&gt;</p>
+        <p><a href="https://yandenghong.github.io/2019/03/06/django_extra/" target="_blank" rel="noopener">转载</a><br><a href="https://blog.51cto.com/sgk2011/2069011" target="_blank" rel="noopener">Django ORM的F Q和extra操作</a></p>
 
     </div>
     
@@ -243,15 +204,10 @@
 
 <div class="article-nav prev-next-wrap clearfix">
     
-        <a href="/2018/08/17/django/" class="pre-post btn btn-default" title='django'>
-            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
-            <span class="hidden-xs">django</span>
-        </a>
     
-    
-        <a href="/2018/08/07/搭建自己的翻墙服务器/" class="next-post btn btn-default" title='搭建自己的翻墙服务器'>
+        <a href="/2019/09/11/django-添加自定义js/" class="next-post btn btn-default" title='django 添加自定义js'>
             <span class="hidden-lg">下一篇</span>
-            <span class="hidden-xs">搭建自己的翻墙服务器</span><i class="fa fa-angle-right fa-fw"></i>
+            <span class="hidden-xs">django 添加自定义js</span><i class="fa fa-angle-right fa-fw"></i>
         </a>
     
 </div>
@@ -294,7 +250,7 @@
     <div class="widget">
         <h3 class="title">文章目录</h3>
         
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#环境"><span class="toc-text">环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-text">安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#启动"><span class="toc-text">启动</span></a></li></ol></li></ol>
+            <p>暂无目录</p>
         
     </div>
 </aside>
